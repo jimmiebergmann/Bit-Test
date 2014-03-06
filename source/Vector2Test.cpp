@@ -61,6 +61,12 @@ void Vector2Test::Run( std::ostream & p_Trace )
 	TestAssert( vecf32.x == 1.0f && vecf32.y == 2.0f );
 	TestAssert( vecf64.x == 1.0f && vecf64.y == 2.0f );
 
+	// Casting tests
+	Bit::Vector2f64 vecCast1( vecf32 );
+	Bit::Vector2f32 vecCast2( vecf64 );
+	TestAssert( vecCast1.x == vecf32.x && vecCast1.y == vecf32.y);
+	TestAssert( vecCast2.x == vecf64.x && vecCast2.y == vecf64.y);
+
 	// Assert Magnitude function
 	Bit::Vector2f32 vecLength( 100.0f, 0.0f );
 	TestAssert( vecLength.Length( ) == 100.0f );
@@ -82,7 +88,7 @@ void Vector2Test::Run( std::ostream & p_Trace )
 	// Assert angle between vectors function
 	Bit::Vector2f32 vecAngle1( -1.0f, 0.0f );
 	Bit::Vector2f32 vecAngle2( 0.0f, 1.0f );
-	TestAssert( Bit::Math::EqualEpsilonHalf<Bit::Float64>( Bit::Vector2f32::AngleBetweenVectors( vecAngle1, vecAngle2 ), 90.0f ) );
+	TestAssert( Bit::Math::EqualEpsilonHalf<Bit::Float64>( Bit::Vector2f32::AngleBetweenVectors( vecAngle1, vecAngle2 ).AsDegrees( ), 90.0f ) );
 
 	// Assert the absolute function
 	Bit::Vector2f32 vecAbs1 = Bit::Vector2f32( -1.0f, -2.0f ).Absolute( );
@@ -100,7 +106,7 @@ void Vector2Test::Run( std::ostream & p_Trace )
 	TestAssert( Bit::Math::EqualEpsilonHalf<Bit::Float64>( vecRotate.x, -1.0f ) &&
 				Bit::Math::EqualEpsilonHalf<Bit::Float64>( vecRotate.y, 0.0f ) );
 	
-
+	
 	// Print the finish text
 	std::cout << "Finished Vector2 Test." << std::endl;
 	std::cout << "-------------------------------------------" << std::endl;

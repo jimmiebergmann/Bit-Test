@@ -22,48 +22,25 @@
 //    source distribution.
 // ///////////////////////////////////////////////////////////////////////////
 
-#include <TimerTest.hpp>
-#include <Bit/System/Timer.hpp>
-#include <Bit/System/Sleep.hpp>
+#include <TemplateTest.hpp>
 
 // Constructor
-TimerTest::TimerTest( ) :
+TemplateTest::TemplateTest( ) :
 	Test( )
 {
 }
 
 // Virtual functions
-void TimerTest::Run( std::ostream & p_Trace )
+void TemplateTest::Run( std::ostream & p_Trace )
 {
 	std::cout << "-------------------------------------------" << std::endl;
-	std::cout << "Starting Timer test." << std::endl;
+	std::cout << "Starting Template test." << std::endl;
 
-	const Bit::Float64 sleepTime = 0.5f;
-	const Bit::Float64 diff = 0.05f;
-	Bit::Timer timer;
-
-	// Run a Start/Stop/GetTime test
-	timer.Start( );
-	Bit::Sleep( static_cast<Bit::UInt32>( sleepTime * 1000.0f ) );
-	timer.Stop( );
-	
-	// Assert the time
-	TestAssert( timer.GetTime( ) >= sleepTime - diff &&
-				timer.GetTime( ) <= sleepTime + diff );
-	std::cout << "Result: " << timer.GetTime( ) << "/" << sleepTime << "(" << ( sleepTime - diff ) << " - " << ( sleepTime + diff ) << ")." << std::endl;
-
-	// Run a Start/GetLapsedTime test
-	timer.Start( );
-	Bit::Sleep( static_cast<Bit::UInt32>( sleepTime * 1000.0f ) );
-	Bit::Float64 time = timer.GetLapsedTime( );
-	
-	// Assert the time
-	TestAssert( time >= sleepTime - diff &&
-				time <= sleepTime + diff );
-	std::cout << "Result: " << timer.GetTime( ) << "/" << sleepTime << "(" << ( sleepTime - diff ) << " - " << ( sleepTime + diff ) << ")." << std::endl;
+	// Run the test here
+	// ...
 
 	// Print the finish text
-	std::cout << "Finished Timer Test." << std::endl;
+	std::cout << "Finished Template Test." << std::endl;
 	std::cout << "-------------------------------------------" << std::endl;
 	
 }

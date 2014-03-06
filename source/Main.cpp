@@ -32,8 +32,11 @@
 
 // Test classes
 #include <TimerTest.hpp>
+#include <MathTest.hpp>
+#include <AngleTest.hpp>
 #include <Vector2Test.hpp>
 #include <Vector3Test.hpp>
+#include <Matrix4x4Test.hpp>
 
 // Global typedefs
 typedef std::vector< Test * > TestVector;
@@ -79,8 +82,11 @@ int main( )
 Bit::Bool InitializeTest( )
 {
 	g_Tests.push_back( new TimerTest );
+	g_Tests.push_back( new MathTest );
+	g_Tests.push_back( new AngleTest );
 	g_Tests.push_back( new Vector2Test );
 	g_Tests.push_back( new Vector3Test );
+	g_Tests.push_back( new Matrix4x4Test );
 
 	return true;
 }

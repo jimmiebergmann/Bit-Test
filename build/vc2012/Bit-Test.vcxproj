@@ -146,12 +146,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\source\AngleTest.cpp" />
     <ClCompile Include="..\..\source\Main.cpp" />
+    <ClCompile Include="..\..\source\MathTest.cpp" />
+    <ClCompile Include="..\..\source\Matrix4x4Test.cpp" />
     <ClCompile Include="..\..\source\TimerTest.cpp" />
     <ClCompile Include="..\..\source\Vector2Test.cpp" />
     <ClCompile Include="..\..\source\Vector3Test.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\include\AngleTest.hpp" />
+    <ClInclude Include="..\..\include\MathTest.hpp" />
+    <ClInclude Include="..\..\include\Matrix4x4Test.hpp" />
     <ClInclude Include="..\..\include\Test.hpp" />
     <ClInclude Include="..\..\include\TimerTest.hpp" />
     <ClInclude Include="..\..\include\Vector2Test.hpp" />
