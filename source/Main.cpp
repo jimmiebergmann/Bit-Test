@@ -37,6 +37,7 @@
 #include <Vector2Test.hpp>
 #include <Vector3Test.hpp>
 #include <Matrix4x4Test.hpp>
+#include <RenderWindowTest.hpp>
 
 // Global typedefs
 typedef std::vector< Test * > TestVector;
@@ -45,8 +46,8 @@ typedef std::vector< Test * > TestVector;
 static TestVector g_Tests;
 static Bit::Timer g_Timer;
 static std::ostream & g_Trace = std::cerr;
-static Bit::UInt32 g_TotalSuccess = 0;
-static Bit::UInt32 g_TotalErrors = 0;
+static Bit::Uint32 g_TotalSuccess = 0;
+static Bit::Uint32 g_TotalErrors = 0;
 
 // Global functions
 static Bit::Bool InitializeTest( );
@@ -87,6 +88,7 @@ Bit::Bool InitializeTest( )
 	g_Tests.push_back( new Vector2Test );
 	g_Tests.push_back( new Vector3Test );
 	g_Tests.push_back( new Matrix4x4Test );
+	g_Tests.push_back( new RenderWindowTest );
 
 	return true;
 }

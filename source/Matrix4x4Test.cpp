@@ -45,7 +45,7 @@ void Matrix4x4Test::Run( std::ostream & p_Trace )
 		TestAssert( matConst1.m[ i ] == 0.0f );
 	}
 
-	Bit::Matrix4x4<Bit::UInt32> matConst2(	0, 1, 2, 3,
+	Bit::Matrix4x4<Bit::Uint32> matConst2(	0, 1, 2, 3,
 											4, 5, 6, 7,
 											8, 9, 10, 11,
 											12, 13, 14, 15 );
@@ -55,7 +55,7 @@ void Matrix4x4Test::Run( std::ostream & p_Trace )
 	}
 
 	// Assert the Identity function
-	Bit::Matrix4x4<Bit::UInt32> matIdent;
+	Bit::Matrix4x4<Bit::Uint32> matIdent;
 	matIdent.Identity( );
 	TestAssert( matIdent.m[ 0 ] == 1 );
 	TestAssert( matIdent.m[ 1 ] == 0 );
@@ -75,7 +75,7 @@ void Matrix4x4Test::Run( std::ostream & p_Trace )
 	TestAssert( matIdent.m[ 15 ] == 1 );
 
 	// Assert the Position function
-	Bit::Matrix4x4<Bit::UInt32> matPos;
+	Bit::Matrix4x4<Bit::Uint32> matPos;
 	matPos.Position( Bit::Vector3u32( 11, 12, 13 ) );
 	TestAssert( matPos.m[ 0 ] == 1 );
 	TestAssert( matPos.m[ 1 ] == 0 );
@@ -95,7 +95,7 @@ void Matrix4x4Test::Run( std::ostream & p_Trace )
 	TestAssert( matPos.m[ 15 ] == 1 );
 
 	// Assert the Translate function
-	Bit::Matrix4x4<Bit::UInt32> matTrans;
+	Bit::Matrix4x4<Bit::Uint32> matTrans;
 	matTrans.Identity( );
 	matTrans.Translate( 3, 4, 5 );
 	TestAssert( matTrans.m[ 0 ] == 1 );
@@ -116,7 +116,7 @@ void Matrix4x4Test::Run( std::ostream & p_Trace )
 	TestAssert( matTrans.m[ 15 ] == 1 );
 
 	// Assert the Scale function
-	Bit::Matrix4x4<Bit::UInt32> matScale;
+	Bit::Matrix4x4<Bit::Uint32> matScale;
 	matScale.Identity( );
 	matScale.Scale( 3, 4, 5 );
 	TestAssert( matScale.m[ 0 ] == 3 );

@@ -22,48 +22,56 @@
 //    source distribution.
 // ///////////////////////////////////////////////////////////////////////////
 
-#include <TimerTest.hpp>
-#include <Bit/System/Timer.hpp>
-#include <Bit/System/Sleep.hpp>
+#include <RenderWindowTest.hpp>
+#include <Bit/Window/RenderWindow.hpp>
 
 // Constructor
-TimerTest::TimerTest( ) :
+RenderWindowTest::RenderWindowTest( ) :
 	Test( )
 {
 }
 
 // Virtual functions
-void TimerTest::Run( std::ostream & p_Trace )
+void RenderWindowTest::Run( std::ostream & p_Trace )
 {
 	std::cout << "-------------------------------------------" << std::endl;
-	std::cout << "Starting Timer test." << std::endl;
+	std::cout << "Starting RenderWindow test." << std::endl;
 
-	const Bit::Float64 sleepTime = 0.5f;
-	const Bit::Float64 diff = 0.05f;
-	Bit::Timer timer;
+	// Create an instace of the render window
+	Bit::RenderWindow window;
 
-	// Run a Start/Stop/GetTime test
-	timer.Start( );
-	Bit::Sleep( static_cast<Bit::Uint32>( sleepTime * 1000.0f ) );
-	timer.Stop( );
-	
-	// Assert the time
-	TestAssert( timer.GetTime( ) >= sleepTime - diff &&
-				timer.GetTime( ) <= sleepTime + diff );
-	std::cout << "Result: " << timer.GetTime( ) << "/" << sleepTime << "(" << ( sleepTime - diff ) << " - " << ( sleepTime + diff ) << ")." << std::endl;
+	// Assert the open function
+	TestAssert( window.Open( Bit::VideoMode( Bit::Vector2u32( 800, 600 ) ) ) == true );
 
-	// Run a Start/GetLapsedTime test
-	timer.Start( );
-	Bit::Sleep( static_cast<Bit::Uint32>( sleepTime * 1000.0f ) );
-	Bit::Float64 time = timer.GetLapsedTime( );
-	
-	// Assert the time
-	TestAssert( time >= sleepTime - diff &&
-				time <= sleepTime + diff );
-	std::cout << "Result: " << timer.GetTime( ) << "/" << sleepTime << "(" << ( sleepTime - diff ) << " - " << ( sleepTime + diff ) << ")." << std::endl;
+	// Assert the is open flag
+	TestAssert( window.IsOpen( ) == true );
+
+	// Close the first window
+	window.Close( );
+
+
+	// Run a more advanced render window test( requires human brain powerzzz )
+	Bit::Uint32 windowStyle =Bit::Style::TitleBar | Bit::Style::Close | Bit::Style::Minimize;
+	Bit::Window * pWindow = new Bit::RenderWindow( Bit::VideoMode( Bit::Vector2u32( 800, 600 ) ), "Window", windowStyle );
+
+	// Check if the window is open 
+	TestAssert( pWindow->IsOpen( ) == true );
+
+	// Run a loop until the window is being closed
+	while( pWindow->IsOpen( ) )
+	{
+		// Poll the window events
+		// ..
+
+		// Update the window
+		pWindow->Update( );
+	}
+
+	// Delete the window
+	delete pWindow;
 
 	// Print the finish text
-	std::cout << "Finished Timer Test." << std::endl;
+	std::cout << "Finished RenderWindow Test." << std::endl;
 	std::cout << "-------------------------------------------" << std::endl;
 	
 }
