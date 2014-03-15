@@ -37,6 +37,7 @@
 #include <Vector2Test.hpp>
 #include <Vector3Test.hpp>
 #include <Matrix4x4Test.hpp>
+#include <VideoModeTest.hpp>
 #include <RenderWindowTest.hpp>
 
 // Global typedefs
@@ -88,6 +89,7 @@ Bit::Bool InitializeTest( )
 	g_Tests.push_back( new Vector2Test );
 	g_Tests.push_back( new Vector3Test );
 	g_Tests.push_back( new Matrix4x4Test );
+	g_Tests.push_back( new VideoModeTest );
 	g_Tests.push_back( new RenderWindowTest );
 
 	return true;

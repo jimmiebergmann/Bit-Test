@@ -49,25 +49,61 @@ void RenderWindowTest::Run( std::ostream & p_Trace )
 	// Close the first window
 	window.Close( );
 
-
 	// Run a more advanced render window test( requires human brain powerzzz )
-	Bit::Uint32 windowStyle =Bit::Style::TitleBar | Bit::Style::Close | Bit::Style::Minimize;
+	Bit::Uint32 windowStyle =Bit::Style::TitleBar | Bit::Style::Close | Bit::Style::Minimize | Bit::Style::Resize;
 	Bit::Window * pWindow = new Bit::RenderWindow( Bit::VideoMode( Bit::Vector2u32( 800, 600 ) ), "Window", windowStyle );
+
+	// Set a new title and assert it
+	pWindow->SetTitle( "New Window Title" );
+	TestAssert( pWindow->GetTitle( ) == "New Window Title" );
 
 	// Check if the window is open 
 	TestAssert( pWindow->IsOpen( ) == true );
 
-	// Run a loop until the window is being closed
-	while( pWindow->IsOpen( ) )
-	{
-		// Poll the window events
-		// ..
+	// Check if the window is focused
+	TestAssert( pWindow->IsFocused( ) == true );
 
+	// Run a loop until the window event test is done
+	Bit::Uint32 testFlags = 0;
+
+	while( testFlags != 1 + 2 + 4 + 8 + 16 )
+	{
 		// Update the window
 		pWindow->Update( );
+
+		// Poll the window events
+		Bit::Event e;
+		while( pWindow->PollEvent( e ) )
+		{
+			switch( e.Type )
+			{
+			case Bit::Event::Closed:
+				std::cout << "Closed window." << std::endl;
+				testFlags |= 1;
+				break;
+			case Bit::Event::GainedFocus:
+				std::cout << "Window gained focus." << std::endl;
+				testFlags |= 2;
+				break;
+			case Bit::Event::LostFocus:
+				std::cout << "Window lost focus." << std::endl;
+				testFlags |= 4;
+				break;
+			case Bit::Event::Resized:
+				std::cout << "Resized window: " << e.Size.x << ", " << e.Size.y << std::endl;
+				testFlags |= 8;
+				break;
+			case Bit::Event::Moved:
+				std::cout << "Moved window: " << e.Position.x << ", " << e.Position.y << std::endl;
+				testFlags |= 16;
+				break;
+			default:
+				break;
+			}
+		}
 	}
 
-	// Delete the window
+	// Delete(close) the window
 	delete pWindow;
 
 	// Print the finish text
