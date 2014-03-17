@@ -18,6 +18,30 @@
       <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\include\AngleTest.hpp" />
+    <ClInclude Include="..\..\include\MathTest.hpp" />
+    <ClInclude Include="..\..\include\Matrix4x4Test.hpp" />
+    <ClInclude Include="..\..\include\OpenGLGraphicDeviceTest.hpp" />
+    <ClInclude Include="..\..\include\RenderWindowTest.hpp" />
+    <ClInclude Include="..\..\include\Test.hpp" />
+    <ClInclude Include="..\..\include\TimerTest.hpp" />
+    <ClInclude Include="..\..\include\Vector2Test.hpp" />
+    <ClInclude Include="..\..\include\Vector3Test.hpp" />
+    <ClInclude Include="..\..\include\VideoModeTest.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\source\AngleTest.cpp" />
+    <ClCompile Include="..\..\source\Main.cpp" />
+    <ClCompile Include="..\..\source\MathTest.cpp" />
+    <ClCompile Include="..\..\source\Matrix4x4Test.cpp" />
+    <ClCompile Include="..\..\source\OpenGLGraphicDeviceTest.cpp" />
+    <ClCompile Include="..\..\source\RenderWindowTest.cpp" />
+    <ClCompile Include="..\..\source\TimerTest.cpp" />
+    <ClCompile Include="..\..\source\Vector2Test.cpp" />
+    <ClCompile Include="..\..\source\Vector3Test.cpp" />
+    <ClCompile Include="..\..\source\VideoModeTest.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{555F7A2A-3469-4F88-B278-F091F47BA06A}</ProjectGuid>
     <RootNamespace>BitTest</RootNamespace>
@@ -102,7 +126,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>bit-system-s-d.lib;bit-window-s-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>bit-system-s-d.lib;bit-window-s-d.lib;bit-graphics-s-d.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dynamic Debug|Win32'">
@@ -115,7 +139,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>bit-system-d.lib;bit-window-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>bit-system-d.lib;bit-window-d.lib;bit-graphics-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dynamic Release|Win32'">
@@ -128,7 +152,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>bit-system.lib;bit-window.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>bit-system.lib;bit-window.lib;bit-graphics.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Static Release|Win32'">
@@ -146,31 +170,9 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>bit-system-s.lib;bit-window-s.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>bit-system-s.lib;bit-window-s.lib;bit-graphics-s.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\source\AngleTest.cpp" />
-    <ClCompile Include="..\..\source\Main.cpp" />
-    <ClCompile Include="..\..\source\MathTest.cpp" />
-    <ClCompile Include="..\..\source\Matrix4x4Test.cpp" />
-    <ClCompile Include="..\..\source\RenderWindowTest.cpp" />
-    <ClCompile Include="..\..\source\TimerTest.cpp" />
-    <ClCompile Include="..\..\source\Vector2Test.cpp" />
-    <ClCompile Include="..\..\source\Vector3Test.cpp" />
-    <ClCompile Include="..\..\source\VideoModeTest.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\include\AngleTest.hpp" />
-    <ClInclude Include="..\..\include\MathTest.hpp" />
-    <ClInclude Include="..\..\include\Matrix4x4Test.hpp" />
-    <ClInclude Include="..\..\include\RenderWindowTest.hpp" />
-    <ClInclude Include="..\..\include\Test.hpp" />
-    <ClInclude Include="..\..\include\TimerTest.hpp" />
-    <ClInclude Include="..\..\include\Vector2Test.hpp" />
-    <ClInclude Include="..\..\include\Vector3Test.hpp" />
-    <ClInclude Include="..\..\include\VideoModeTest.hpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -66,7 +66,7 @@ void RenderWindowTest::Run( std::ostream & p_Trace )
 	// Run a loop until the window event test is done
 	Bit::Uint32 testFlags = 0;
 
-	while( testFlags != 1 + 2 + 4 + 8 + 16 )
+	/*while( testFlags != 1 + 2 + 4 + 8 + 16 )
 	{
 		// Update the window
 		pWindow->Update( );
@@ -101,7 +101,7 @@ void RenderWindowTest::Run( std::ostream & p_Trace )
 				break;
 			}
 		}
-	}
+	}*/
 
 	// Delete(close) the window
 	delete pWindow;

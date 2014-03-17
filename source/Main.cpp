@@ -39,6 +39,7 @@
 #include <Matrix4x4Test.hpp>
 #include <VideoModeTest.hpp>
 #include <RenderWindowTest.hpp>
+#include <OpenGLGraphicDeviceTest.hpp>
 
 // Global typedefs
 typedef std::vector< Test * > TestVector;
@@ -91,7 +92,8 @@ Bit::Bool InitializeTest( )
 	g_Tests.push_back( new Matrix4x4Test );
 	g_Tests.push_back( new VideoModeTest );
 	g_Tests.push_back( new RenderWindowTest );
-
+	g_Tests.push_back( new OpenGLGraphicDeviceTest );
+	
 	return true;
 }
 
