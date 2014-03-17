@@ -25,6 +25,7 @@
     <ClInclude Include="..\..\include\OpenGLGraphicDeviceTest.hpp" />
     <ClInclude Include="..\..\include\RenderWindowTest.hpp" />
     <ClInclude Include="..\..\include\Test.hpp" />
+    <ClInclude Include="..\..\include\ThreadTest.hpp" />
     <ClInclude Include="..\..\include\TimerTest.hpp" />
     <ClInclude Include="..\..\include\Vector2Test.hpp" />
     <ClInclude Include="..\..\include\Vector3Test.hpp" />
@@ -37,6 +38,7 @@
     <ClCompile Include="..\..\source\Matrix4x4Test.cpp" />
     <ClCompile Include="..\..\source\OpenGLGraphicDeviceTest.cpp" />
     <ClCompile Include="..\..\source\RenderWindowTest.cpp" />
+    <ClCompile Include="..\..\source\ThreadTest.cpp" />
     <ClCompile Include="..\..\source\TimerTest.cpp" />
     <ClCompile Include="..\..\source\Vector2Test.cpp" />
     <ClCompile Include="..\..\source\Vector3Test.cpp" />
