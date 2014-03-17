@@ -123,12 +123,21 @@ void ThreadTest::Run( std::ostream & p_Trace )
 		}
 	);
 
+	// Sleep for some time
+	Bit::Sleep( 500 );
+
+	// Assert the IsRunning function
+	TestAssert( thread1.IsRunning( ) == true );
+	TestAssert( thread2.IsRunning( ) == true );
+
 	// Wait for the threads to finish
 	thread1.Finish( );
 	thread2.Finish( );
 
 	// Assert the mutex test
 	TestAssert( mutexError == false );
+	TestAssert( thread1.IsRunning( ) == false );
+	TestAssert( thread2.IsRunning( ) == false );
 
 	// Print the finish text
 	std::cout << "Finished Thread Test." << std::endl;
