@@ -41,6 +41,7 @@
 #include <AddressTest.hpp>
 #include <TcpSocketTest.hpp>
 #include <TcpListenerTest.hpp>
+#include <UdpSocketTest.hpp>
 #include <VideoModeTest.hpp>
 #include <RenderWindowTest.hpp>
 #include <OpenGLGraphicDeviceTest.hpp>
@@ -98,6 +99,7 @@ Bit::Bool InitializeTest( )
 	g_Tests.push_back( new AddressTest );
 	g_Tests.push_back( new TcpSocketTest );
 	g_Tests.push_back( new TcpListenerTest );
+	g_Tests.push_back( new UdpSocketTest );
 	g_Tests.push_back( new VideoModeTest );
 	g_Tests.push_back( new RenderWindowTest );
 	g_Tests.push_back( new OpenGLGraphicDeviceTest );

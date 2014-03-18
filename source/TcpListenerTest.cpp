@@ -78,6 +78,7 @@ void TcpListenerTest::Run( std::ostream & p_Trace )
 				return;
 			}
 
+			// Check if the received message is ok.
 			if( std::string( (const char *)recvMessage ) != "Hello server." )
 			{
 				return;
@@ -130,6 +131,7 @@ void TcpListenerTest::Run( std::ostream & p_Trace )
 				return;
 			}
 
+			// Check if the received message is ok.
 			if( std::string( (const char *)recvMessage ) != "Hello client." )
 			{
 				return;
