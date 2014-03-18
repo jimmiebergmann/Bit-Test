@@ -44,6 +44,16 @@ void AddressTest::Run( std::ostream & p_Trace )
 	TestAssert( address.GetC( ) == 3 );
 	TestAssert( address.GetD( ) == 4 );
 
+	// Assert set function
+	address.SetA( 123 );
+	address.SetB( 213 );
+	address.SetC( 132 );
+	address.SetD( 120 );
+	TestAssert( address.GetA( ) == 123 );
+	TestAssert( address.GetB( ) == 213 );
+	TestAssert( address.GetC( ) == 132 );
+	TestAssert( address.GetD( ) == 120 );
+
 	// Assert the address from string
 	TestAssert( address.SetAddressFromString( "127.0.0.1" ) == true );
 	TestAssert( address.GetA( ) == 127 );
