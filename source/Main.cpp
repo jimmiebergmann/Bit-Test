@@ -99,10 +99,10 @@ Bit::Bool InitializeTest( )
 	g_Tests.push_back( new Matrix4x4Test );
 	g_Tests.push_back( new ThreadTest );
 	g_Tests.push_back( new AddressTest );
-	g_Tests.push_back( new SocketTest );
+	g_Tests.push_back( new SocketTest );*/
 	g_Tests.push_back( new TcpSocketTest );
-	g_Tests.push_back( new TcpListenerTest );
-	g_Tests.push_back( new UdpSocketTest );*/
+	//g_Tests.push_back( new TcpListenerTest );
+	//g_Tests.push_back( new UdpSocketTest );
 	g_Tests.push_back( new NtpTest );
 	/*g_Tests.push_back( new VideoModeTest );
 	g_Tests.push_back( new RenderWindowTest );

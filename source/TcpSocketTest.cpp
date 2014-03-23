@@ -24,6 +24,7 @@
 
 #include <TcpSocketTest.hpp>
 #include <Bit/Network/TcpSocket.hpp>
+#include <Bit/System/Timer.hpp>
 
 // Constructor
 TcpSocketTest::TcpSocketTest( ) :
@@ -37,12 +38,23 @@ void TcpSocketTest::Run( std::ostream & p_Trace )
 	std::cout << "-------------------------------------------" << std::endl;
 	std::cout << "Starting TCP Socket test." << std::endl;
 
-	// Create a connect to sunet.se
+	// Assert a connect to sunet.se
 	Bit::TcpSocket tcp;
 	TestAssert( tcp.Connect( Bit::Address( 109, 105, 111, 14 ), 80 ) == true );
 
 	// Disconnect 
 	tcp.Disconnect( );
+
+	// Assert the timeout again
+	Bit::TcpSocket tcpTimeout;
+	TestAssert( tcp.Connect( Bit::Address( 109, 105, 111, 14 ), 80, 3000 ) == true );
+
+	// Assert the timeout connection again, but time it
+	Bit::Timer timer;
+	timer.Start( );
+	TestAssert( tcp.Connect( Bit::Address( 127, 0, 0, 2 ), 87, 3000 ) == false );
+	timer.Stop( );
+	TestAssert( timer.GetTime( ) > 2.0f && timer.GetTime( ) < 6.0f );
 
 	// Print the finish text
 	std::cout << "Finished TCP Socket Test." << std::endl;
