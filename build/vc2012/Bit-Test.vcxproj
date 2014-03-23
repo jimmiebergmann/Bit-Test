@@ -23,8 +23,10 @@
     <ClInclude Include="..\..\include\AngleTest.hpp" />
     <ClInclude Include="..\..\include\MathTest.hpp" />
     <ClInclude Include="..\..\include\Matrix4x4Test.hpp" />
+    <ClInclude Include="..\..\include\NtpTest.hpp" />
     <ClInclude Include="..\..\include\OpenGLGraphicDeviceTest.hpp" />
     <ClInclude Include="..\..\include\RenderWindowTest.hpp" />
+    <ClInclude Include="..\..\include\SocketTest.hpp" />
     <ClInclude Include="..\..\include\TcpListenerTest.hpp" />
     <ClInclude Include="..\..\include\TcpSocketTest.hpp" />
     <ClInclude Include="..\..\include\Test.hpp" />
@@ -41,8 +43,10 @@
     <ClCompile Include="..\..\source\Main.cpp" />
     <ClCompile Include="..\..\source\MathTest.cpp" />
     <ClCompile Include="..\..\source\Matrix4x4Test.cpp" />
+    <ClCompile Include="..\..\source\NtpTest.cpp" />
     <ClCompile Include="..\..\source\OpenGLGraphicDeviceTest.cpp" />
     <ClCompile Include="..\..\source\RenderWindowTest.cpp" />
+    <ClCompile Include="..\..\source\SocketTest.cpp" />
     <ClCompile Include="..\..\source\TcpListenerTest.cpp" />
     <ClCompile Include="..\..\source\TcpSocketTest.cpp" />
     <ClCompile Include="..\..\source\ThreadTest.cpp" />
@@ -130,7 +134,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>BIT_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;BIT_STATIC</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\..\include</AdditionalIncludeDirectories>
       <TreatWarningAsError>true</TreatWarningAsError>
     </ClCompile>
@@ -146,6 +150,7 @@
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>..\..\include</AdditionalIncludeDirectories>
       <TreatWarningAsError>true</TreatWarningAsError>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -159,6 +164,7 @@
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>..\..\include</AdditionalIncludeDirectories>
       <TreatWarningAsError>true</TreatWarningAsError>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -172,7 +178,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>BIT_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;BIT_STATIC</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\..\include</AdditionalIncludeDirectories>
       <TreatWarningAsError>true</TreatWarningAsError>
     </ClCompile>

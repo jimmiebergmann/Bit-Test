@@ -39,9 +39,11 @@
 #include <Matrix4x4Test.hpp>
 #include <ThreadTest.hpp>
 #include <AddressTest.hpp>
+#include <SocketTest.hpp>
 #include <TcpSocketTest.hpp>
 #include <TcpListenerTest.hpp>
 #include <UdpSocketTest.hpp>
+#include <NtpTest.hpp>
 #include <VideoModeTest.hpp>
 #include <RenderWindowTest.hpp>
 #include <OpenGLGraphicDeviceTest.hpp>
@@ -89,7 +91,7 @@ int main( )
 
 Bit::Bool InitializeTest( )
 {
-	g_Tests.push_back( new TimerTest );
+	/*g_Tests.push_back( new TimerTest );
 	g_Tests.push_back( new MathTest );
 	g_Tests.push_back( new AngleTest );
 	g_Tests.push_back( new Vector2Test );
@@ -97,12 +99,14 @@ Bit::Bool InitializeTest( )
 	g_Tests.push_back( new Matrix4x4Test );
 	g_Tests.push_back( new ThreadTest );
 	g_Tests.push_back( new AddressTest );
+	g_Tests.push_back( new SocketTest );
 	g_Tests.push_back( new TcpSocketTest );
 	g_Tests.push_back( new TcpListenerTest );
-	g_Tests.push_back( new UdpSocketTest );
-	g_Tests.push_back( new VideoModeTest );
+	g_Tests.push_back( new UdpSocketTest );*/
+	g_Tests.push_back( new NtpTest );
+	/*g_Tests.push_back( new VideoModeTest );
 	g_Tests.push_back( new RenderWindowTest );
-	g_Tests.push_back( new OpenGLGraphicDeviceTest );
+	g_Tests.push_back( new OpenGLGraphicDeviceTest );*/
 	
 	return true;
 }
