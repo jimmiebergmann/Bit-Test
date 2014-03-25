@@ -38,6 +38,7 @@
 #include <Vector3Test.hpp>
 #include <Matrix4x4Test.hpp>
 #include <ThreadTest.hpp>
+#include <BencodeTest.hpp>
 #include <AddressTest.hpp>
 #include <SocketTest.hpp>
 #include <TcpSocketTest.hpp>
@@ -47,6 +48,7 @@
 #include <VideoModeTest.hpp>
 #include <RenderWindowTest.hpp>
 #include <OpenGLGraphicDeviceTest.hpp>
+#include <Bit/System/MemoryLeak.hpp>
 
 // Global typedefs
 typedef std::vector< Test * > TestVector;
@@ -65,6 +67,10 @@ static void RunTests( );
 
 int main( )
 {
+	// Initialize the memory leak detector( only works for windows )
+	BitInitMemoryLeak( NULL );
+
+
 	std::cout << "Starting the test program for Bit Engine." << std::endl;
 	std::cout << "-------------------------------------------" << std::endl << std::endl;
 
@@ -91,22 +97,28 @@ int main( )
 
 Bit::Bool InitializeTest( )
 {
-	/*g_Tests.push_back( new TimerTest );
+	// System tests
+	g_Tests.push_back( new BencodeTest );
+	g_Tests.push_back( new TimerTest );
 	g_Tests.push_back( new MathTest );
 	g_Tests.push_back( new AngleTest );
 	g_Tests.push_back( new Vector2Test );
 	g_Tests.push_back( new Vector3Test );
 	g_Tests.push_back( new Matrix4x4Test );
 	g_Tests.push_back( new ThreadTest );
+	
+	// Network tests
 	g_Tests.push_back( new AddressTest );
-	g_Tests.push_back( new SocketTest );*/
+	g_Tests.push_back( new SocketTest );
 	g_Tests.push_back( new TcpSocketTest );
-	//g_Tests.push_back( new TcpListenerTest );
-	//g_Tests.push_back( new UdpSocketTest );
+	g_Tests.push_back( new TcpListenerTest );
+	g_Tests.push_back( new UdpSocketTest );
 	g_Tests.push_back( new NtpTest );
-	/*g_Tests.push_back( new VideoModeTest );
+
+	// Graphic/window tests
+	g_Tests.push_back( new VideoModeTest );
 	g_Tests.push_back( new RenderWindowTest );
-	g_Tests.push_back( new OpenGLGraphicDeviceTest );*/
+	g_Tests.push_back( new OpenGLGraphicDeviceTest );
 	
 	return true;
 }

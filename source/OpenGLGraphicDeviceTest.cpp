@@ -27,6 +27,7 @@
 #include <Bit/Graphics/VertexArrayObject.hpp>
 #include <Bit/Graphics/ShaderProgram.hpp>
 #include <Bit/Graphics/Shader.hpp>
+#include <Bit/System/MemoryLeak.hpp>
 
 // Constructor
 OpenGLGraphicDeviceTest::OpenGLGraphicDeviceTest( ) :
@@ -126,6 +127,8 @@ void OpenGLGraphicDeviceTest::Run( std::ostream & p_Trace )
 	// Delete and close everything
 	delete pVBO;
 	delete pVAO;
+	delete pVertexShader;
+	delete pFragmentShader;
 	delete pShaderProgram;
 	delete pGraphicDevice;
 	window.Close( );

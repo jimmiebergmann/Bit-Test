@@ -24,6 +24,8 @@
 
 #include <UdpSocketTest.hpp>
 #include <Bit/Network/UdpSocket.hpp>
+#include <Bit/System/Sleep.hpp>
+#include <Bit/System/MemoryLeak.hpp>
 
 // Constructor
 UdpSocketTest::UdpSocketTest( ) :
@@ -71,6 +73,16 @@ void UdpSocketTest::Run( std::ostream & p_Trace )
 													<< (int)address.GetC( ) << "."
 													<< (int)address.GetD( ) << ":"
 													<< client2Port  << " ): " << client1RecvMessage << std::endl;
+
+
+	// Assert the receive timeout
+	TestAssert( client2.Receive( client2RecvMessage, messageLength, address, client1Port, 1000 ) == -1 );
+	std::cout << GetLastError( ) << std::endl;
+
+	TestAssert( client1.Send( client1SendMessage, messageLength, Bit::Address( 127, 0, 0, 1 ), client2Port ) == messageLength );
+	std::cout << std::endl << "Client 1: Sent messsage(timeout): " << client1SendMessage << std::endl;
+	Sleep( 1000 );
+	TestAssert( client2.Receive( client2RecvMessage, messageLength, address, client1Port, 1200 ) == messageLength );
 
 	// Stop udp socket
 	client1.Stop( );

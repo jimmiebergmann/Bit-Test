@@ -25,6 +25,7 @@
 #include <AngleTest.hpp>
 #include <Bit/System/Math.hpp>
 #include <Bit/System/Angle.hpp>
+#include <Bit/System/MemoryLeak.hpp>
 
 // Constructor
 AngleTest::AngleTest( ) :

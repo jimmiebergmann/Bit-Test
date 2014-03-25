@@ -24,6 +24,7 @@
 
 #include <MathTest.hpp>
 #include <Bit/System/Math.hpp>
+#include <Bit/System/MemoryLeak.hpp>
 
 // Constructor
 MathTest::MathTest( ) :

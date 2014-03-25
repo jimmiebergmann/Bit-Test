@@ -24,6 +24,7 @@
 
 #include <RenderWindowTest.hpp>
 #include <Bit/Window/RenderWindow.hpp>
+#include <Bit/System/MemoryLeak.hpp>
 
 // Constructor
 RenderWindowTest::RenderWindowTest( ) :

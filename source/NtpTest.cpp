@@ -27,6 +27,7 @@
 #include <iostream>
 #include <ctime>
 #include <stdio.h>
+#include <Bit/System/MemoryLeak.hpp>
 
 // Constructor
 NtpTest::NtpTest( ) :
@@ -59,7 +60,7 @@ void NtpTest::Run( std::ostream & p_Trace )
 	TestAssert( header2.GetMode( ) == Bit::Ntp::Header::Server );
 
 	// Send request to NTP server
-	Bit::Address serverAddress( 127, 0, 0, 1 );
+	Bit::Address serverAddress( "0.europe.pool.ntp.org" );
 	ntp.SendRequest( header1, serverAddress );
 	std::cout << "Sent request." << std::endl;
 

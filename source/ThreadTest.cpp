@@ -26,6 +26,7 @@
 #include <Bit/System/Thread.hpp>
 #include <Bit/System/SmartMutex.hpp>
 #include <Bit/System/Sleep.hpp>
+#include <Bit/System/MemoryLeak.hpp>
 
 // Constructor
 ThreadTest::ThreadTest( ) :

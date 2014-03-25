@@ -24,6 +24,7 @@
 
 #include <Vector2Test.hpp>
 #include <Bit/System/Vector2.hpp>
+#include <Bit/System/MemoryLeak.hpp>
 
 // Constructor
 Vector2Test::Vector2Test( ) :

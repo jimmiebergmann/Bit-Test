@@ -24,6 +24,7 @@
 
 #include <AddressTest.hpp>
 #include <Bit/Network/Address.hpp>
+#include <Bit/System/MemoryLeak.hpp>
 
 // Constructor
 AddressTest::AddressTest( ) :
@@ -60,31 +61,56 @@ void AddressTest::Run( std::ostream & p_Trace )
 	TestAssert( address.GetB( ) == 0 );
 	TestAssert( address.GetC( ) == 0 );
 	TestAssert( address.GetD( ) == 1 );
+	std::cout << "Finished test for: 127.0.0.1" << std::endl;
 
 	TestAssert( address.SetAddressFromString( "1.2.3.4" ) == true );
 	TestAssert( address.GetA( ) == 1 );
 	TestAssert( address.GetB( ) == 2 );
 	TestAssert( address.GetC( ) == 3 );
 	TestAssert( address.GetD( ) == 4 );
+	std::cout << "Finished test for: 1.2.3.4" << std::endl;
 
-	TestAssert( address.SetAddressFromString( "255.255.255.255" ) == true );
+	TestAssert( address.SetAddressFromString( "255.255.255.254" ) == true );
 	TestAssert( address.GetA( ) == 255 );
 	TestAssert( address.GetB( ) == 255 );
 	TestAssert( address.GetC( ) == 255 );
-	TestAssert( address.GetD( ) == 255 );
+	TestAssert( address.GetD( ) == 254 );
+	std::cout << "Finished test for: 255.255.255.254" << std::endl;
 
 	TestAssert( address.SetAddressFromString( "192.168.0.1" ) == true );
 	TestAssert( address.GetA( ) == 192 );
 	TestAssert( address.GetB( ) == 168 );
 	TestAssert( address.GetC( ) == 0 );
 	TestAssert( address.GetD( ) == 1 );
+	std::cout << "Finished test for: 192.168.0.1" << std::endl;
 
-	TestAssert( address.SetAddressFromString( "0.0.0.0" ) == true );
-	TestAssert( address.SetAddressFromString( "000.000.000.000" ) == true );
-	TestAssert( address.SetAddressFromString( "0192.0168.000000.0001" ) == true );
+	TestAssert( address.SetAddressFromString( "0.0.0.1" ) == true );
+	std::cout << "Finished test for: 0.0.0.1" << std::endl;
 	TestAssert( address.SetAddressFromString( "192.168.0.1111" ) == false );
+	std::cout << "Finished test for: 192.168.0.1111" << std::endl;
 	TestAssert( address.SetAddressFromString( "192.1680.0.1" ) == false );
+	std::cout << "Finished test for: 192.1680.0.1" << std::endl;
 	TestAssert( address.SetAddressFromString( "255.255.256.255" ) == false );
+	std::cout << "Finished test for: 255.255.256.255" << std::endl;
+
+	bool google = address.SetAddressFromString( "google.com" );
+	bool facebook = address.SetAddressFromString( "www.facebook.com" );
+	bool twitter = address.SetAddressFromString( "www.twitter.com" );
+	if( google == false )
+	{
+		std::cout << "Failed to retrieve address for google.com" << std::endl;
+	}
+	if( facebook == false )
+	{
+		std::cout << "Failed to retrieve address for www.facebook.com" << std::endl;
+	}
+	if( twitter == false )
+	{
+		std::cout << "Failed to retrieve address for www.twitter.com" << std::endl;
+	}
+	TestAssert( google || facebook || twitter );
+	std::cout << "Finished test for: google.com && www.facebook.com && www.twitter.com" << std::endl;
+
 
 	// Print the finish text
 	std::cout << "Finished Address Test." << std::endl;

@@ -23,8 +23,8 @@
 // ///////////////////////////////////////////////////////////////////////////
 
 #include <Matrix4x4Test.hpp>
-//#include <Bit/System/Math.hpp>
 #include <Bit/System/Matrix4x4.hpp>
+#include <Bit/System/MemoryLeak.hpp>
 
 // Constructor
 Matrix4x4Test::Matrix4x4Test( ) :

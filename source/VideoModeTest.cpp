@@ -24,6 +24,7 @@
 
 #include <VideoModeTest.hpp>
 #include <Bit/Window/VideoMode.hpp>
+#include <Bit/System/MemoryLeak.hpp>
 
 // Constructor
 VideoModeTest::VideoModeTest( ) :

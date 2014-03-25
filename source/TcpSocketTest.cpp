@@ -25,6 +25,7 @@
 #include <TcpSocketTest.hpp>
 #include <Bit/Network/TcpSocket.hpp>
 #include <Bit/System/Timer.hpp>
+#include <Bit/System/MemoryLeak.hpp>
 
 // Constructor
 TcpSocketTest::TcpSocketTest( ) :

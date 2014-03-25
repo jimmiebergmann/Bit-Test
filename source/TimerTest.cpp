@@ -25,6 +25,7 @@
 #include <TimerTest.hpp>
 #include <Bit/System/Timer.hpp>
 #include <Bit/System/Sleep.hpp>
+#include <Bit/System/MemoryLeak.hpp>
 
 // Constructor
 TimerTest::TimerTest( ) :

@@ -28,6 +28,7 @@
 #include <Bit/System/Thread.hpp>
 #include <Bit/System/Sleep.hpp>
 #include <string>
+#include <Bit/System/MemoryLeak.hpp>
 
 // Constructor
 TcpListenerTest::TcpListenerTest( ) :
@@ -153,6 +154,77 @@ void TcpListenerTest::Run( std::ostream & p_Trace )
 	TestAssert( serverAccepted == true );
 	TestAssert( serverSent == true );
 	TestAssert( serverRecv == true );
+
+
+	// Assert the timeout functionallity
+	Bit::Bool conntectAttempt1 = false;
+	Bit::Bool conntectAttempt2 = false;
+	Bit::Bool listenAttempt1 = false;
+	Bit::Bool receiveAttempt1 = false;
+	Bit::Bool receiveAttempt2 = false;
+
+	Bit::Thread clientThread2(
+		[ &conntectAttempt1, &conntectAttempt2 ] ( )
+		{
+			Bit::Sleep( 500 );
+
+			// Try to connect
+			Bit::TcpSocket tcp;
+			tcp.SetBlocking( false );
+			conntectAttempt1 = tcp.Connect( Bit::Address( 127, 0, 0, 1 ), 12343, 1000 );
+			conntectAttempt2 = tcp.Connect( Bit::Address( 127, 0, 0, 1 ), 12343, 2000 );
+
+			// Sleep for 1 second
+			Bit::Sleep( 1000 );
+
+			// Send a message
+			const Bit::SizeType sendMessageSize = 14;
+			Bit::Uint8 sendMessage[ sendMessageSize ] = "Hello server.";
+			if( tcp.Send( sendMessage, sendMessageSize ) != sendMessageSize )
+			{
+				return;
+			}
+			std::cout << "Client: Sent messsage: " << sendMessage << std::endl;
+			
+		}
+	);
+
+	Bit::Thread serverThread2(
+		[ &listenAttempt1, &receiveAttempt1, &receiveAttempt2 ] ( )
+		{
+			Bit::TcpListener tcpListener( 12343 );
+			Bit::Sleep( 2000 );
+
+			// Listen for incomming connections( client connection attempt 2 )
+			Bit::TcpSocket tcp;
+			listenAttempt1 = tcpListener.Listen( tcp );
+			if( listenAttempt1 )
+			{
+				std::cout << "Server: Connected." << std::endl;
+			}
+
+			// Receive message
+			const Bit::SizeType recvMessageSize = 14;
+			Bit::Uint8 recvMessage[ recvMessageSize ];
+			receiveAttempt1 = tcp.Receive( recvMessage, recvMessageSize, 500 ) == recvMessageSize;
+			std::cout << "Server: Failed to recv message after 0.5 seconds." << std::endl;
+			receiveAttempt2 = tcp.Receive( recvMessage, recvMessageSize, 1000 ) == recvMessageSize;
+			std::cout << "Server: Recv message 1: " << recvMessage << std::endl;
+
+		}
+	);
+
+
+	// Wait for the threads to finish
+	clientThread2.Finish( );
+	serverThread2.Finish( );
+
+	// Assert the assert values
+	TestAssert( conntectAttempt1 == false );
+	TestAssert( conntectAttempt2 == true );
+	TestAssert( listenAttempt1 == true );
+	TestAssert( receiveAttempt1 == false );
+	TestAssert( receiveAttempt2 == true );
 
 	// Print the finish text
 	std::cout << "Finished TCP Listener Test." << std::endl;
