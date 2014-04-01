@@ -64,10 +64,7 @@ void RenderWindowTest::Run( std::ostream & p_Trace )
 	// Check if the window is focused
 	TestAssert( pWindow->IsFocused( ) == true );
 
-	// Run a loop until the window event test is done
-	Bit::Uint32 testFlags = 0;
-
-	/*while( testFlags != 1 + 2 + 4 + 8 + 16 )
+	while( pWindow->IsOpen( ) )
 	{
 		// Update the window
 		pWindow->Update( );
@@ -80,29 +77,31 @@ void RenderWindowTest::Run( std::ostream & p_Trace )
 			{
 			case Bit::Event::Closed:
 				std::cout << "Closed window." << std::endl;
-				testFlags |= 1;
+				pWindow->Close( );
 				break;
 			case Bit::Event::GainedFocus:
 				std::cout << "Window gained focus." << std::endl;
-				testFlags |= 2;
 				break;
 			case Bit::Event::LostFocus:
 				std::cout << "Window lost focus." << std::endl;
-				testFlags |= 4;
 				break;
 			case Bit::Event::Resized:
 				std::cout << "Resized window: " << e.Size.x << ", " << e.Size.y << std::endl;
-				testFlags |= 8;
 				break;
 			case Bit::Event::Moved:
 				std::cout << "Moved window: " << e.Position.x << ", " << e.Position.y << std::endl;
-				testFlags |= 16;
+				break;
+			case Bit::Event::MouseJustPressed:
+				std::cout << "Just pressed mouse button: " << e.Button << std::endl;
+				break;
+				case Bit::Event::MouseJustReleased:
+				std::cout << "Just released mouse button: " << e.Button << std::endl;
 				break;
 			default:
 				break;
 			}
 		}
-	}*/
+	}
 
 	// Delete(close) the window
 	delete pWindow;

@@ -22,26 +22,22 @@
 //    source distribution.
 // ///////////////////////////////////////////////////////////////////////////
 
-#include <TemplateTest.hpp>
-#include <Bit/System/MemoryLeak.hpp>
+#ifndef BIT_HASH_TEST_HPP
+#define BIT_HASH_TEST_HPP
 
-// Constructor
-TemplateTest::TemplateTest( ) :
-	Test( )
+#include <Test.hpp>
+
+class HashTest : public Test
 {
-}
 
-// Virtual functions
-void TemplateTest::Run( std::ostream & p_Trace )
-{
-	std::cout << "-------------------------------------------" << std::endl;
-	std::cout << "Starting Template test." << std::endl;
+public:
 
-	// Run the test here
-	// ...
+	// Constructor
+	HashTest( );
 
-	// Print the finish text
-	std::cout << "Finished Template Test." << std::endl;
-	std::cout << "-------------------------------------------" << std::endl;
-	
-}
+	// Virtual functions
+	virtual void Run( std::ostream & p_Trace );
+
+};
+
+#endif

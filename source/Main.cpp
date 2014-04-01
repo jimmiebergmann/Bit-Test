@@ -31,6 +31,7 @@
 #include <Bit/System/Timer.hpp>
 
 // Test classes
+#include <MouseTest.hpp>
 #include <TimerTest.hpp>
 #include <MathTest.hpp>
 #include <AngleTest.hpp>
@@ -39,12 +40,15 @@
 #include <Matrix4x4Test.hpp>
 #include <ThreadTest.hpp>
 #include <BencodeTest.hpp>
+#include <HashTest.hpp>
+#include <Sha1Test.hpp>
 #include <AddressTest.hpp>
 #include <SocketTest.hpp>
 #include <TcpSocketTest.hpp>
 #include <TcpListenerTest.hpp>
 #include <UdpSocketTest.hpp>
 #include <NtpTest.hpp>
+#include <HttpTest.hpp>
 #include <VideoModeTest.hpp>
 #include <RenderWindowTest.hpp>
 #include <OpenGLGraphicDeviceTest.hpp>
@@ -98,7 +102,7 @@ int main( )
 Bit::Bool InitializeTest( )
 {
 	// System tests
-	g_Tests.push_back( new BencodeTest );
+	g_Tests.push_back( new MouseTest );
 	g_Tests.push_back( new TimerTest );
 	g_Tests.push_back( new MathTest );
 	g_Tests.push_back( new AngleTest );
@@ -106,6 +110,9 @@ Bit::Bool InitializeTest( )
 	g_Tests.push_back( new Vector3Test );
 	g_Tests.push_back( new Matrix4x4Test );
 	g_Tests.push_back( new ThreadTest );
+	g_Tests.push_back( new BencodeTest );
+	g_Tests.push_back( new HashTest );
+	g_Tests.push_back( new Sha1Test );
 	
 	// Network tests
 	g_Tests.push_back( new AddressTest );
@@ -114,6 +121,7 @@ Bit::Bool InitializeTest( )
 	g_Tests.push_back( new TcpListenerTest );
 	g_Tests.push_back( new UdpSocketTest );
 	g_Tests.push_back( new NtpTest );
+	g_Tests.push_back( new HttpTest );
 
 	// Graphic/window tests
 	g_Tests.push_back( new VideoModeTest );

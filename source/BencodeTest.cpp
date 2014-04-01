@@ -96,6 +96,10 @@ void BencodeTest::Run( std::ostream & p_Trace )
 	TestAssert( dicRoot[ "port"].AsInt( ) == 1337 );
 	TestAssert( dicRoot[ "port"].AsString( ) == "1337" );
 
+	// Assert the Get function
+	TestAssert( dicRoot.Get( "address", 0 ).AsString( ) == "127.0.0.1" );
+	TestAssert( dicRoot.Get( "beta", 987 ).AsInt( ) == 987 );
+
 	// Append values to the list root
 	listRoot.Append( 123 );
 	listRoot.Append( 13579 );
