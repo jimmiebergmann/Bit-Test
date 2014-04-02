@@ -108,7 +108,7 @@ void NtpTest::Run( std::ostream & p_Trace )
 
 	// Close the ntp client
 	ntp.Close( );
-
+	
 	// Print the finish text
 	std::cout << "Finished NTP Test." << std::endl;
 	std::cout << "-------------------------------------------" << std::endl;

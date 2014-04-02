@@ -38,6 +38,7 @@
     <ClInclude Include="..\..\include\ThreadTest.hpp" />
     <ClInclude Include="..\..\include\TimerTest.hpp" />
     <ClInclude Include="..\..\include\UdpSocketTest.hpp" />
+    <ClInclude Include="..\..\include\UrlTest.hpp" />
     <ClInclude Include="..\..\include\Vector2Test.hpp" />
     <ClInclude Include="..\..\include\Vector3Test.hpp" />
     <ClInclude Include="..\..\include\VideoModeTest.hpp" />
@@ -62,6 +63,7 @@
     <ClCompile Include="..\..\source\ThreadTest.cpp" />
     <ClCompile Include="..\..\source\TimerTest.cpp" />
     <ClCompile Include="..\..\source\UdpSocketTest.cpp" />
+    <ClCompile Include="..\..\source\UrlTest.cpp" />
     <ClCompile Include="..\..\source\Vector2Test.cpp" />
     <ClCompile Include="..\..\source\Vector3Test.cpp" />
     <ClCompile Include="..\..\source\VideoModeTest.cpp" />
@@ -175,6 +177,9 @@
       <AdditionalIncludeDirectories>..\..\include</AdditionalIncludeDirectories>
       <TreatWarningAsError>true</TreatWarningAsError>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>

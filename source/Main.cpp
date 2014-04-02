@@ -42,6 +42,7 @@
 #include <BencodeTest.hpp>
 #include <HashTest.hpp>
 #include <Sha1Test.hpp>
+#include <UrlTest.hpp>
 #include <AddressTest.hpp>
 #include <SocketTest.hpp>
 #include <TcpSocketTest.hpp>
@@ -115,6 +116,7 @@ Bit::Bool InitializeTest( )
 	g_Tests.push_back( new Sha1Test );
 	
 	// Network tests
+	g_Tests.push_back( new UrlTest );
 	g_Tests.push_back( new AddressTest );
 	g_Tests.push_back( new SocketTest );
 	g_Tests.push_back( new TcpSocketTest );

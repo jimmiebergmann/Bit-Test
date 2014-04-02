@@ -50,6 +50,12 @@ void Sha1Test::Run( std::ostream & p_Trace )
 	sha1.Generate( "kahkahajkdhajkdhajkshdjkahjkdaudhauksuadukahukdhaudhukadukaskahsdasjdaaksdasasdasd" );
 	TestAssert( sha1.GetHash( ).AsHexString( false ) == "3dccfecf5ad959e80935d0ea460c65e12ade0618" );
 
+	sha1.Generate( "The quick brown fox jumps over the lazy dog" );
+	TestAssert( sha1.GetHash( ).AsHexString( false ) == "2fd4e1c67a2d28fced849ee1bb76e7391b93eb12" );
+
+	sha1.Generate( "The Hypertext Transfer Protocol (HTTP) is an application protocol for distributed, collaborative, hypermedia information systems.[1] HTTP is the foundation of data communication for the World Wide Web." );
+	TestAssert( sha1.GetHash( ).AsHexString( false ) == "954a3883242dcc81f416be4414dafed91eb5969e" );
+
 	// Assert a hash generation of a larger file.
 	std::ifstream fin( "ubuntu.torrent", std::fstream::binary );
 	TestAssert( fin.is_open( ) == true );

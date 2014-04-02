@@ -61,7 +61,7 @@ void HttpTest::Run( std::ostream & p_Trace )
 	fout.write( response.GetBody( ).c_str( ), response.GetBody( ).size( ) );
 
 	fout.close( );
-
+	
 	// Print the finish text
 	std::cout << "Finished HTTP Test." << std::endl;
 	std::cout << "-------------------------------------------" << std::endl;
