@@ -22,48 +22,41 @@
 //    source distribution.
 // ///////////////////////////////////////////////////////////////////////////
 
-#include <HttpTest.hpp>
-#include <Bit/Network/Http.hpp>
-#include <Bit/Network/TcpSocket.hpp>
-#include <fstream>
+#include <TorrentTest.hpp>
+#include <Bit/Network/Torrent.hpp>
 #include <Bit/System/MemoryLeak.hpp>
 
 // Constructor
-HttpTest::HttpTest( ) :
+TorrentTest::TorrentTest( ) :
 	Test( )
 {
 }
 
 // Virtual functions
-void HttpTest::Run( std::ostream & p_Trace )
+void TorrentTest::Run( std::ostream & p_Trace )
 {
 	std::cout << "-------------------------------------------" << std::endl;
-	std::cout << "Starting HTTP test." << std::endl;
+	std::cout << "Starting Torrent test." << std::endl;
 
-	// Send a request to google.com
-	Bit::Http http;
-	http.SetTimeout( 0 );
-	Bit::Http::Request request( Bit::Http::Get, "/wikipedia/commons/thumb/8/8d/Greater_coat_of_arms_of_Sweden.svg/527px-Greater_coat_of_arms_of_Sweden.svg.png" );
-	const std::string host = "upload.wikimedia.org";
-	request.SetField( "Host", host );
-	Bit::Http::Response response;
+	// Assert the torrent file reading
+	Bit::Torrent torrent;
+	TestAssert( torrent.ReadTorrentFile( "ubuntu.torrent" ) == true );
+	TestAssert( torrent.GetTrackerCount( ) > 0 );
 
-	TestAssert( http.SendRequest( request, response, Bit::Address( host ) ) == true );
-	TestAssert( response.GetStatusCode( ) == Bit::Http::Ok );
+	// Assert the tracker
+	Bit::Torrent::Tracker & tracker = torrent.GetTracker( 0 );
+	Bit::Torrent::Tracker::Response response;
+	TestAssert( tracker.SendRequest( response, torrent ) == true );
 
-	// Save the file
-	std::ofstream fout( "bild.png", std::ofstream::binary );
-	if( fout.is_open( ) == false )
-	{
-		return;
-	}
+	// Assert the response
+	TestAssert( response.GetPeerCount( ) > 0 );
 
-	fout.write( response.GetBody( ).c_str( ), response.GetBody( ).size( ) );
-
-	fout.close( );
+	// Assert the peer
+	Bit::Torrent::Peer & peer = response.GetPeer( 0 );
 	
+
 	// Print the finish text
-	std::cout << "Finished HTTP Test." << std::endl;
+	std::cout << "Finished Torrent Test." << std::endl;
 	std::cout << "-------------------------------------------" << std::endl;
 	
 }

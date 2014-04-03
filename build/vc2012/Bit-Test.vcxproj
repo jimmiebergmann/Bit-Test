@@ -24,6 +24,7 @@
     <ClInclude Include="..\..\include\BencodeTest.hpp" />
     <ClInclude Include="..\..\include\HashTest.hpp" />
     <ClInclude Include="..\..\include\HttpTest.hpp" />
+    <ClInclude Include="..\..\include\keyboardTest.hpp" />
     <ClInclude Include="..\..\include\MathTest.hpp" />
     <ClInclude Include="..\..\include\Matrix4x4Test.hpp" />
     <ClInclude Include="..\..\include\MouseTest.hpp" />
@@ -37,6 +38,7 @@
     <ClInclude Include="..\..\include\Test.hpp" />
     <ClInclude Include="..\..\include\ThreadTest.hpp" />
     <ClInclude Include="..\..\include\TimerTest.hpp" />
+    <ClInclude Include="..\..\include\TorrentTest.hpp" />
     <ClInclude Include="..\..\include\UdpSocketTest.hpp" />
     <ClInclude Include="..\..\include\UrlTest.hpp" />
     <ClInclude Include="..\..\include\Vector2Test.hpp" />
@@ -49,6 +51,7 @@
     <ClCompile Include="..\..\source\BencodeTest.cpp" />
     <ClCompile Include="..\..\source\HashTest.cpp" />
     <ClCompile Include="..\..\source\HttpTest.cpp" />
+    <ClCompile Include="..\..\source\KeyboardTest.cpp" />
     <ClCompile Include="..\..\source\Main.cpp" />
     <ClCompile Include="..\..\source\MathTest.cpp" />
     <ClCompile Include="..\..\source\Matrix4x4Test.cpp" />
@@ -62,6 +65,7 @@
     <ClCompile Include="..\..\source\TcpSocketTest.cpp" />
     <ClCompile Include="..\..\source\ThreadTest.cpp" />
     <ClCompile Include="..\..\source\TimerTest.cpp" />
+    <ClCompile Include="..\..\source\TorrentTest.cpp" />
     <ClCompile Include="..\..\source\UdpSocketTest.cpp" />
     <ClCompile Include="..\..\source\UrlTest.cpp" />
     <ClCompile Include="..\..\source\Vector2Test.cpp" />

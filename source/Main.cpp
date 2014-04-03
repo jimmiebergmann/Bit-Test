@@ -32,6 +32,7 @@
 
 // Test classes
 #include <MouseTest.hpp>
+#include <KeyboardTest.hpp>
 #include <TimerTest.hpp>
 #include <MathTest.hpp>
 #include <AngleTest.hpp>
@@ -50,6 +51,7 @@
 #include <UdpSocketTest.hpp>
 #include <NtpTest.hpp>
 #include <HttpTest.hpp>
+#include <TorrentTest.hpp>
 #include <VideoModeTest.hpp>
 #include <RenderWindowTest.hpp>
 #include <OpenGLGraphicDeviceTest.hpp>
@@ -103,7 +105,8 @@ int main( )
 Bit::Bool InitializeTest( )
 {
 	// System tests
-	g_Tests.push_back( new MouseTest );
+	/*g_Tests.push_back( new MouseTest );
+	g_Tests.push_back( new KeyboardTest );
 	g_Tests.push_back( new TimerTest );
 	g_Tests.push_back( new MathTest );
 	g_Tests.push_back( new AngleTest );
@@ -124,11 +127,12 @@ Bit::Bool InitializeTest( )
 	g_Tests.push_back( new UdpSocketTest );
 	g_Tests.push_back( new NtpTest );
 	g_Tests.push_back( new HttpTest );
-
+	g_Tests.push_back( new TorrentTest );
+	*/
 	// Graphic/window tests
 	g_Tests.push_back( new VideoModeTest );
 	g_Tests.push_back( new RenderWindowTest );
-	g_Tests.push_back( new OpenGLGraphicDeviceTest );
+	//g_Tests.push_back( new OpenGLGraphicDeviceTest );
 	
 	return true;
 }

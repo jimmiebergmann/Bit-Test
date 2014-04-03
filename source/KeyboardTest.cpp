@@ -22,48 +22,59 @@
 //    source distribution.
 // ///////////////////////////////////////////////////////////////////////////
 
-#include <HttpTest.hpp>
-#include <Bit/Network/Http.hpp>
-#include <Bit/Network/TcpSocket.hpp>
-#include <fstream>
+#include <KeyboardTest.hpp>
 #include <Bit/System/MemoryLeak.hpp>
+#include <Bit/System/Timer.hpp>
+#include <Bit/System/Keyboard.hpp>
 
 // Constructor
-HttpTest::HttpTest( ) :
+KeyboardTest::KeyboardTest( ) :
 	Test( )
 {
 }
 
 // Virtual functions
-void HttpTest::Run( std::ostream & p_Trace )
+void KeyboardTest::Run( std::ostream & p_Trace )
 {
 	std::cout << "-------------------------------------------" << std::endl;
-	std::cout << "Starting HTTP test." << std::endl;
+	std::cout << "Starting Keyboard test." << std::endl;
 
-	// Send a request to google.com
-	Bit::Http http;
-	http.SetTimeout( 0 );
-	Bit::Http::Request request( Bit::Http::Get, "/wikipedia/commons/thumb/8/8d/Greater_coat_of_arms_of_Sweden.svg/527px-Greater_coat_of_arms_of_Sweden.svg.png" );
-	const std::string host = "upload.wikimedia.org";
-	request.SetField( "Host", host );
-	Bit::Http::Response response;
+	// Assert the keyboard
+	Bit::Keyboard keyboard;
 
-	TestAssert( http.SendRequest( request, response, Bit::Address( host ) ) == true );
-	TestAssert( response.GetStatusCode( ) == Bit::Http::Ok );
-
-	// Save the file
-	std::ofstream fout( "bild.png", std::ofstream::binary );
-	if( fout.is_open( ) == false )
+	// Start the test
+	Bit::Timer timer;
+	timer.Start( );
+	Bit::Bool running = true;
+	while( timer.GetLapsedTime( ) < 10.0f && running == true )
 	{
-		return;
+		keyboard.Update( );
+
+		for( Bit::SizeType i = 0; i < Bit::Keyboard::KeyCount; i++ )
+		{
+			Bit::Keyboard::eKey key = static_cast<Bit::Keyboard::eKey>( i );
+
+			if( keyboard.KeyIsJustPressed( Bit::Keyboard::Escape ) )
+			{
+				std::cout << "Breaking test." << std::endl;
+				running = false;
+				break;
+			}
+
+			if( keyboard.KeyIsJustPressed( key ) )
+			{
+				std::cout << "Just pressed key: " << i << "(" << (char)keyboard.TranslateKeyToSystemKey( key ) << ")" << std::endl;
+			}
+
+			if( keyboard.KeyIsJustReleased( static_cast<Bit::Keyboard::eKey>( i ) ) )
+			{
+				std::cout << "Just released key: " << i << "(" << (char)keyboard.TranslateKeyToSystemKey( key ) << ")" << std::endl;
+			}
+		}
 	}
 
-	fout.write( response.GetBody( ).c_str( ), response.GetBody( ).size( ) );
-
-	fout.close( );
-	
 	// Print the finish text
-	std::cout << "Finished HTTP Test." << std::endl;
+	std::cout << "Finished Keyboard Test." << std::endl;
 	std::cout << "-------------------------------------------" << std::endl;
 	
 }
