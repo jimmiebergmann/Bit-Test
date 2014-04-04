@@ -106,9 +106,9 @@ Bit::Bool InitializeTest( )
 {
 	// System tests
 	/*g_Tests.push_back( new MouseTest );
-	g_Tests.push_back( new KeyboardTest );
+	g_Tests.push_back( new KeyboardTest );*/
 	g_Tests.push_back( new TimerTest );
-	g_Tests.push_back( new MathTest );
+	/*g_Tests.push_back( new MathTest );
 	g_Tests.push_back( new AngleTest );
 	g_Tests.push_back( new Vector2Test );
 	g_Tests.push_back( new Vector3Test );
@@ -128,12 +128,12 @@ Bit::Bool InitializeTest( )
 	g_Tests.push_back( new NtpTest );
 	g_Tests.push_back( new HttpTest );
 	g_Tests.push_back( new TorrentTest );
-	*/
+	
 	// Graphic/window tests
 	g_Tests.push_back( new VideoModeTest );
 	g_Tests.push_back( new RenderWindowTest );
-	//g_Tests.push_back( new OpenGLGraphicDeviceTest );
-	
+	g_Tests.push_back( new OpenGLGraphicDeviceTest );
+	*/
 	return true;
 }
 
@@ -179,7 +179,7 @@ void RunTests( )
 	std::cout << std::endl;
 	std::cout << "Results:" << std::endl;
 	std::cout << "-------------------------------------------" << std::endl;
-	std::cout << std::left << std::setw( wSize ) << "Tests finished in: " << g_Timer.GetTime( ) << " seconds." << std::endl;
+	std::cout << std::left << std::setw( wSize ) << "Tests finished in: " << g_Timer.GetTime( ).AsSeconds( ) << " seconds." << std::endl;
 	std::cout << std::left << std::setw( wSize ) << "Succeeded: " << g_TotalSuccess <<  "/" << g_Tests.size( ) << " tests succeeded." << std::endl;
 	std::cout << std::left << std::setw( wSize ) << "Errors: " << g_TotalErrors <<  "/" << g_Tests.size( ) << " tests failed." << std::endl;
 }

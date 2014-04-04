@@ -59,7 +59,7 @@ void MouseTest::Run( std::ostream & p_Trace )
 	// Run the button test for 3 seconds
 	std::cout << "Press all mouse buttons:" << std::endl;
 	timer.Start( );
-	while(	timer.GetLapsedTime( ) < 10.0f && !( buttonPressed[ 0 ] && buttonPressed[ 1 ] && buttonPressed[ 2 ] ) )
+	while(	timer.GetLapsedTime( ).AsSeconds( ) < 10.0f && !( buttonPressed[ 0 ] && buttonPressed[ 1 ] && buttonPressed[ 2 ] ) )
 	{
 		mouse.Update( );
 

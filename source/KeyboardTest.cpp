@@ -46,7 +46,7 @@ void KeyboardTest::Run( std::ostream & p_Trace )
 	Bit::Timer timer;
 	timer.Start( );
 	Bit::Bool running = true;
-	while( timer.GetLapsedTime( ) < 10.0f && running == true )
+	while( timer.GetLapsedTime( ).AsSeconds( ) < 10.0f && running == true )
 	{
 		keyboard.Update( );
 

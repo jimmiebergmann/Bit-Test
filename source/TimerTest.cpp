@@ -49,19 +49,24 @@ void TimerTest::Run( std::ostream & p_Trace )
 	timer.Stop( );
 	
 	// Assert the time
-	TestAssert( timer.GetTime( ) >= sleepTime - diff &&
-				timer.GetTime( ) <= sleepTime + diff );
-	std::cout << "Result: " << timer.GetTime( ) << "/" << sleepTime << "(" << ( sleepTime - diff ) << " - " << ( sleepTime + diff ) << ")." << std::endl;
+	TestAssert( timer.GetTime( ).AsSeconds( ) >= sleepTime - diff &&
+				timer.GetTime( ).AsSeconds( ) <= sleepTime + diff );
+	TestAssert( timer.GetTime( ).AsMilliseconds( ) >= (sleepTime - diff) * 1000.0f &&
+				timer.GetTime( ).AsMilliseconds( ) <= (sleepTime + diff) * 1000.0f );
+	TestAssert( timer.GetTime( ).AsNanoseconds( ) >= (sleepTime - diff) * 1000000.0f &&
+				timer.GetTime( ).AsNanoseconds( ) <= (sleepTime + diff) * 1000000.0f );
+	std::cout << "Result: " << timer.GetTime( ).AsSeconds( ) << "/" << sleepTime << "(" << ( sleepTime - diff ) << " - " << ( sleepTime + diff ) << ")." << std::endl;
 
 	// Run a Start/GetLapsedTime test
 	timer.Start( );
 	Bit::Sleep( static_cast<Bit::Uint32>( sleepTime * 1000.0f ) );
-	Bit::Float64 time = timer.GetLapsedTime( );
+	Bit::Float64 time = timer.GetLapsedTime( ).AsSeconds( );
 	
 	// Assert the time
 	TestAssert( time >= sleepTime - diff &&
 				time <= sleepTime + diff );
-	std::cout << "Result: " << timer.GetTime( ) << "/" << sleepTime << "(" << ( sleepTime - diff ) << " - " << ( sleepTime + diff ) << ")." << std::endl;
+
+	std::cout << "Result: " << timer.GetTime( ).AsSeconds( ) << "/" << sleepTime << "(" << ( sleepTime - diff ) << " - " << ( sleepTime + diff ) << ")." << std::endl;
 
 	// Print the finish text
 	std::cout << "Finished Timer Test." << std::endl;
