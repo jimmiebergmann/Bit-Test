@@ -30,11 +30,5 @@ bin
 *.swp
 
 # Extra #
-*.tga
-*.png
-*.bmp
-*.wav
-*.ogg
-*.mp3
 *.zip
 *.rar

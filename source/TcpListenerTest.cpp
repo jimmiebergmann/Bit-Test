@@ -171,8 +171,8 @@ void TcpListenerTest::Run( std::ostream & p_Trace )
 			// Try to connect
 			Bit::TcpSocket tcp;
 			tcp.SetBlocking( false );
-			conntectAttempt1 = tcp.Connect( Bit::Address( 127, 0, 0, 1 ), 12343, 1000 );
-			conntectAttempt2 = tcp.Connect( Bit::Address( 127, 0, 0, 1 ), 12343, 2000 );
+			conntectAttempt1 = tcp.Connect( Bit::Address( 127, 0, 0, 1 ), 12343, Bit::Seconds( 1 ) );
+			conntectAttempt2 = tcp.Connect( Bit::Address( 127, 0, 0, 1 ), 12343, Bit::Seconds( 2 ) );
 
 			// Sleep for 1 second
 			Bit::Sleep( 1000 );
@@ -206,9 +206,9 @@ void TcpListenerTest::Run( std::ostream & p_Trace )
 			// Receive message
 			const Bit::SizeType recvMessageSize = 14;
 			Bit::Uint8 recvMessage[ recvMessageSize ];
-			receiveAttempt1 = tcp.Receive( recvMessage, recvMessageSize, 500 ) == recvMessageSize;
+			receiveAttempt1 = tcp.Receive( recvMessage, recvMessageSize, Bit::Milliseconds( 500 ) ) == recvMessageSize;
 			std::cout << "Server: Failed to recv message after 0.5 seconds." << std::endl;
-			receiveAttempt2 = tcp.Receive( recvMessage, recvMessageSize, 1000 ) == recvMessageSize;
+			receiveAttempt2 = tcp.Receive( recvMessage, recvMessageSize, Bit::Milliseconds( 1000 ) ) == recvMessageSize;
 			std::cout << "Server: Recv message 1: " << recvMessage << std::endl;
 
 		}

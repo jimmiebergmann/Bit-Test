@@ -48,12 +48,12 @@ void TcpSocketTest::Run( std::ostream & p_Trace )
 
 	// Assert the timeout again
 	Bit::TcpSocket tcpTimeout;
-	TestAssert( tcp.Connect( Bit::Address( 109, 105, 111, 14 ), 80, 3000 ) == true );
+	TestAssert( tcp.Connect( Bit::Address( 109, 105, 111, 14 ), 80, Bit::Seconds( 3 ) ) == true );
 
 	// Assert the timeout connection again, but time it
 	Bit::Timer timer;
 	timer.Start( );
-	TestAssert( tcp.Connect( Bit::Address( 127, 0, 0, 2 ), 87, 3000 ) == false );
+	TestAssert( tcp.Connect( Bit::Address( 127, 0, 0, 2 ), 87, Bit::Seconds( 3 ) ) == false );
 	timer.Stop( );
 	TestAssert( timer.GetTime( ).AsSeconds( ) > 2.0f && timer.GetTime( ).AsSeconds( ) < 6.0f );
 

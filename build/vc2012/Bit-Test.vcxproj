@@ -24,6 +24,7 @@
     <ClInclude Include="..\..\include\BencodeTest.hpp" />
     <ClInclude Include="..\..\include\HashTest.hpp" />
     <ClInclude Include="..\..\include\HttpTest.hpp" />
+    <ClInclude Include="..\..\include\ImageTest.hpp" />
     <ClInclude Include="..\..\include\keyboardTest.hpp" />
     <ClInclude Include="..\..\include\MathTest.hpp" />
     <ClInclude Include="..\..\include\Matrix4x4Test.hpp" />
@@ -51,6 +52,7 @@
     <ClCompile Include="..\..\source\BencodeTest.cpp" />
     <ClCompile Include="..\..\source\HashTest.cpp" />
     <ClCompile Include="..\..\source\HttpTest.cpp" />
+    <ClCompile Include="..\..\source\ImageTest.cpp" />
     <ClCompile Include="..\..\source\KeyboardTest.cpp" />
     <ClCompile Include="..\..\source\Main.cpp" />
     <ClCompile Include="..\..\source\MathTest.cpp" />

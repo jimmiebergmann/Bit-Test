@@ -27,6 +27,8 @@
 #include <Bit/Graphics/VertexArrayObject.hpp>
 #include <Bit/Graphics/ShaderProgram.hpp>
 #include <Bit/Graphics/Shader.hpp>
+#include <Bit/Graphics/Texture.hpp>
+#include <Bit/System/Timer.hpp>
 #include <Bit/System/MemoryLeak.hpp>
 
 // Constructor
@@ -53,21 +55,40 @@ void OpenGLGraphicDeviceTest::Run( std::ostream & p_Trace )
 	std::cout << "Context version: " << pGraphicDevice->GetVersion( ).Major << "." << pGraphicDevice->GetVersion( ).Minor << std::endl;
 
 	// Set the clear color
-	pGraphicDevice->SetClearColor( 255, 0, 0, 255 );
+	pGraphicDevice->SetClearColor( 16, 26, 37, 255 );
 
-	// Create a VBO
-	Bit::VertexBufferObject * pVBO = pGraphicDevice->CreateVertexBufferObject( );
-	Bit::Float32 pVertexData[ ] =
+	// Create a VBO for the positions
+	Bit::VertexBufferObject * pVboPositions = pGraphicDevice->CreateVertexBufferObject( );
+	Bit::Float32 pPositionData[ ] =
 	{
-		0, 0, 0,
-		100, 0, 0,
-		100, 100, 0
+		0.0f, 0.0f, 0.0f,
+		100.0f, 0.0f, 0.0f,
+		100.0f, 100.0f, 0.0f,
+
+		0.0f, 0.0f, 0.0f,
+		100.0f, 100.0f, 0.0f,
+		0.0f, 100.0f, 0.0f
 	};
-	TestAssert( pVBO->Load( 36, pVertexData ) == true );
+	TestAssert( pVboPositions->Load( 72, pPositionData ) == true );
+
+	// Create a VBO for the texture coords
+	Bit::VertexBufferObject * pVboTextureCoords = pGraphicDevice->CreateVertexBufferObject( );
+	Bit::Float32 pTextureCoordData[ ] =
+	{
+		0.0f, 0.0f,
+		1.0f, 0.0f,
+		1.0f, 1.0f,
+
+		0.0f, 0.0f,
+		1.0f, 1.0f,
+		0.0f, 1.0f
+	};
+	TestAssert( pVboTextureCoords->Load( 48, pTextureCoordData ) == true );
 
 	// Create a VAO and add the VBO
 	Bit::VertexArrayObject * pVAO = pGraphicDevice->CreateVertexArrayObject( );
-	TestAssert( pVAO->AddVertexBuffer( *pVBO, 3, Bit::DataType::Float32 ) == true );
+	TestAssert( pVAO->AddVertexBuffer( *pVboPositions, 3, Bit::DataType::Float32 ) == true );
+	TestAssert( pVAO->AddVertexBuffer( *pVboTextureCoords, 2, Bit::DataType::Float32 ) == true );
 
 	// Create a vertex shader and compile it
 	Bit::Shader * pVertexShader = pGraphicDevice->CreateShader( Bit::ShaderType::Vertex );
@@ -82,18 +103,46 @@ void OpenGLGraphicDeviceTest::Run( std::ostream & p_Trace )
 	TestAssert( pShaderProgram->AttachShader( *pVertexShader ) == true );
 	TestAssert( pShaderProgram->AttachShader( *pFragmentShader ) == true );
 	pShaderProgram->SetAttributeLocation( "position", 0 );
+	pShaderProgram->SetAttributeLocation( "texture", 1 );
 	TestAssert( pShaderProgram->Link( ) == true );
 
 	// Set the projection matrix
-	Bit::Matrix4x4f32 matrix;
-	matrix.Orthographic( 0.0f, 800.0f, 0.0f, 600.0f, -1.0f, 1.0f );
+	Bit::Matrix4x4f32 projMatrix;
+	projMatrix.Orthographic( 0.0f, 800.0f, 0.0f, 600.0f, -1.0f, 1.0f );
+	Bit::Matrix4x4f32 viewMatrix;
+	viewMatrix.Identity( );
 	pShaderProgram->Bind( );
-	pShaderProgram->SetUniformMatrix4x4f( "projectionMatrix", matrix );
+	pShaderProgram->SetUniformMatrix4x4f( "projectionMatrix", projMatrix );
+	pShaderProgram->SetUniformMatrix4x4f( "viewMatrix", viewMatrix );
+	pShaderProgram->SetUniform1i( "colorTexture", 0 );
 	pShaderProgram->Unbind( );
+	
+	// Create a texture
+	Bit::Texture * pTexture = pGraphicDevice->CreateTexture( );
+	static const Bit::Uint8 imageData[ 9 * 4 ] =
+	{
+		255, 50, 0, 255,		0, 255, 0, 255,			0, 0, 255, 255,
+		255, 255, 255, 225,		0, 0, 0, 255,			255, 0, 255, 255,
+		0, 255, 255, 255,		255, 127, 0, 255,		127, 127, 127, 255
+	};
+	TestAssert( pTexture->LoadFromMemory( imageData, Bit::Vector2u32( 3, 3 ) ) == true );
+
+	// Start a timer
+	Bit::Timer timer;
+	timer.Start( );
+	Bit::Float64 rotation = 0.0f;
 
 	// Run the game loop
 	while( window.IsOpen( ) )
 	{
+		// Add the delta time to the rotation
+		rotation += timer.GetLapsedTime( ).AsSeconds( ) * 60.0f;
+		if( rotation >= 360.0f )
+		{
+			rotation -= 360.0f;
+		}
+		timer.Start( );
+
 		// Update the window
 		window.Update( );
 
@@ -115,9 +164,19 @@ void OpenGLGraphicDeviceTest::Run( std::ostream & p_Trace )
 		pGraphicDevice->ClearColor( );
 		pGraphicDevice->ClearDepth( );
 
+		// Update the view matrix(rotate the primitive)
+		viewMatrix.Identity( );
+		viewMatrix.Translate( 400.0f, 300.0f, 0.0f );
+		viewMatrix.RotateZ( static_cast<Bit::Float32>( rotation ) );
+		viewMatrix.Translate( -50.0f, -50.0f, 0.0f );
+		
+
 		// Render
 		pShaderProgram->Bind( );
+		pShaderProgram->SetUniformMatrix4x4f( "viewMatrix", viewMatrix );
+		pTexture->Bind( );
 		pVAO->Render( Bit::PrimitiveMode::Triangles );
+		pTexture->Unbind( );
 		pShaderProgram->Unbind( );
 
 		// Swap the buffers
@@ -125,11 +184,13 @@ void OpenGLGraphicDeviceTest::Run( std::ostream & p_Trace )
 	}
 
 	// Delete and close everything
-	delete pVBO;
+	delete pVboPositions;
+	delete pVboTextureCoords;
 	delete pVAO;
 	delete pVertexShader;
 	delete pFragmentShader;
 	delete pShaderProgram;
+	delete pTexture;
 	delete pGraphicDevice;
 	window.Close( );
 

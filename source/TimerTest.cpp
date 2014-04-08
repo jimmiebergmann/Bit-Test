@@ -53,8 +53,8 @@ void TimerTest::Run( std::ostream & p_Trace )
 				timer.GetTime( ).AsSeconds( ) <= sleepTime + diff );
 	TestAssert( timer.GetTime( ).AsMilliseconds( ) >= (sleepTime - diff) * 1000.0f &&
 				timer.GetTime( ).AsMilliseconds( ) <= (sleepTime + diff) * 1000.0f );
-	TestAssert( timer.GetTime( ).AsNanoseconds( ) >= (sleepTime - diff) * 1000000.0f &&
-				timer.GetTime( ).AsNanoseconds( ) <= (sleepTime + diff) * 1000000.0f );
+	TestAssert( timer.GetTime( ).AsMicroseconds( ) >= (sleepTime - diff) * 1000000.0f &&
+				timer.GetTime( ).AsMicroseconds( ) <= (sleepTime + diff) * 1000000.0f );
 	std::cout << "Result: " << timer.GetTime( ).AsSeconds( ) << "/" << sleepTime << "(" << ( sleepTime - diff ) << " - " << ( sleepTime + diff ) << ")." << std::endl;
 
 	// Run a Start/GetLapsedTime test

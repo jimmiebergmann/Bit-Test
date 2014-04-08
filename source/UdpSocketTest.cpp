@@ -76,17 +76,17 @@ void UdpSocketTest::Run( std::ostream & p_Trace )
 
 
 	// Assert the receive timeout
-	TestAssert( client2.Receive( client2RecvMessage, messageLength, address, client1Port, 1000 ) == -1 );
+	TestAssert( client2.Receive( client2RecvMessage, messageLength, address, client1Port, Bit::Seconds( 1 ) ) == -1 );
 	std::cout << GetLastError( ) << std::endl;
 
 	TestAssert( client1.Send( client1SendMessage, messageLength, Bit::Address( 127, 0, 0, 1 ), client2Port ) == messageLength );
 	std::cout << std::endl << "Client 1: Sent messsage(timeout): " << client1SendMessage << std::endl;
 	Sleep( 1000 );
-	TestAssert( client2.Receive( client2RecvMessage, messageLength, address, client1Port, 1200 ) == messageLength );
+	TestAssert( client2.Receive( client2RecvMessage, messageLength, address, client1Port, Bit::Milliseconds( 1200 ) ) == messageLength );
 
 	// Stop udp socket
-	client1.Stop( );
-	client2.Stop( );
+	client1.Close( );
+	client2.Close( );
 
 	// Print the finish text
 	std::cout << "Finished UDP Socket Test." << std::endl;

@@ -42,7 +42,6 @@ void HttpTest::Run( std::ostream & p_Trace )
 
 	// Send a request to google.com
 	Bit::Http http;
-	http.SetTimeout( 0 );
 	Bit::Http::Request request( Bit::Http::Get, "/wikipedia/commons/thumb/8/8d/Greater_coat_of_arms_of_Sweden.svg/527px-Greater_coat_of_arms_of_Sweden.svg.png" );
 	const std::string host = "upload.wikimedia.org";
 	request.SetField( "Host", host );
