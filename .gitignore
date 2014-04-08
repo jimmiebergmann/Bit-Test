@@ -1,10 +1,8 @@
 # Directories #
-Obj
 obj
-Lib
 lib
-Bin
-bin
+/bin/*
+!/bin/input
 /doc/*
 !/doc/Doxyfile
 

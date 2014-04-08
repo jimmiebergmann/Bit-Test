@@ -40,7 +40,7 @@ void ImageTest::Run( std::ostream & p_Trace )
 
 	// Assert the load image from file function
 	Bit::Image image1;
-	TestAssert( image1.LoadFromFile( "ImageTest.tga" ) == true );
+	TestAssert( image1.LoadFromFile( "input/imageTest.tga" ) == true );
 
 	// Assert the size
 	TestAssert( image1.GetSize( ) == Bit::Vector2u32( 4, 4 ) );

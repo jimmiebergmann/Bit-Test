@@ -57,8 +57,12 @@ void Sha1Test::Run( std::ostream & p_Trace )
 	TestAssert( sha1.GetHash( ).AsHexString( false ) == "954a3883242dcc81f416be4414dafed91eb5969e" );
 
 	// Assert a hash generation of a larger file.
-	std::ifstream fin( "ubuntu.torrent", std::fstream::binary );
+	std::ifstream fin( "input/ubuntu.torrent", std::fstream::binary );
 	TestAssert( fin.is_open( ) == true );
+	if( fin.is_open( ) == false )
+	{
+		return;
+	}
 
 	// Get the file size
 	fin.seekg( 0, std::fstream::end );

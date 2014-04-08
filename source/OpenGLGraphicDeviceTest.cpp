@@ -92,11 +92,11 @@ void OpenGLGraphicDeviceTest::Run( std::ostream & p_Trace )
 
 	// Create a vertex shader and compile it
 	Bit::Shader * pVertexShader = pGraphicDevice->CreateShader( Bit::ShaderType::Vertex );
-	TestAssert( pVertexShader->CompileFromFile( "shader.vert" ) == true );
+	TestAssert( pVertexShader->CompileFromFile( "input/shader.vert" ) == true );
 
 	// Create a fragment shader and compile it
 	Bit::Shader * pFragmentShader = pGraphicDevice->CreateShader( Bit::ShaderType::Fragment );
-	TestAssert( pFragmentShader->CompileFromFile( "shader.frag" ) == true );
+	TestAssert( pFragmentShader->CompileFromFile( "input/shader.frag" ) == true );
 
 	// Create a shader program, attach shader and link the program
 	Bit::ShaderProgram * pShaderProgram = pGraphicDevice->CreateShaderProgram( );

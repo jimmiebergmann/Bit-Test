@@ -40,7 +40,7 @@ void TorrentTest::Run( std::ostream & p_Trace )
 
 	// Assert the torrent file reading
 	Bit::Torrent torrent;
-	TestAssert( torrent.ReadTorrentFile( "ubuntu.torrent" ) == true );
+	TestAssert( torrent.ReadTorrentFile( "input/ubuntu.torrent" ) == true );
 	TestAssert( torrent.GetTrackerCount( ) > 0 );
 
 	// Assert the tracker

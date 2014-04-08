@@ -74,7 +74,7 @@ void BencodeTest::Run( std::ostream & p_Trace )
 	Bit::Bencode::Reader fileReader;
 
 	// Parse from a file
-	TestAssert( fileReader.ParseFromFile( "ubuntu.torrent", fileRoot ) == true );
+	TestAssert( fileReader.ParseFromFile( "input/ubuntu.torrent", fileRoot ) == true );
 
 	// Erase the "pieces" field, it's way too much data to display
 	fileRoot[ "info" ].Erase( "pieces" );
@@ -184,12 +184,17 @@ void BencodeTest::Run( std::ostream & p_Trace )
 	
 	// Compare writer output with original file data
 	Bit::Bencode::Value torrentRoot;
-	TestAssert( fileReader.ParseFromFile( "ubuntu.torrent", torrentRoot ) == true );
+	TestAssert( fileReader.ParseFromFile( "input/ubuntu.torrent", torrentRoot ) == true );
 	TestAssert( writer.Write( output, torrentRoot ) == true );
 
 	// Read the raw data from the torrent file
-	std::ifstream fin( "ubuntu.torrent", std::ifstream::binary );
+	std::ifstream fin( "input/ubuntu.torrent", std::ifstream::binary );
 	TestAssert( fin.is_open( ) == true );
+	if( fin.is_open( ) == false )
+	{
+		return;
+	}
+
 	fin.seekg( 0, std::ifstream::end );
 	Bit::SizeType torrentFileSize = static_cast<Bit::SizeType>( fin.tellg( ) );
 	fin.seekg( 0, std::ifstream::beg );
