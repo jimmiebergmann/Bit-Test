@@ -56,6 +56,7 @@
 #include <RenderWindowTest.hpp>
 #include <TgaFileTest.hpp>
 #include <BmpFileTest.hpp>
+#include <PngFileTest.hpp>
 #include <ImageTest.hpp>
 #include <OpenGLGraphicDeviceTest.hpp>
 #include <Bit/System/MemoryLeak.hpp>
@@ -108,7 +109,7 @@ int main( )
 Bit::Bool InitializeTest( )
 {
 	// System tests
-	g_Tests.push_back( new MouseTest );
+	/*g_Tests.push_back( new MouseTest );
 	g_Tests.push_back( new KeyboardTest );
 	g_Tests.push_back( new TimerTest );
 	g_Tests.push_back( new MathTest );
@@ -121,7 +122,6 @@ Bit::Bool InitializeTest( )
 	g_Tests.push_back( new HashTest );
 	g_Tests.push_back( new Sha1Test );
 
-	
 	// Network tests
 	g_Tests.push_back( new UrlTest );
 	g_Tests.push_back( new AddressTest );
@@ -135,13 +135,14 @@ Bit::Bool InitializeTest( )
 	
 	// Graphic/window tests
 	g_Tests.push_back( new VideoModeTest );
-	g_Tests.push_back( new RenderWindowTest );
+	g_Tests.push_back( new RenderWindowTest );*/
 	g_Tests.push_back( new TgaFileTest );
 	g_Tests.push_back( new BmpFileTest );
+	g_Tests.push_back( new PngFileTest );
 	g_Tests.push_back( new ImageTest );
-	g_Tests.push_back( new OpenGLGraphicDeviceTest );
+//	g_Tests.push_back( new OpenGLGraphicDeviceTest );
 	
-	
+	// Finish the test
 	return true;
 }
 

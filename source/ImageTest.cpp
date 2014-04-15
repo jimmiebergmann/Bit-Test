@@ -146,6 +146,29 @@ void ImageTest::Run( std::ostream & p_Trace )
 	TestAssert( image1.GetPixel( 15 ) == Bit::Pixel( 0, 0, 0, 255 ) );
 	
 
+
+
+	// Assert PNG image loading
+	TestAssert( image1.LoadFromFile( "input/imageTest.png" ) == true );
+	
+	// Assert the size
+	TestAssert( image1.GetSize( ) == Bit::Vector2u32( 4, 4 ) );
+	
+	// Assert the values with GetPixel( index )
+	TestAssert( image1.GetPixel( 0 ) == Bit::Pixel( 255, 0, 0, 255 ) );
+	TestAssert( image1.GetPixel( 1 ) == Bit::Pixel( 0, 255, 0, 255 ) );
+	TestAssert( image1.GetPixel( 2 ) == Bit::Pixel( 0, 0, 255, 255 ) );
+	TestAssert( image1.GetPixel( 3 ) == Bit::Pixel( 0, 0, 0, 255 ) );
+	for( Bit::SizeType i = 4; i < 12; i++ )
+	{
+		TestAssert( image1.GetPixel( i ) == Bit::Pixel( 255, 0, 255, 255 ) );
+	}
+	TestAssert( image1.GetPixel( 12 ) == Bit::Pixel( 255, 255, 255, 255 ) );
+	TestAssert( image1.GetPixel( 13 ) == Bit::Pixel( 255, 0, 255, 255 ) );
+	TestAssert( image1.GetPixel( 14 ) == Bit::Pixel( 255, 0, 255, 255 ) );
+	TestAssert( image1.GetPixel( 15 ) == Bit::Pixel( 0, 0, 0, 255 ) );
+
+
 	// Print the finish text
 	std::cout << "Finished Image Test." << std::endl;
 	std::cout << "-------------------------------------------" << std::endl;
