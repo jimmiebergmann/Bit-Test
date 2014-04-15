@@ -52,7 +52,7 @@ void OpenGLGraphicDeviceTest::Run( std::ostream & p_Trace )
 	Bit::GraphicDevice * pGraphicDevice = new Bit::OpenGLGraphicDevice( window );
 	TestAssert( pGraphicDevice->IsOpen( ) == true );
 
-	std::cout << "Context version: " << pGraphicDevice->GetVersion( ).Major << "." << pGraphicDevice->GetVersion( ).Minor << std::endl;
+	std::cout << "Context version: " << pGraphicDevice->GetVersion( ).GetMajor( ) << "." << pGraphicDevice->GetVersion( ).GetMinor( ) << std::endl;
 
 	// Set the clear color
 	pGraphicDevice->SetClearColor( 16, 26, 37, 255 );

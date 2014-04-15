@@ -22,6 +22,7 @@
     <ClInclude Include="..\..\include\AddressTest.hpp" />
     <ClInclude Include="..\..\include\AngleTest.hpp" />
     <ClInclude Include="..\..\include\BencodeTest.hpp" />
+    <ClInclude Include="..\..\include\BmpFileTest.hpp" />
     <ClInclude Include="..\..\include\HashTest.hpp" />
     <ClInclude Include="..\..\include\HttpTest.hpp" />
     <ClInclude Include="..\..\include\ImageTest.hpp" />
@@ -37,6 +38,7 @@
     <ClInclude Include="..\..\include\TcpListenerTest.hpp" />
     <ClInclude Include="..\..\include\TcpSocketTest.hpp" />
     <ClInclude Include="..\..\include\Test.hpp" />
+    <ClInclude Include="..\..\include\TgaFileTest.hpp" />
     <ClInclude Include="..\..\include\ThreadTest.hpp" />
     <ClInclude Include="..\..\include\TimerTest.hpp" />
     <ClInclude Include="..\..\include\TorrentTest.hpp" />
@@ -50,6 +52,7 @@
     <ClCompile Include="..\..\source\AddressTest.cpp" />
     <ClCompile Include="..\..\source\AngleTest.cpp" />
     <ClCompile Include="..\..\source\BencodeTest.cpp" />
+    <ClCompile Include="..\..\source\BmpFileTest.cpp" />
     <ClCompile Include="..\..\source\HashTest.cpp" />
     <ClCompile Include="..\..\source\HttpTest.cpp" />
     <ClCompile Include="..\..\source\ImageTest.cpp" />
@@ -65,6 +68,7 @@
     <ClCompile Include="..\..\source\SocketTest.cpp" />
     <ClCompile Include="..\..\source\TcpListenerTest.cpp" />
     <ClCompile Include="..\..\source\TcpSocketTest.cpp" />
+    <ClCompile Include="..\..\source\TgaFileTest.cpp" />
     <ClCompile Include="..\..\source\ThreadTest.cpp" />
     <ClCompile Include="..\..\source\TimerTest.cpp" />
     <ClCompile Include="..\..\source\TorrentTest.cpp" />

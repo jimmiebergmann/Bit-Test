@@ -54,6 +54,8 @@
 #include <TorrentTest.hpp>
 #include <VideoModeTest.hpp>
 #include <RenderWindowTest.hpp>
+#include <TgaFileTest.hpp>
+#include <BmpFileTest.hpp>
 #include <ImageTest.hpp>
 #include <OpenGLGraphicDeviceTest.hpp>
 #include <Bit/System/MemoryLeak.hpp>
@@ -134,6 +136,8 @@ Bit::Bool InitializeTest( )
 	// Graphic/window tests
 	g_Tests.push_back( new VideoModeTest );
 	g_Tests.push_back( new RenderWindowTest );
+	g_Tests.push_back( new TgaFileTest );
+	g_Tests.push_back( new BmpFileTest );
 	g_Tests.push_back( new ImageTest );
 	g_Tests.push_back( new OpenGLGraphicDeviceTest );
 	

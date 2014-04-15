@@ -77,6 +77,7 @@ void ImageTest::Run( std::ostream & p_Trace )
 	TestAssert( image1.GetPixel( Bit::Vector2u32( 3, 3 ) ) == Bit::Pixel( 0, 0, 0, 255 ) );
 
 
+
 	// Assert the load from memory function
 	static const Bit::Uint8 imageData[ 9 * 4 ] =
 	{
@@ -107,6 +108,43 @@ void ImageTest::Run( std::ostream & p_Trace )
 	TestAssert( image1.GetPixel( 7 ) == Bit::Pixel( 5, 6, 7, 8 ) );
 	image1.SetPixel( Bit::Vector2u32( 1, 1 ), Bit::Pixel( 1, 3, 6, 7 ) );
 	TestAssert( image1.GetPixel( Bit::Vector2u32( 1, 1 ) ) == Bit::Pixel( 1, 3, 6, 7 ) );
+
+
+
+	// Assert BMP image loading
+	TestAssert( image1.LoadFromFile( "input/imageTest.bmp" ) == true );
+	
+	// Assert the size
+	TestAssert( image1.GetSize( ) == Bit::Vector2u32( 4, 4 ) );
+
+	/*for( unsigned int y = 0; y < image1.GetSize( ).y; y++ )
+	{
+		for( unsigned int x = 0; x < image1.GetSize( ).x; x++ )
+		{
+			Bit::Pixel p =  image1.GetPixel( Bit::Vector2u32( x, y ) );
+			std::cout	<< (int)p.Red << ", "
+						<< (int)p.Green << ", "
+						<< (int)p.Blue << ", "
+						<< (int)p.Alpha << "    ";
+		}
+		std::cout << std::endl;
+	}*/
+
+	
+	// Assert the values with GetPixel( index )
+	TestAssert( image1.GetPixel( 0 ) == Bit::Pixel( 255, 0, 0, 255 ) );
+	TestAssert( image1.GetPixel( 1 ) == Bit::Pixel( 0, 255, 0, 255 ) );
+	TestAssert( image1.GetPixel( 2 ) == Bit::Pixel( 0, 0, 255, 255 ) );
+	TestAssert( image1.GetPixel( 3 ) == Bit::Pixel( 0, 0, 0, 255 ) );
+	for( Bit::SizeType i = 4; i < 12; i++ )
+	{
+		TestAssert( image1.GetPixel( i ) == Bit::Pixel( 255, 0, 255, 255 ) );
+	}
+	TestAssert( image1.GetPixel( 12 ) == Bit::Pixel( 255, 255, 255, 255 ) );
+	TestAssert( image1.GetPixel( 13 ) == Bit::Pixel( 255, 0, 255, 255 ) );
+	TestAssert( image1.GetPixel( 14 ) == Bit::Pixel( 255, 0, 255, 255 ) );
+	TestAssert( image1.GetPixel( 15 ) == Bit::Pixel( 0, 0, 0, 255 ) );
+	
 
 	// Print the finish text
 	std::cout << "Finished Image Test." << std::endl;
