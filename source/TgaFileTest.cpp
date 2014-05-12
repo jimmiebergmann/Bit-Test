@@ -41,6 +41,7 @@ void TgaFileTest::Run( std::ostream & p_Trace )
 	// Load tga file from file
 	Bit::TgaFile tga;
 	TestAssert( tga.LoadFromFile( "input/imageTest.tga" ) == true );
+	TestAssert( tga.SaveToFile( "output/tgaOut.tga", false ) == true );
 
 	// Print the finish text
 	std::cout << "Finished TGA File Test." << std::endl;

@@ -49,7 +49,7 @@ void MouseTest::Run( std::ostream & p_Trace )
 	{
 		Bit::Vector2i32 position = mouse.GetPosition( );
 		std::cout << "Position: " << position.x << "  " << position.y << std::endl;
-		Bit::Sleep( 1000 );
+		Bit::Sleep( Bit::Seconds( 1.0f ) );
 	}
 	
 	// Mouse button test

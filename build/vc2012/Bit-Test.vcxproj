@@ -31,6 +31,7 @@
     <ClInclude Include="..\..\include\Matrix4x4Test.hpp" />
     <ClInclude Include="..\..\include\MouseTest.hpp" />
     <ClInclude Include="..\..\include\NtpTest.hpp" />
+    <ClInclude Include="..\..\include\OpenALAudioDeviceTest.hpp" />
     <ClInclude Include="..\..\include\OpenGLGraphicDeviceTest.hpp" />
     <ClInclude Include="..\..\include\PngFileTest.hpp" />
     <ClInclude Include="..\..\include\RenderWindowTest.hpp" />
@@ -48,6 +49,7 @@
     <ClInclude Include="..\..\include\Vector2Test.hpp" />
     <ClInclude Include="..\..\include\Vector3Test.hpp" />
     <ClInclude Include="..\..\include\VideoModeTest.hpp" />
+    <ClInclude Include="..\..\include\WaveFileTest.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\source\AddressTest.cpp" />
@@ -63,6 +65,7 @@
     <ClCompile Include="..\..\source\Matrix4x4Test.cpp" />
     <ClCompile Include="..\..\source\MouseTest.cpp" />
     <ClCompile Include="..\..\source\NtpTest.cpp" />
+    <ClCompile Include="..\..\source\OpenALAudioDeviceTest.cpp" />
     <ClCompile Include="..\..\source\OpenGLGraphicDeviceTest.cpp" />
     <ClCompile Include="..\..\source\PngFileTest.cpp" />
     <ClCompile Include="..\..\source\RenderWindowTest.cpp" />
@@ -79,6 +82,7 @@
     <ClCompile Include="..\..\source\Vector2Test.cpp" />
     <ClCompile Include="..\..\source\Vector3Test.cpp" />
     <ClCompile Include="..\..\source\VideoModeTest.cpp" />
+    <ClCompile Include="..\..\source\WaveFileTest.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{555F7A2A-3469-4F88-B278-F091F47BA06A}</ProjectGuid>
@@ -127,31 +131,31 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Static Debug|Win32'">
-    <OutDir>$(SolutionDir)..\..\bin</OutDir>
+    <OutDir>$(SolutionDir)..\..\bin\</OutDir>
     <IntDir>$(SolutionDir)..\..\obj\Windows\32\vc2012\bit-test\Static_Debug\</IntDir>
-    <IncludePath>..\..\..\Bit-Engine\include;$(IncludePath)</IncludePath>
-    <LibraryPath>..\..\..\Bit-Engine\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>..\..\..\Bit-Engine\include;..\..\..\Bit-Engine\extlibs\include;$(IncludePath)</IncludePath>
+    <LibraryPath>..\..\..\Bit-Engine\lib;..\..\..\Bit-Engine\extlibs\libs;$(LibraryPath)</LibraryPath>
     <TargetName>$(ProjectName)-s-d</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Static Release|Win32'">
-    <OutDir>$(SolutionDir)..\..\bin</OutDir>
+    <OutDir>$(SolutionDir)..\..\bin\</OutDir>
     <IntDir>$(SolutionDir)..\..\obj\Windows\32\vc2012\bit-test\Static_Release\</IntDir>
-    <IncludePath>..\..\..\Bit-Engine\include;$(IncludePath)</IncludePath>
-    <LibraryPath>..\..\..\Bit-Engine\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>..\..\..\Bit-Engine\include;..\..\..\Bit-Engine\extlibs\include;$(IncludePath)</IncludePath>
+    <LibraryPath>..\..\..\Bit-Engine\lib;..\..\..\Bit-Engine\extlibs\libs;$(LibraryPath)</LibraryPath>
     <TargetName>$(ProjectName)-s</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Dynamic Debug|Win32'">
-    <OutDir>$(SolutionDir)..\..\bin</OutDir>
+    <OutDir>$(SolutionDir)..\..\bin\</OutDir>
     <IntDir>$(SolutionDir)..\..\obj\Windows\32\vc2012\bit-test\Dynamic_Debug\</IntDir>
-    <IncludePath>..\..\..\Bit-Engine\include;$(IncludePath)</IncludePath>
-    <LibraryPath>..\..\..\Bit-Engine\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>..\..\..\Bit-Engine\include;..\..\..\Bit-Engine\extlibs\include;$(IncludePath)</IncludePath>
+    <LibraryPath>..\..\..\Bit-Engine\lib;..\..\..\Bit-Engine\extlibs\libs;$(LibraryPath)</LibraryPath>
     <TargetName>$(ProjectName)-d</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Dynamic Release|Win32'">
-    <OutDir>$(SolutionDir)..\..\bin</OutDir>
+    <OutDir>$(SolutionDir)..\..\bin\</OutDir>
     <IntDir>$(SolutionDir)..\..\obj\Windows\32\vc2012\bit-test\Dynamic_Release\</IntDir>
-    <IncludePath>..\..\..\Bit-Engine\include;$(IncludePath)</IncludePath>
-    <LibraryPath>..\..\..\Bit-Engine\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>..\..\..\Bit-Engine\include;..\..\..\Bit-Engine\extlibs\include;$(IncludePath)</IncludePath>
+    <LibraryPath>..\..\..\Bit-Engine\lib;..\..\..\Bit-Engine\extlibs\libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Static Debug|Win32'">
     <ClCompile>
@@ -164,7 +168,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>bit-system-s-d.lib;bit-window-s-d.lib;bit-graphics-s-d.lib;bit-network-s-d.lib;opengl32.lib;wsock32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>bit-audio-s-d.lib;bit-graphics-s-d.lib;bit-network-s-d.lib;bit-system-s-d.lib;bit-window-s-d.lib;AL/Win32/OpenAL32.lib;opengl32.lib;wsock32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dynamic Debug|Win32'">
@@ -178,7 +182,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>bit-system-d.lib;bit-window-d.lib;bit-graphics-d.lib;bit-network-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>bit-audio-d.lib;bit-graphics-d.lib;bit-network-d.lib;bit-system-d.lib;bit-window-d.lib;AL/Win32/OpenAL32.lib;opengl32.lib;wsock32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dynamic Release|Win32'">
@@ -195,7 +199,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>bit-system.lib;bit-window.lib;bit-graphics.lib;bit-network.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>bit-audio.lib;bit-graphics.lib;bit-network.lib;bit-system.lib;bit-window.lib;AL/Win32/OpenAL32.lib;opengl32.lib;wsock32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Static Release|Win32'">
@@ -213,7 +217,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>bit-system-s.lib;bit-window-s.lib;bit-graphics-s.lib;bit-network-s.lib;opengl32.lib;wsock32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>bit-audio-s.lib;bit-graphics-s.lib;bit-network-s.lib;bit-system-s.lib;bit-window-s.lib;AL/Win32/OpenAL32.lib;opengl32.lib;wsock32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

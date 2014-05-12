@@ -22,31 +22,30 @@
 //    source distribution.
 // ///////////////////////////////////////////////////////////////////////////
 
-#include <PngFileTest.hpp>
-#include <Bit/Graphics/PngFile.hpp>
+#include <WaveFileTest.hpp>
+#include <Bit/Audio/WaveFile.hpp>
+#include <Bit/System/Sha1.hpp>
 #include <Bit/System/MemoryLeak.hpp>
 
 // Constructor
-PngFileTest::PngFileTest( ) :
+WaveFileTest::WaveFileTest( ) :
 	Test( )
 {
 }
 
 // Virtual functions
-void PngFileTest::Run( std::ostream & p_Trace )
+void WaveFileTest::Run( std::ostream & p_Trace )
 {
 	std::cout << "-------------------------------------------" << std::endl;
-	std::cout << "Starting PNG File test." << std::endl;
+	std::cout << "Starting Wave File test." << std::endl;
 
-	// Load tga file from file
-	Bit::PngFile png;
-	TestAssert( png.LoadFromFile( "input/imageTest.png" ) == true );
-
-	// Save png to file
-	TestAssert( png.SaveToFile( "output/pngOut.png" ) == true );
+	// Run the test here
+	Bit::WaveFile wave;
+	TestAssert( wave.LoadFromFile( "input/waveTest.wav" ) == true );
+	TestAssert( wave.SaveToFile( "output/waveOut.wav" ) == true );
 
 	// Print the finish text
-	std::cout << "Finished PNG File Test." << std::endl;
+	std::cout << "Finished Wave File Test." << std::endl;
 	std::cout << "-------------------------------------------" << std::endl;
 	
 }

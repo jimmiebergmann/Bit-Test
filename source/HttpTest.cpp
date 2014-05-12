@@ -51,7 +51,7 @@ void HttpTest::Run( std::ostream & p_Trace )
 	TestAssert( response.GetStatusCode( ) == Bit::Http::Ok );
 
 	// Save the file
-	std::ofstream fout( "bild.png", std::ofstream::binary );
+	std::ofstream fout( "httpDownload.png", std::ofstream::binary );
 	if( fout.is_open( ) == false )
 	{
 		return;

@@ -46,7 +46,7 @@ void ThreadTest::Run( std::ostream & p_Trace )
 		[ &returnValue ]( )
 		{
 			returnValue = 123;
-			Bit::Sleep( 500 );
+			Bit::Sleep( Bit::Seconds( 0.5f ) );
 		}
 	);
 
@@ -86,7 +86,7 @@ void ThreadTest::Run( std::ostream & p_Trace )
 				smartMutex.Unlock( );
 
 				// Sleep for some time
-				Bit::Sleep( 500 );
+				Bit::Sleep( Bit::Seconds( 0.5f ) );
 			}
 		}
 	);
@@ -96,7 +96,7 @@ void ThreadTest::Run( std::ostream & p_Trace )
 		[ &mutex, mutexTests, &flag, &mutexError ]( )
 		{
 			// Sleep for some time
-			Bit::Sleep( 500 );
+			Bit::Sleep( Bit::Seconds( 0.5f ) );
 
 			// Create a smart mutex
 			Bit::SmartMutex smartMutex( mutex );
@@ -119,13 +119,13 @@ void ThreadTest::Run( std::ostream & p_Trace )
 				smartMutex.Unlock( );
 
 				// Sleep for some time
-				Bit::Sleep( 500 );
+				Bit::Sleep( Bit::Seconds( 0.5f ) );
 			}
 		}
 	);
 
 	// Sleep for some time
-	Bit::Sleep( 500 );
+	Bit::Sleep( Bit::Seconds( 0.5f ) );
 
 	// Assert the IsRunning function
 	TestAssert( thread1.IsRunning( ) == true );

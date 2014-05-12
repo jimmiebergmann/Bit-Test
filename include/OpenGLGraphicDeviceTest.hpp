@@ -26,6 +26,7 @@
 #define BIT_OPENGL_GRAPHIC_DEVICE_TEST_HPP
 
 #include <Test.hpp>
+#include <Bit/Window/Event.hpp>
 
 class OpenGLGraphicDeviceTest : public Test
 {
@@ -38,6 +39,13 @@ public:
 	// Virtual functions
 	virtual void Run( std::ostream & p_Trace );
 
+private:
+
+	Bit::Bool Load( );
+	void Unload( );
+	void Render( );
+	Bit::Bool HandleEvent( const Bit::Event & p_Event );
+	
 };
 
 #endif

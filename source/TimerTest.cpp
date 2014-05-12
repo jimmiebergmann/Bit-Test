@@ -45,7 +45,7 @@ void TimerTest::Run( std::ostream & p_Trace )
 
 	// Run a Start/Stop/GetTime test
 	timer.Start( );
-	Bit::Sleep( static_cast<Bit::Uint32>( sleepTime * 1000.0f ) );
+	Bit::Sleep( Bit::Seconds( sleepTime ) );
 	timer.Stop( );
 	
 	// Assert the time
@@ -59,7 +59,7 @@ void TimerTest::Run( std::ostream & p_Trace )
 
 	// Run a Start/GetLapsedTime test
 	timer.Start( );
-	Bit::Sleep( static_cast<Bit::Uint32>( sleepTime * 1000.0f ) );
+	Bit::Sleep( Bit::Seconds( sleepTime ) );
 	Bit::Float64 time = timer.GetLapsedTime( ).AsSeconds( );
 	
 	// Assert the time

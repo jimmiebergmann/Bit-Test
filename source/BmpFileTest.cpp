@@ -42,6 +42,9 @@ void BmpFileTest::Run( std::ostream & p_Trace )
 	Bit::BmpFile bmp;
 	TestAssert( bmp.LoadFromFile( "input/imageTest.bmp" ) == true );
 
+	// Save the image
+	TestAssert( bmp.SaveToFile( "output/bmpOut.bmp" ) == true );
+
 	// Print the finish text
 	std::cout << "Finished BMP File Test." << std::endl;
 	std::cout << "-------------------------------------------" << std::endl;

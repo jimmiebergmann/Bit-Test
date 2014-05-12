@@ -104,7 +104,7 @@ void TcpListenerTest::Run( std::ostream & p_Trace )
 		[ &clientConnected, &clientSent, &clientRecv ] ( )
 		{
 			// Sleep for some time
-			Bit::Sleep( 500 );
+			Bit::Sleep( Bit::Seconds( 0.5f ) );
 
 			// Connect to local host
 			Bit::TcpSocket tcp;
@@ -166,7 +166,7 @@ void TcpListenerTest::Run( std::ostream & p_Trace )
 	Bit::Thread clientThread2(
 		[ &conntectAttempt1, &conntectAttempt2 ] ( )
 		{
-			Bit::Sleep( 500 );
+			Bit::Sleep( Bit::Seconds( 0.5f ) );
 
 			// Try to connect
 			Bit::TcpSocket tcp;
@@ -175,7 +175,7 @@ void TcpListenerTest::Run( std::ostream & p_Trace )
 			conntectAttempt2 = tcp.Connect( Bit::Address( 127, 0, 0, 1 ), 12343, Bit::Seconds( 2 ) );
 
 			// Sleep for 1 second
-			Bit::Sleep( 1000 );
+			Bit::Sleep( Bit::Seconds( 1.0f ) );
 
 			// Send a message
 			const Bit::SizeType sendMessageSize = 14;
@@ -193,7 +193,7 @@ void TcpListenerTest::Run( std::ostream & p_Trace )
 		[ &listenAttempt1, &receiveAttempt1, &receiveAttempt2 ] ( )
 		{
 			Bit::TcpListener tcpListener( 12343 );
-			Bit::Sleep( 2000 );
+			Bit::Sleep( Bit::Seconds( 2.0f ) );
 
 			// Listen for incomming connections( client connection attempt 2 )
 			Bit::TcpSocket tcp;

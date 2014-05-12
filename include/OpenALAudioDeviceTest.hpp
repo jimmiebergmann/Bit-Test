@@ -22,31 +22,22 @@
 //    source distribution.
 // ///////////////////////////////////////////////////////////////////////////
 
-#include <PngFileTest.hpp>
-#include <Bit/Graphics/PngFile.hpp>
-#include <Bit/System/MemoryLeak.hpp>
+#ifndef BIT_OPENAL_AUDIO_DEVICE_TEST_HPP
+#define BIT_OPENAL_AUDIO_DEVICE_TEST_HPP
 
-// Constructor
-PngFileTest::PngFileTest( ) :
-	Test( )
+#include <Test.hpp>
+
+class OpenALAudioDeviceTest : public Test
 {
-}
 
-// Virtual functions
-void PngFileTest::Run( std::ostream & p_Trace )
-{
-	std::cout << "-------------------------------------------" << std::endl;
-	std::cout << "Starting PNG File test." << std::endl;
+public:
 
-	// Load tga file from file
-	Bit::PngFile png;
-	TestAssert( png.LoadFromFile( "input/imageTest.png" ) == true );
+	// Constructor
+	OpenALAudioDeviceTest( );
 
-	// Save png to file
-	TestAssert( png.SaveToFile( "output/pngOut.png" ) == true );
+	// Virtual functions
+	virtual void Run( std::ostream & p_Trace );
 
-	// Print the finish text
-	std::cout << "Finished PNG File Test." << std::endl;
-	std::cout << "-------------------------------------------" << std::endl;
-	
-}
+};
+
+#endif

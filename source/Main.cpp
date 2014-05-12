@@ -31,6 +31,7 @@
 #include <Bit/System/Timer.hpp>
 
 // Test classes
+// System tests
 #include <MouseTest.hpp>
 #include <KeyboardTest.hpp>
 #include <TimerTest.hpp>
@@ -43,6 +44,12 @@
 #include <BencodeTest.hpp>
 #include <HashTest.hpp>
 #include <Sha1Test.hpp>
+
+// Audio tets
+#include <WaveFileTest.hpp>
+#include <OpenALAudioDeviceTest.hpp>
+
+// Network tests
 #include <UrlTest.hpp>
 #include <AddressTest.hpp>
 #include <SocketTest.hpp>
@@ -52,6 +59,8 @@
 #include <NtpTest.hpp>
 #include <HttpTest.hpp>
 #include <TorrentTest.hpp>
+
+// Graphic tests
 #include <VideoModeTest.hpp>
 #include <RenderWindowTest.hpp>
 #include <TgaFileTest.hpp>
@@ -59,6 +68,8 @@
 #include <PngFileTest.hpp>
 #include <ImageTest.hpp>
 #include <OpenGLGraphicDeviceTest.hpp>
+
+// Memory leak checker
 #include <Bit/System/MemoryLeak.hpp>
 
 // Global typedefs
@@ -108,8 +119,10 @@ int main( )
 
 Bit::Bool InitializeTest( )
 {
+	// Comment out tests you don't want to run.
+
 	// System tests
-	/*g_Tests.push_back( new MouseTest );
+	g_Tests.push_back( new MouseTest );
 	g_Tests.push_back( new KeyboardTest );
 	g_Tests.push_back( new TimerTest );
 	g_Tests.push_back( new MathTest );
@@ -121,6 +134,10 @@ Bit::Bool InitializeTest( )
 	g_Tests.push_back( new BencodeTest );
 	g_Tests.push_back( new HashTest );
 	g_Tests.push_back( new Sha1Test );
+	
+	// Audio tests
+	g_Tests.push_back( new WaveFileTest );
+	g_Tests.push_back( new OpenALAudioDeviceTest );
 
 	// Network tests
 	g_Tests.push_back( new UrlTest );
@@ -135,12 +152,12 @@ Bit::Bool InitializeTest( )
 	
 	// Graphic/window tests
 	g_Tests.push_back( new VideoModeTest );
-	g_Tests.push_back( new RenderWindowTest );*/
+	g_Tests.push_back( new RenderWindowTest );
 	g_Tests.push_back( new TgaFileTest );
 	g_Tests.push_back( new BmpFileTest );
 	g_Tests.push_back( new PngFileTest );
 	g_Tests.push_back( new ImageTest );
-//	g_Tests.push_back( new OpenGLGraphicDeviceTest );
+	g_Tests.push_back( new OpenGLGraphicDeviceTest );
 	
 	// Finish the test
 	return true;
