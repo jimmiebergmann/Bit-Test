@@ -67,6 +67,7 @@
 #include <BmpFileTest.hpp>
 #include <PngFileTest.hpp>
 #include <ImageTest.hpp>
+#include <ObjFileTest.hpp>
 #include <OpenGLGraphicDeviceTest.hpp>
 
 // Memory leak checker
@@ -157,6 +158,7 @@ Bit::Bool InitializeTest( )
 	g_Tests.push_back( new BmpFileTest );
 	g_Tests.push_back( new PngFileTest );
 	g_Tests.push_back( new ImageTest );
+	g_Tests.push_back( new ObjFileTest );
 	g_Tests.push_back( new OpenGLGraphicDeviceTest );
 	
 	// Finish the test

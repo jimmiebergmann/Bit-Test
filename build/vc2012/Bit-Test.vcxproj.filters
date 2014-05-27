@@ -32,6 +32,7 @@
     <ClCompile Include="..\..\source\PngFileTest.cpp" />
     <ClCompile Include="..\..\source\OpenALAudioDeviceTest.cpp" />
     <ClCompile Include="..\..\source\WaveFileTest.cpp" />
+    <ClCompile Include="..\..\source\ObjFileTest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\AddressTest.hpp" />
@@ -65,5 +66,6 @@
     <ClInclude Include="..\..\include\PngFileTest.hpp" />
     <ClInclude Include="..\..\include\OpenALAudioDeviceTest.hpp" />
     <ClInclude Include="..\..\include\WaveFileTest.hpp" />
+    <ClInclude Include="..\..\include\ObjFileTest.hpp" />
   </ItemGroup>
 </Project>
