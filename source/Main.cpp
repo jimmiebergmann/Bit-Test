@@ -68,6 +68,7 @@
 #include <PngFileTest.hpp>
 #include <ImageTest.hpp>
 #include <ObjFileTest.hpp>
+#include <AnimationTest.hpp>
 #include <OpenGLGraphicDeviceTest.hpp>
 
 // Memory leak checker
@@ -123,7 +124,7 @@ Bit::Bool InitializeTest( )
 	// Comment out tests you don't want to run.
 
 	// System tests
-	g_Tests.push_back( new MouseTest );
+	/*g_Tests.push_back( new MouseTest );
 	g_Tests.push_back( new KeyboardTest );
 	g_Tests.push_back( new TimerTest );
 	g_Tests.push_back( new MathTest );
@@ -158,8 +159,9 @@ Bit::Bool InitializeTest( )
 	g_Tests.push_back( new BmpFileTest );
 	g_Tests.push_back( new PngFileTest );
 	g_Tests.push_back( new ImageTest );
-	g_Tests.push_back( new ObjFileTest );
-	g_Tests.push_back( new OpenGLGraphicDeviceTest );
+	g_Tests.push_back( new ObjFileTest );*/
+	g_Tests.push_back( new AnimationTest );
+	//g_Tests.push_back( new OpenGLGraphicDeviceTest );
 	
 	// Finish the test
 	return true;

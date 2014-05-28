@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClInclude Include="..\..\include\AddressTest.hpp" />
     <ClInclude Include="..\..\include\AngleTest.hpp" />
+    <ClInclude Include="..\..\include\AnimationTest.hpp" />
     <ClInclude Include="..\..\include\BencodeTest.hpp" />
     <ClInclude Include="..\..\include\BmpFileTest.hpp" />
     <ClInclude Include="..\..\include\HashTest.hpp" />
@@ -55,6 +56,7 @@
   <ItemGroup>
     <ClCompile Include="..\..\source\AddressTest.cpp" />
     <ClCompile Include="..\..\source\AngleTest.cpp" />
+    <ClCompile Include="..\..\source\AnimationTest.cpp" />
     <ClCompile Include="..\..\source\BencodeTest.cpp" />
     <ClCompile Include="..\..\source\BmpFileTest.cpp" />
     <ClCompile Include="..\..\source\HashTest.cpp" />
