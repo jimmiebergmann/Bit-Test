@@ -34,6 +34,8 @@
     <ClCompile Include="..\..\source\WaveFileTest.cpp" />
     <ClCompile Include="..\..\source\ObjFileTest.cpp" />
     <ClCompile Include="..\..\source\AnimationTest.cpp" />
+    <ClCompile Include="..\..\source\ModelTest.cpp" />
+    <ClCompile Include="..\..\source\MatrixManagerTest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\AddressTest.hpp" />
@@ -69,5 +71,8 @@
     <ClInclude Include="..\..\include\WaveFileTest.hpp" />
     <ClInclude Include="..\..\include\ObjFileTest.hpp" />
     <ClInclude Include="..\..\include\AnimationTest.hpp" />
+    <ClInclude Include="..\..\include\ModelTest.hpp" />
+    <ClInclude Include="..\..\include\MatrixManagerTest.hpp" />
+    <ClInclude Include="..\..\include\MyModelRenderer.hpp" />
   </ItemGroup>
 </Project>

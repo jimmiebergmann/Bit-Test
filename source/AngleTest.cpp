@@ -40,10 +40,10 @@ void AngleTest::Run( std::ostream & p_Trace )
 	std::cout << "Starting Angle test." << std::endl;
 
 	// Create some angles
-	Bit::Angle<Bit::Float64> angle1( Bit::Pi * 0.5f );
-	Bit::Angle<Bit::Float64> angle2( Bit::Pi );
-	Bit::Angle<Bit::Float64> angle3( Bit::Pi * 1.5f );
-	Bit::Angle<Bit::Float64> angle4( Bit::Pi * 2.0f );
+	Bit::Angle angle1 = Bit::Radians( Bit::Pi * 0.5f );
+	Bit::Angle angle2 = Bit::Radians( Bit::Pi );
+	Bit::Angle angle3 = Bit::Radians( Bit::Pi * 1.5f );
+	Bit::Angle angle4 = Bit::Radians( Bit::Pi * 2.0f );
 
 	// Asssert the ( ) operator (radians)
 	TestAssert( Bit::Math::EqualEpsilon<Bit::Float64>( angle1( ), Bit::Pi * 0.5f ) );

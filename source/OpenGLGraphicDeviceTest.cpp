@@ -31,6 +31,9 @@
 #include <Bit/Graphics/ShaderProgram.hpp>
 #include <Bit/Graphics/Shader.hpp>
 #include <Bit/Graphics/Texture.hpp>
+#include <Bit/System/MatrixManager.hpp>
+#include <MyModelRenderer.hpp>
+#include <Bit/Graphics/Model.hpp>
 #include <Bit/System/Timer.hpp>
 #include <Bit/System/MemoryLeak.hpp>
 
@@ -52,11 +55,14 @@ static Bit::VertexArray * g_pQuadVAO = NULL;
 static Bit::Shader * g_pVertexShader = NULL;
 static Bit::Shader * g_pFragmentShader = NULL;
 static Bit::ShaderProgram * g_pShaderProgram = NULL; 
+static Bit::Model * g_pModel = NULL;
+static Bit::ModelRenderer * g_pModelRenderer = NULL;
 static Bit::Vector2u32 g_WindowSize( 800, 600 );
 static Bit::Matrix4x4f32 g_PerspectiveMatrix;
 static Bit::Matrix4x4f32 g_OrthographicMatrix;
 static Bit::Uint32 g_AnisotropicLevel = 0;
 static Bit::Float32 g_Rotation = 0.0f;
+static Bit::Float32 g_RotationSpeed = 0.3f;
 
 // Constructor
 OpenGLGraphicDeviceTest::OpenGLGraphicDeviceTest( ) :
@@ -84,13 +90,9 @@ void OpenGLGraphicDeviceTest::Run( std::ostream & p_Trace )
 	// Run the game loop
 	while( g_Window.IsOpen( ) )
 	{
-		// Add the delta time to the rotation
-		g_Rotation += static_cast<Bit::Float32>( timer.GetLapsedTime( ).AsSeconds( ) * 10.0f );
-		if( g_Rotation >= 360.0f )
-		{
-			g_Rotation -= 360.0f;
-		}
-		timer.Start( );
+		// Calculate the rotation
+		Bit::Float32 time = static_cast<Bit::Float32>( timer.GetLapsedTime( ).AsSeconds( ) );
+		g_Rotation = 45.0f + ( ( Bit::Math::Sin<Bit::Float32>( time * g_RotationSpeed ) ) * 45.0f );
 
 		// Update the window
 		g_Window.Update( );
@@ -286,7 +288,13 @@ Bit::Bool OpenGLGraphicDeviceTest::Load( )
 	g_pShaderProgram->Bind( );
 	g_pShaderProgram->SetUniform1i( "colorTexture", 0 );
 	g_pShaderProgram->Unbind( );
-	
+
+	// Initialize the matrix manager.
+	Bit::MatrixManager::SetCurrentStack( Bit::MatrixManager::Projection );
+	Bit::MatrixManager::SetMatrix( g_PerspectiveMatrix );
+	Bit::MatrixManager::SetCurrentStack( Bit::MatrixManager::ModelView );
+	Bit::MatrixManager::LoadIdentity( );
+
 	// Create the floor texture
 	TestAssert( ( g_pFloorTexture = g_pGraphicDevice->CreateTexture( ) ) != NULL );
 	if( g_pFloorTexture == NULL )
@@ -315,11 +323,34 @@ Bit::Bool OpenGLGraphicDeviceTest::Load( )
 	g_pQuadTexture->SetWrapping( Bit::Texture::Clamp, Bit::Texture::Clamp );
 
 
+	// Create and load a model
+	TestAssert( ( g_pModel = g_pGraphicDevice->CreateModel( ) ) != NULL );
+	if( g_pModel == NULL )
+	{
+		Unload( );
+		return false;
+	}
+	TestAssert( g_pModel->LoadFromFile( "input/objModel.obj" ) != false );
+
+	// Create and load the model renderer.
+	g_pModelRenderer = new MyModelRenderer( );
+	g_pModelRenderer->Load( *g_pGraphicDevice );
+
 	return true;
 }
 
 void OpenGLGraphicDeviceTest::Unload( )
 {
+	if( g_pModelRenderer )
+	{
+		delete g_pModelRenderer;
+		g_pModelRenderer = NULL;
+	}
+	if( g_pModel )
+	{
+		delete g_pModel;
+		g_pModel = NULL;
+	}
 	if( g_pFloorVboPositions )
 	{
 		delete g_pFloorVboPositions;
@@ -411,21 +442,30 @@ void OpenGLGraphicDeviceTest::Render( )
 	g_pGraphicDevice->ClearColor( );
 	g_pGraphicDevice->ClearDepth( );
 
-	// Bind the shader
-	g_pShaderProgram->Bind( );
-
 
 	// Render the quad
 	viewMatrix.Identity( );
 	viewMatrix.Translate( 100.0f, 500.0f, 0.0f );
 	viewMatrix.RotateZ( static_cast<Bit::Float32>( g_Rotation * 2.0f ) );
 	viewMatrix.Translate( -50.0f, -50.0f, 0.0f );
+	g_pShaderProgram->Bind( );
 	g_pShaderProgram->SetUniformMatrix4x4f( "projectionMatrix", g_OrthographicMatrix );
 	g_pShaderProgram->SetUniformMatrix4x4f( "viewMatrix", viewMatrix );
 	
 	g_pQuadTexture->Bind( );
 	g_pQuadVAO->Render( Bit::PrimitiveMode::Triangles );
 	g_pQuadTexture->Unbind( );
+	g_pShaderProgram->Unbind( );
+	
+
+	// Render the model
+	Bit::MatrixManager::Push( );
+	Bit::MatrixManager::LoadIdentity( );
+	Bit::MatrixManager::Translate( 0.0f, 0.3f, -2.0f );
+	Bit::MatrixManager::Scale( 0.5f, 0.5f, 0.5f );
+	Bit::MatrixManager::RotateY( g_Rotation * 4.0f );
+	g_pModelRenderer->Render( *g_pModel );
+	Bit::MatrixManager::Pop( );
 
 
 	// Render the floor
@@ -434,15 +474,16 @@ void OpenGLGraphicDeviceTest::Render( )
 						Bit::Vector3f32( 0.0f, 1.0f, 0.0f ) );
 	viewMatrix.RotateY( g_Rotation );	
 
+	g_pShaderProgram->Bind( );
 	g_pShaderProgram->SetUniformMatrix4x4f( "projectionMatrix", g_PerspectiveMatrix );
 	g_pShaderProgram->SetUniformMatrix4x4f( "viewMatrix", viewMatrix );
 	
 	g_pFloorTexture->Bind( );
 	g_pFloorVAO->Render( Bit::PrimitiveMode::Triangles );
 	g_pFloorTexture->Unbind( );
-
-
 	g_pShaderProgram->Unbind( );
+	
+
 
 	// Unbind the framebuffer
 	g_pFramebuffer->Unbind( );
@@ -472,6 +513,11 @@ Bit::Bool OpenGLGraphicDeviceTest::HandleEvent( const Bit::Event & p_Event )
 		{
 			switch( p_Event.Key )
 			{
+				case Bit::Keyboard::Escape:
+				{
+					g_Window.Close( );
+				}
+				break;
 				case Bit::Keyboard::Up:
 				{
 					if( g_AnisotropicLevel < 16 )
@@ -528,6 +574,16 @@ Bit::Bool OpenGLGraphicDeviceTest::HandleEvent( const Bit::Event & p_Event )
 				case Bit::Keyboard::Num8:
 				{
 					g_pFloorTexture->SetMinificationFilter( Bit::Texture::NearestMipmapLinear );
+				}
+				break;
+				case Bit::Keyboard::Plus:
+				{
+					g_RotationSpeed += 0.1f;
+				}
+				break;
+				case Bit::Keyboard::Minus:
+				{
+					g_RotationSpeed -= 0.1f;
 				}
 				break;
 			default:

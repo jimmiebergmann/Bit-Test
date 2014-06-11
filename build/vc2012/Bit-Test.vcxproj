@@ -30,7 +30,10 @@
     <ClInclude Include="..\..\include\keyboardTest.hpp" />
     <ClInclude Include="..\..\include\MathTest.hpp" />
     <ClInclude Include="..\..\include\Matrix4x4Test.hpp" />
+    <ClInclude Include="..\..\include\MatrixManagerTest.hpp" />
+    <ClInclude Include="..\..\include\ModelTest.hpp" />
     <ClInclude Include="..\..\include\MouseTest.hpp" />
+    <ClInclude Include="..\..\include\MyModelRenderer.hpp" />
     <ClInclude Include="..\..\include\NtpTest.hpp" />
     <ClInclude Include="..\..\include\ObjFileTest.hpp" />
     <ClInclude Include="..\..\include\OpenALAudioDeviceTest.hpp" />
@@ -66,6 +69,8 @@
     <ClCompile Include="..\..\source\Main.cpp" />
     <ClCompile Include="..\..\source\MathTest.cpp" />
     <ClCompile Include="..\..\source\Matrix4x4Test.cpp" />
+    <ClCompile Include="..\..\source\MatrixManagerTest.cpp" />
+    <ClCompile Include="..\..\source\ModelTest.cpp" />
     <ClCompile Include="..\..\source\MouseTest.cpp" />
     <ClCompile Include="..\..\source\NtpTest.cpp" />
     <ClCompile Include="..\..\source\ObjFileTest.cpp" />

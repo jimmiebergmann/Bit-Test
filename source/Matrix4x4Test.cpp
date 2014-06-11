@@ -136,6 +136,25 @@ void Matrix4x4Test::Run( std::ostream & p_Trace )
 	TestAssert( matScale.m[ 14 ] == 0 );
 	TestAssert( matScale.m[ 15 ] == 1 );
 
+	// Assert the equal and not equal to operators
+	Bit::Matrix4x4<Bit::Uint32> matOp1( 1, 2, 3, 4,
+										5, 6, 7, 8,
+										9, 10, 11, 12,
+										13, 14, 15, 16 );
+	Bit::Matrix4x4<Bit::Uint32> matOp2;
+	matOp2.Identity( );
+
+	TestAssert( ( matOp1 == matOp1 ) == true );
+	TestAssert( ( matOp2 == matOp2 ) == true );
+	TestAssert( ( matOp1 == matOp2 ) == false );
+	TestAssert( ( matOp2 == matOp1 ) == false );
+
+	TestAssert( ( matOp1 != matOp2 ) == true );
+	TestAssert( ( matOp2 != matOp1 ) == true );
+
+	TestAssert( ( matOp1 != matOp1 ) == false );
+	TestAssert( ( matOp2 != matOp2 ) == false );
+
 	// Print the finish text
 	std::cout << "Finished Matrix4x4 Test." << std::endl;
 	std::cout << "-------------------------------------------" << std::endl;

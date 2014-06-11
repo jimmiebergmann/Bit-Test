@@ -111,19 +111,19 @@ void Vector3Test::Run( std::ostream & p_Trace )
 
 	// Assert the rotate functions
 	Bit::Vector3f32 vecRotate1( 0.0f, 0.0f, -1.0f );
-	vecRotate1.RotateX( 90.0f );
+	vecRotate1.RotateX( Bit::Degrees( 90.0f ) );
 	TestAssert( Bit::Math::EqualEpsilonHalf<Bit::Float64>( vecRotate1.x, 0.0f ) &&
 				Bit::Math::EqualEpsilonHalf<Bit::Float64>( vecRotate1.y, 1.0f ) &&
 				Bit::Math::EqualEpsilonHalf<Bit::Float64>( vecRotate1.z, 0.0f ) );
 
 	Bit::Vector3f32 vecRotate2( 0.0f, 0.0f, -1.0f );
-	vecRotate2.RotateY( 90.0f );
+	vecRotate2.RotateY( Bit::Degrees( 90.0f ) );
 	TestAssert( Bit::Math::EqualEpsilonHalf<Bit::Float64>( vecRotate2.x, 1.0f ) &&
 				Bit::Math::EqualEpsilonHalf<Bit::Float64>( vecRotate2.y, 0.0f ) &&
 				Bit::Math::EqualEpsilonHalf<Bit::Float64>( vecRotate2.z, 0.0f ) );
 
 	Bit::Vector3f32 vecRotate3( 0.0f, 1.0f, 0.0f );
-	vecRotate3.RotateZ( 90.0f );
+	vecRotate3.RotateZ( Bit::Degrees( 90.0f ) );
 	TestAssert( Bit::Math::EqualEpsilonHalf<Bit::Float64>( vecRotate3.x, -1.0f ) &&
 				Bit::Math::EqualEpsilonHalf<Bit::Float64>( vecRotate3.y, 0.0f ) &&
 				Bit::Math::EqualEpsilonHalf<Bit::Float64>( vecRotate3.z, 0.0f ) );

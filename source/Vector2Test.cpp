@@ -103,7 +103,7 @@ void Vector2Test::Run( std::ostream & p_Trace )
 
 	// Assert the rotate function
 	Bit::Vector2f32 vecRotate( 0.0f, 1.0f );
-	vecRotate.Rotate( 90.0f );
+	vecRotate.Rotate( Bit::Degrees( 90.0f ) );
 	TestAssert( Bit::Math::EqualEpsilonHalf<Bit::Float64>( vecRotate.x, -1.0f ) &&
 				Bit::Math::EqualEpsilonHalf<Bit::Float64>( vecRotate.y, 0.0f ) );
 	

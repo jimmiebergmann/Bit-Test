@@ -127,7 +127,6 @@ void AnimationTest::Run( std::ostream & p_Trace )
 					TestAssert( pTrack1->GetKeyFrame( Bit::Microseconds( 200 ) ) == pTrack1->GetKeyFrame( static_cast<Bit::SizeType>( 4 ) ) );
 				}
 
-					
 			}
 		}
 
