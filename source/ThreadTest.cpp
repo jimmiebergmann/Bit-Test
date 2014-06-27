@@ -73,7 +73,7 @@ void ThreadTest::Run( std::ostream & p_Trace )
 				// Lock the mutex
 				smartMutex.Lock( );
 				std::cout << "Hello from thread 1" << std::endl;
-				
+
 				// Check the flag and set it.
 				if( flag != false )
 				{
@@ -87,6 +87,7 @@ void ThreadTest::Run( std::ostream & p_Trace )
 
 				// Sleep for some time
 				Bit::Sleep( Bit::Seconds( 0.5f ) );
+
 			}
 		}
 	);
@@ -96,7 +97,7 @@ void ThreadTest::Run( std::ostream & p_Trace )
 		[ &mutex, mutexTests, &flag, &mutexError ]( )
 		{
 			// Sleep for some time
-			Bit::Sleep( Bit::Seconds( 0.5f ) );
+			Bit::Sleep( Bit::Seconds( 0.4f ) );
 
 			// Create a smart mutex
 			Bit::SmartMutex smartMutex( mutex );
@@ -106,7 +107,7 @@ void ThreadTest::Run( std::ostream & p_Trace )
 				// Lock the mutex
 				smartMutex.Lock( );
 				std::cout << "Hello from thread 2" << std::endl;
-				
+
 				// Check the flag and set it.
 				if( flag != true )
 				{
@@ -143,5 +144,5 @@ void ThreadTest::Run( std::ostream & p_Trace )
 	// Print the finish text
 	std::cout << "Finished Thread Test." << std::endl;
 	std::cout << "-------------------------------------------" << std::endl;
-	
+
 }

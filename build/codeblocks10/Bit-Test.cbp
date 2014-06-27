@@ -7,24 +7,47 @@
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="debug_static">
-				<Option output="../../bin/Bit-Test" prefix_auto="1" extension_auto="1" />
+				<Option output="../../bin/Bit-Test-s-d" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="../../bin" />
 				<Option object_output="../../obj/Linux/32/debug_static/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add option="-std=gnu++0x" />
+					<Add option="-DBIT_STATIC" />
+					<Add directory="../../include" />
+					<Add directory="../../../Bit-Engine/include" />
+					<Add directory="../../../Bit-Engine/extlibs/include" />
 				</Compiler>
+				<Linker>
+					<Add option="-lX11" />
+					<Add library="../../../Bit-Engine/lib/bit-system-s-d.a" />
+					<Add library="X11" />
+					<Add library="GL" />
+					<Add library="pthread" />
+				</Linker>
 			</Target>
 			<Target title="release_static">
-				<Option output="../../bin/Bit-Test" prefix_auto="1" extension_auto="1" />
+				<Option output="../../bin/Bit-Test-s" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="../../bin" />
 				<Option object_output="../../obj/Linux/32/release_static/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add option="-std=gnu++0x" />
+					<Add option="-DBIT_STATIC" />
+					<Add directory="../../include" />
+					<Add directory="../../../Bit-Engine/include" />
+					<Add directory="../../../Bit-Engine/extlibs/include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
+					<Add library="../../../Bit-Engine/lib/bit-system-s.a" />
+					<Add library="X11" />
+					<Add library="GL" />
+					<Add library="pthread" />
 				</Linker>
 			</Target>
 		</Build>
@@ -32,7 +55,36 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="main.cpp" />
+		<Unit filename="../../include/AngleTest.hpp" />
+		<Unit filename="../../include/BencodeTest.hpp" />
+		<Unit filename="../../include/HashTest.hpp" />
+		<Unit filename="../../include/KeyboardTest.hpp" />
+		<Unit filename="../../include/MathTest.hpp" />
+		<Unit filename="../../include/Matrix4x4Test.hpp" />
+		<Unit filename="../../include/MatrixManagerTest.hpp" />
+		<Unit filename="../../include/MouseTest.hpp" />
+		<Unit filename="../../include/Sha1Test.hpp" />
+		<Unit filename="../../include/Test.hpp" />
+		<Unit filename="../../include/ThreadTest.hpp" />
+		<Unit filename="../../include/TimerTest.hpp" />
+		<Unit filename="../../include/UrlTest.hpp" />
+		<Unit filename="../../include/Vector2Test.hpp" />
+		<Unit filename="../../include/Vector3Test.hpp" />
+		<Unit filename="../../source/AngleTest.cpp" />
+		<Unit filename="../../source/BencodeTest.cpp" />
+		<Unit filename="../../source/HashTest.cpp" />
+		<Unit filename="../../source/KeyboardTest.cpp" />
+		<Unit filename="../../source/Main.cpp" />
+		<Unit filename="../../source/MathTest.cpp" />
+		<Unit filename="../../source/Matrix4x4Test.cpp" />
+		<Unit filename="../../source/MatrixManagerTest.cpp" />
+		<Unit filename="../../source/MouseTest.cpp" />
+		<Unit filename="../../source/Sha1Test.cpp" />
+		<Unit filename="../../source/ThreadTest.cpp" />
+		<Unit filename="../../source/TimerTest.cpp" />
+		<Unit filename="../../source/UrlTest.cpp" />
+		<Unit filename="../../source/Vector2Test.cpp" />
+		<Unit filename="../../source/Vector3Test.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />

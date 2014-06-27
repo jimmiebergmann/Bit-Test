@@ -23,6 +23,7 @@
 // ///////////////////////////////////////////////////////////////////////////
 
 // Headers
+#include <Test.hpp>
 #include <vector>
 #include <iostream>
 #include <iomanip>
@@ -52,7 +53,7 @@
 
 // Network tests
 #include <UrlTest.hpp>
-#include <AddressTest.hpp>
+/*#include <AddressTest.hpp>
 #include <SocketTest.hpp>
 #include <TcpSocketTest.hpp>
 #include <TcpListenerTest.hpp>
@@ -72,7 +73,7 @@
 #include <AnimationTest.hpp>
 #include <ModelTest.hpp>
 #include <OpenGLGraphicDeviceTest.hpp>
-
+*/
 // Memory leak checker
 #include <Bit/System/MemoryLeak.hpp>
 
@@ -126,27 +127,27 @@ Bit::Bool InitializeTest( )
 	// Comment out tests you don't want to run.
 
 	// System tests
-	/*g_Tests.push_back( new MouseTest );
+	g_Tests.push_back( new MouseTest );
 	g_Tests.push_back( new KeyboardTest );
 	g_Tests.push_back( new TimerTest );
 	g_Tests.push_back( new MathTest );
 	g_Tests.push_back( new AngleTest );
 	g_Tests.push_back( new Vector2Test );
-	g_Tests.push_back( new Vector3Test );*/
+	g_Tests.push_back( new Vector3Test );
 	g_Tests.push_back( new Matrix4x4Test );
 	g_Tests.push_back( new MatrixManagerTest );
-	/*g_Tests.push_back( new ThreadTest );
+	g_Tests.push_back( new ThreadTest );
 	g_Tests.push_back( new BencodeTest );
 	g_Tests.push_back( new HashTest );
 	g_Tests.push_back( new Sha1Test );
-	
+
 	// Audio tests
 	g_Tests.push_back( new WaveFileTest );
 	g_Tests.push_back( new OpenALAudioDeviceTest );
 
 	// Network tests
-	g_Tests.push_back( new UrlTest );
-	g_Tests.push_back( new AddressTest );
+	///g_Tests.push_back( new UrlTest );
+	/*g_Tests.push_back( new AddressTest );
 	g_Tests.push_back( new SocketTest );
 	g_Tests.push_back( new TcpSocketTest );
 	g_Tests.push_back( new TcpListenerTest );
@@ -154,7 +155,7 @@ Bit::Bool InitializeTest( )
 	g_Tests.push_back( new NtpTest );
 	g_Tests.push_back( new HttpTest );
 	g_Tests.push_back( new TorrentTest );
-	
+
 	// Graphic/window tests
 	g_Tests.push_back( new VideoModeTest );
 	g_Tests.push_back( new RenderWindowTest );
@@ -163,9 +164,9 @@ Bit::Bool InitializeTest( )
 	g_Tests.push_back( new PngFileTest );
 	g_Tests.push_back( new ImageTest );
 	g_Tests.push_back( new ObjFileTest );*/
-	g_Tests.push_back( new AnimationTest );
-	g_Tests.push_back( new OpenGLGraphicDeviceTest );
-	
+	///g_Tests.push_back( new AnimationTest );
+	///g_Tests.push_back( new OpenGLGraphicDeviceTest );
+
 	// Finish the test
 	return true;
 }
@@ -201,7 +202,7 @@ void RunTests( )
 		{
 			g_TotalErrors++;
 		}
-		
+
 	}
 
 	// Stop the timer

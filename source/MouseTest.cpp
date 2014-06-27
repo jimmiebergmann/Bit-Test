@@ -26,7 +26,6 @@
 #include <Bit/System/Mouse.hpp>
 #include <Bit/System/Sleep.hpp>
 #include <Bit/System/Timer.hpp>
-#include <Windows.h>
 #include <Bit/System/MemoryLeak.hpp>
 
 // Constructor
@@ -43,7 +42,7 @@ void MouseTest::Run( std::ostream & p_Trace )
 
 	// Create a mouse
 	Bit::Mouse mouse;
-	
+
 	// Print the position 3 times with some delay
 	for( Bit::SizeType i = 0; i < 3; i++ )
 	{
@@ -51,11 +50,11 @@ void MouseTest::Run( std::ostream & p_Trace )
 		std::cout << "Position: " << position.x << "  " << position.y << std::endl;
 		Bit::Sleep( Bit::Seconds( 1.0f ) );
 	}
-	
+
 	// Mouse button test
 	bool buttonPressed[ 3 ] = { false, false, false };
 	Bit::Timer timer;
-	
+
 	// Run the button test for 3 seconds
 	std::cout << "Press all mouse buttons:" << std::endl;
 	timer.Start( );
@@ -89,5 +88,5 @@ void MouseTest::Run( std::ostream & p_Trace )
 	// Print the finish text
 	std::cout << "Finished Mouse Test." << std::endl;
 	std::cout << "-------------------------------------------" << std::endl;
-	
+
 }
