@@ -51,7 +51,7 @@ void HttpTest::Run( std::ostream & p_Trace )
 	TestAssert( response.GetStatusCode( ) == Bit::Http::Ok );
 
 	// Save the file
-	std::ofstream fout( "httpDownload.png", std::ofstream::binary );
+	std::ofstream fout( "output/httpDownload.png", std::ofstream::binary );
 	if( fout.is_open( ) == false )
 	{
 		return;
@@ -60,9 +60,9 @@ void HttpTest::Run( std::ostream & p_Trace )
 	fout.write( response.GetBody( ).c_str( ), response.GetBody( ).size( ) );
 
 	fout.close( );
-	
+
 	// Print the finish text
 	std::cout << "Finished HTTP Test." << std::endl;
 	std::cout << "-------------------------------------------" << std::endl;
-	
+
 }

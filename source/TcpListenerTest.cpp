@@ -97,6 +97,8 @@ void TcpListenerTest::Run( std::ostream & p_Trace )
 			std::cout << "Listener: Sent messsage: " << sendMessage << std::endl;
 			serverSent = true;
 
+			// Sleep for some time.
+			Bit::Sleep( Bit::Seconds( 1.0f ) );
 		}
 	);
 
@@ -155,6 +157,7 @@ void TcpListenerTest::Run( std::ostream & p_Trace )
 	TestAssert( serverSent == true );
 	TestAssert( serverRecv == true );
 
+    std::cout << "First test done." << std::endl;
 
 	// Assert the timeout functionallity
 	Bit::Bool conntectAttempt1 = false;
@@ -166,12 +169,11 @@ void TcpListenerTest::Run( std::ostream & p_Trace )
 	Bit::Thread clientThread2(
 		[ &conntectAttempt1, &conntectAttempt2 ] ( )
 		{
-			Bit::Sleep( Bit::Seconds( 0.5f ) );
-
 			// Try to connect
 			Bit::TcpSocket tcp;
 			tcp.SetBlocking( false );
 			conntectAttempt1 = tcp.Connect( Bit::Address( 127, 0, 0, 1 ), 12343, Bit::Seconds( 1 ) );
+			Bit::Sleep( Bit::Seconds( 2.0f ) );
 			conntectAttempt2 = tcp.Connect( Bit::Address( 127, 0, 0, 1 ), 12343, Bit::Seconds( 2 ) );
 
 			// Sleep for 1 second
@@ -185,7 +187,7 @@ void TcpListenerTest::Run( std::ostream & p_Trace )
 				return;
 			}
 			std::cout << "Client: Sent messsage: " << sendMessage << std::endl;
-			
+
 		}
 	);
 
@@ -193,7 +195,7 @@ void TcpListenerTest::Run( std::ostream & p_Trace )
 		[ &listenAttempt1, &receiveAttempt1, &receiveAttempt2 ] ( )
 		{
 			Bit::TcpListener tcpListener( 12343 );
-			Bit::Sleep( Bit::Seconds( 2.0f ) );
+			Bit::Sleep( Bit::Seconds( 1.5f ) );
 
 			// Listen for incomming connections( client connection attempt 2 )
 			Bit::TcpSocket tcp;
@@ -229,5 +231,5 @@ void TcpListenerTest::Run( std::ostream & p_Trace )
 	// Print the finish text
 	std::cout << "Finished TCP Listener Test." << std::endl;
 	std::cout << "-------------------------------------------" << std::endl;
-	
+
 }
