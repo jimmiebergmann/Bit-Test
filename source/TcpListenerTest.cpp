@@ -39,9 +39,6 @@ TcpListenerTest::TcpListenerTest( ) :
 // Virtual functions
 void TcpListenerTest::Run( std::ostream & p_Trace )
 {
-	std::cout << "-------------------------------------------" << std::endl;
-	std::cout << "Starting TCP Listener test." << std::endl;
-
 	// Assert values
 	Bit::Bool clientConnected = false;
 	Bit::Bool clientSent = false;

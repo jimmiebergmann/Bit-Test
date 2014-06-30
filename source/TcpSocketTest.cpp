@@ -55,7 +55,6 @@ void TcpSocketTest::Run( std::ostream & p_Trace )
 	timer.Start( );
 	TestAssert( tcp.Connect( Bit::Address( 127, 0, 0, 2 ), 87, Bit::Seconds( 3 ) ) == false );
 	timer.Stop( );
-	///TestAssert( timer.GetTime( ).AsSeconds( ) > 2.0f && timer.GetTime( ).AsSeconds( ) < 6.0f );
 
 	// Print the finish text
 	std::cout << "Finished TCP Socket Test." << std::endl;

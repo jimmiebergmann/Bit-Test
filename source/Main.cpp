@@ -127,7 +127,7 @@ Bit::Bool InitializeTest( )
 	// Comment out tests you don't want to run.
 
 	// System tests
-	/*g_Tests.push_back( new MouseTest );
+	g_Tests.push_back( new MouseTest );
 	g_Tests.push_back( new KeyboardTest );
 	g_Tests.push_back( new TimerTest );
 	g_Tests.push_back( new MathTest );
@@ -144,7 +144,7 @@ Bit::Bool InitializeTest( )
 	// Audio tests
 	g_Tests.push_back( new WaveFileTest );
 	g_Tests.push_back( new OpenALAudioDeviceTest );
-*/
+
 	// Network tests
 	g_Tests.push_back( new UrlTest );
 	g_Tests.push_back( new AddressTest );
@@ -155,6 +155,7 @@ Bit::Bool InitializeTest( )
 	g_Tests.push_back( new NtpTest );
 	g_Tests.push_back( new HttpTest );
 	g_Tests.push_back( new TorrentTest );
+
 /*
 	// Graphic/window tests
 	g_Tests.push_back( new VideoModeTest );
