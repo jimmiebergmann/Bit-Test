@@ -54,7 +54,7 @@ static Bit::VertexBuffer * g_pQuadVboTextureCoords = NULL;
 static Bit::VertexArray * g_pQuadVAO = NULL;
 static Bit::Shader * g_pVertexShader = NULL;
 static Bit::Shader * g_pFragmentShader = NULL;
-static Bit::ShaderProgram * g_pShaderProgram = NULL; 
+static Bit::ShaderProgram * g_pShaderProgram = NULL;
 static Bit::Model * g_pModel = NULL;
 static Bit::ModelRenderer * g_pModelRenderer = NULL;
 static Bit::Vector2u32 g_WindowSize( 800, 600 );
@@ -75,7 +75,7 @@ void OpenGLGraphicDeviceTest::Run( std::ostream & p_Trace )
 {
 	std::cout << "-------------------------------------------" << std::endl;
 	std::cout << "Starting OpenGL Graphic Device test." << std::endl;
-	
+
 	if( Load( ) == false )
 	{
 		Unload( );
@@ -116,7 +116,7 @@ void OpenGLGraphicDeviceTest::Run( std::ostream & p_Trace )
 	// Print the finish text
 	std::cout << "Finished OpenGL Graphic Device Test." << std::endl;
 	std::cout << "-------------------------------------------" << std::endl;
-	
+
 }
 
 
@@ -166,9 +166,9 @@ Bit::Bool OpenGLGraphicDeviceTest::Load( )
 	g_pDepthRenderbuffer->Load( g_WindowSize, Bit::Texture::DepthStencil, 8 );
 	g_pFramebuffer->Attach( *g_pColorRenderbuffer );
 	g_pFramebuffer->Attach( *g_pDepthRenderbuffer );
-	 
 
-	
+
+
 
 	// Create a floorVBO for the positions
 	TestAssert( ( g_pFloorVboPositions = g_pGraphicDevice->CreateVertexBuffer( ) ) != NULL );
@@ -451,12 +451,12 @@ void OpenGLGraphicDeviceTest::Render( )
 	g_pShaderProgram->Bind( );
 	g_pShaderProgram->SetUniformMatrix4x4f( "projectionMatrix", g_OrthographicMatrix );
 	g_pShaderProgram->SetUniformMatrix4x4f( "viewMatrix", viewMatrix );
-	
+
 	g_pQuadTexture->Bind( );
 	g_pQuadVAO->Render( Bit::PrimitiveMode::Triangles );
 	g_pQuadTexture->Unbind( );
 	g_pShaderProgram->Unbind( );
-	
+
 
 	// Render the model
 	Bit::MatrixManager::Push( );
@@ -472,17 +472,17 @@ void OpenGLGraphicDeviceTest::Render( )
 	viewMatrix.LookAt(	Bit::Vector3f32( 0.0f, 0.1f, 0.5f ),
 						Bit::Vector3f32( 0.0f, 0.0f, 0.0f ),
 						Bit::Vector3f32( 0.0f, 1.0f, 0.0f ) );
-	viewMatrix.RotateY( g_Rotation );	
+	viewMatrix.RotateY( g_Rotation );
 
 	g_pShaderProgram->Bind( );
 	g_pShaderProgram->SetUniformMatrix4x4f( "projectionMatrix", g_PerspectiveMatrix );
 	g_pShaderProgram->SetUniformMatrix4x4f( "viewMatrix", viewMatrix );
-	
+
 	g_pFloorTexture->Bind( );
 	g_pFloorVAO->Render( Bit::PrimitiveMode::Triangles );
 	g_pFloorTexture->Unbind( );
 	g_pShaderProgram->Unbind( );
-	
+
 
 
 	// Unbind the framebuffer

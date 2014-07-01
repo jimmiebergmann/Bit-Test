@@ -55,10 +55,10 @@ void RenderWindowTest::Run( std::ostream & p_Trace )
 	Bit::Window * pWindow = new Bit::RenderWindow( Bit::VideoMode( Bit::Vector2u32( 800, 600 ) ), "Window", windowStyle );
 
 	// Set a new title and assert it
-	//pWindow->SetTitle( "New Window Title" );
-	//TestAssert( pWindow->GetTitle( ) == "New Window Title" );
+	pWindow->SetTitle( "New Window Title" );
+	TestAssert( pWindow->GetTitle( ) == "New Window Title" );
 
-	// Check if the window is open 
+	// Check if the window is open
 	TestAssert( pWindow->IsOpen( ) == true );
 
 	// Check if the window is focused
@@ -124,5 +124,5 @@ void RenderWindowTest::Run( std::ostream & p_Trace )
 	// Print the finish text
 	std::cout << "Finished RenderWindow Test." << std::endl;
 	std::cout << "-------------------------------------------" << std::endl;
-	
+
 }

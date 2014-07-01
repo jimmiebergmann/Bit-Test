@@ -61,7 +61,7 @@
 #include <NtpTest.hpp>
 #include <HttpTest.hpp>
 #include <TorrentTest.hpp>
-/*
+
 // Graphic tests
 #include <VideoModeTest.hpp>
 #include <RenderWindowTest.hpp>
@@ -73,7 +73,7 @@
 #include <AnimationTest.hpp>
 #include <ModelTest.hpp>
 #include <OpenGLGraphicDeviceTest.hpp>
-*/
+
 // Memory leak checker
 #include <Bit/System/MemoryLeak.hpp>
 
@@ -156,7 +156,7 @@ Bit::Bool InitializeTest( )
 	g_Tests.push_back( new HttpTest );
 	g_Tests.push_back( new TorrentTest );
 
-/*
+
 	// Graphic/window tests
 	g_Tests.push_back( new VideoModeTest );
 	g_Tests.push_back( new RenderWindowTest );
@@ -164,9 +164,10 @@ Bit::Bool InitializeTest( )
 	g_Tests.push_back( new BmpFileTest );
 	g_Tests.push_back( new PngFileTest );
 	g_Tests.push_back( new ImageTest );
-	g_Tests.push_back( new ObjFileTest );*/
-	///g_Tests.push_back( new AnimationTest );
-	///g_Tests.push_back( new OpenGLGraphicDeviceTest );
+	g_Tests.push_back( new ObjFileTest );
+	g_Tests.push_back( new AnimationTest );
+	g_Tests.push_back( new ModelTest);
+	g_Tests.push_back( new OpenGLGraphicDeviceTest );
 
 	// Finish the test
 	return true;

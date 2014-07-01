@@ -23,7 +23,7 @@
 // ///////////////////////////////////////////////////////////////////////////
 
 #include <BencodeTest.hpp>
-#include <Bit/System/Bencode/Bencode.hpp>
+#include <Bit/System/Bencode.hpp>
 #include <fstream>
 #include <Bit/System/MemoryLeak.hpp>
 

@@ -57,7 +57,7 @@ public:
 		m_pFragmentShader = p_GraphicDevice.CreateShader( Bit::ShaderType::Fragment );
 		m_pShaderProgram = p_GraphicDevice.CreateShaderProgram( );
 
-		static const std::string vertexSource = 
+		static const std::string vertexSource =
 			"#version 330\n"
 
 			"uniform mat4 projectionMatrix;\n"
@@ -71,7 +71,7 @@ public:
 			"}\n";
 		m_pVertexShader->CompileFromMemory( vertexSource );
 
-		static const std::string fragmentSource = 
+		static const std::string fragmentSource =
 			"#version 330\n"
 
 			"out vec4 color;\n"

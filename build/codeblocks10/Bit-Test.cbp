@@ -21,13 +21,15 @@
 					<Add directory="../../../Bit-Engine/extlibs/include" />
 				</Compiler>
 				<Linker>
-					<Add library="../../../Bit-Engine/lib/bit-system-s-d.a" />
 					<Add library="../../../Bit-Engine/lib/bit-audio-s-d.a" />
+					<Add library="../../../Bit-Engine/lib/bit-graphics-s-d.a" />
+					<Add library="../../../Bit-Engine/lib/bit-network-s-d.a" />
+					<Add library="../../../Bit-Engine/lib/bit-system-s-d.a" />
+					<Add library="../../../Bit-Engine/lib/bit-window-s-d.a" />
 					<Add library="X11" />
+					<Add library="pthread" />
 					<Add library="GL" />
 					<Add library="openal" />
-					<Add library="pthread" />
-					<Add library="../../../Bit-Engine/lib/bit-network-s-d.a" />
 				</Linker>
 			</Target>
 			<Target title="release_static">
@@ -46,13 +48,15 @@
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
-					<Add library="../../../Bit-Engine/lib/bit-system-s.a" />
 					<Add library="../../../Bit-Engine/lib/bit-audio-s.a" />
+					<Add library="../../../Bit-Engine/lib/bit-graphics-s.a" />
+					<Add library="../../../Bit-Engine/lib/bit-network-s.a" />
+					<Add library="../../../Bit-Engine/lib/bit-system-s.a" />
+					<Add library="../../../Bit-Engine/lib/bit-window-s.a" />
 					<Add library="X11" />
+					<Add library="pthread" />
 					<Add library="GL" />
 					<Add library="openal" />
-					<Add library="pthread" />
-					<Add library="../../../Bit-Engine/lib/bit-network-s.a" />
 				</Linker>
 			</Target>
 		</Build>
@@ -63,20 +67,28 @@
 		<Unit filename="../../include/AddressTest.hpp" />
 		<Unit filename="../../include/AngleTest.hpp" />
 		<Unit filename="../../include/BencodeTest.hpp" />
+		<Unit filename="../../include/BmpFileTest.hpp" />
 		<Unit filename="../../include/HashTest.hpp" />
 		<Unit filename="../../include/HttpTest.hpp" />
+		<Unit filename="../../include/ImageTest.hpp" />
 		<Unit filename="../../include/KeyboardTest.hpp" />
 		<Unit filename="../../include/MathTest.hpp" />
 		<Unit filename="../../include/Matrix4x4Test.hpp" />
 		<Unit filename="../../include/MatrixManagerTest.hpp" />
 		<Unit filename="../../include/MouseTest.hpp" />
+		<Unit filename="../../include/MyModelRenderer.hpp" />
 		<Unit filename="../../include/NtpTest.hpp" />
+		<Unit filename="../../include/ObjFileTest.hpp" />
 		<Unit filename="../../include/OpenALAudioDeviceTest.hpp" />
+		<Unit filename="../../include/OpenGLGraphicDeviceTest.hpp" />
+		<Unit filename="../../include/PngFileTest.hpp" />
+		<Unit filename="../../include/RenderWindowTest.hpp" />
 		<Unit filename="../../include/Sha1Test.hpp" />
 		<Unit filename="../../include/SocketTest.hpp" />
 		<Unit filename="../../include/TcpListenerTest.hpp" />
 		<Unit filename="../../include/TcpSocketTest.hpp" />
 		<Unit filename="../../include/Test.hpp" />
+		<Unit filename="../../include/TgaFileTest.hpp" />
 		<Unit filename="../../include/ThreadTest.hpp" />
 		<Unit filename="../../include/TimerTest.hpp" />
 		<Unit filename="../../include/TorrentTest.hpp" />
@@ -84,12 +96,15 @@
 		<Unit filename="../../include/UrlTest.hpp" />
 		<Unit filename="../../include/Vector2Test.hpp" />
 		<Unit filename="../../include/Vector3Test.hpp" />
+		<Unit filename="../../include/VideoModeTest.hpp" />
 		<Unit filename="../../include/WaveFileTest.hpp" />
 		<Unit filename="../../source/AddressTest.cpp" />
 		<Unit filename="../../source/AngleTest.cpp" />
 		<Unit filename="../../source/BencodeTest.cpp" />
+		<Unit filename="../../source/BmpFileTest.cpp" />
 		<Unit filename="../../source/HashTest.cpp" />
 		<Unit filename="../../source/HttpTest.cpp" />
+		<Unit filename="../../source/ImageTest.cpp" />
 		<Unit filename="../../source/KeyboardTest.cpp" />
 		<Unit filename="../../source/Main.cpp" />
 		<Unit filename="../../source/MathTest.cpp" />
@@ -97,11 +112,16 @@
 		<Unit filename="../../source/MatrixManagerTest.cpp" />
 		<Unit filename="../../source/MouseTest.cpp" />
 		<Unit filename="../../source/NtpTest.cpp" />
+		<Unit filename="../../source/ObjFileTest.cpp" />
 		<Unit filename="../../source/OpenALAudioDeviceTest.cpp" />
+		<Unit filename="../../source/OpenGLGraphicDeviceTest.cpp" />
+		<Unit filename="../../source/PngFileTest.cpp" />
+		<Unit filename="../../source/RenderWindowTest.cpp" />
 		<Unit filename="../../source/Sha1Test.cpp" />
 		<Unit filename="../../source/SocketTest.cpp" />
 		<Unit filename="../../source/TcpListenerTest.cpp" />
 		<Unit filename="../../source/TcpSocketTest.cpp" />
+		<Unit filename="../../source/TgaFileTest.cpp" />
 		<Unit filename="../../source/ThreadTest.cpp" />
 		<Unit filename="../../source/TimerTest.cpp" />
 		<Unit filename="../../source/TorrentTest.cpp" />
@@ -109,6 +129,7 @@
 		<Unit filename="../../source/UrlTest.cpp" />
 		<Unit filename="../../source/Vector2Test.cpp" />
 		<Unit filename="../../source/Vector3Test.cpp" />
+		<Unit filename="../../source/VideoModeTest.cpp" />
 		<Unit filename="../../source/WaveFileTest.cpp" />
 		<Extensions>
 			<code_completion />
