@@ -36,6 +36,7 @@
     <ClCompile Include="..\..\source\AnimationTest.cpp" />
     <ClCompile Include="..\..\source\ModelTest.cpp" />
     <ClCompile Include="..\..\source\MatrixManagerTest.cpp" />
+    <ClCompile Include="..\..\source\JsonTest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\AddressTest.hpp" />
@@ -74,5 +75,6 @@
     <ClInclude Include="..\..\include\ModelTest.hpp" />
     <ClInclude Include="..\..\include\MatrixManagerTest.hpp" />
     <ClInclude Include="..\..\include\MyModelRenderer.hpp" />
+    <ClInclude Include="..\..\include\JsonTest.hpp" />
   </ItemGroup>
 </Project>

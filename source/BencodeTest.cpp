@@ -52,7 +52,7 @@ void BencodeTest::Run( std::ostream & p_Trace )
 	Bit::Bencode::Value stringRootDictionary;
 	Bit::Bencode::Reader stringReader;
 
-	TestAssert( stringReader.Parse( "www.google.com", nilRoot ) == false );
+	TestAssert( stringReader.Parse( "     www.google.com  ", nilRoot ) == false );
 
 	TestAssert( stringReader.Parse( "i123e", stringRootInteger ) == true );
 	TestAssert( stringRootInteger.AsInt( ) == 123 );

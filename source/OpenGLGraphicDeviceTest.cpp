@@ -34,6 +34,7 @@
 #include <Bit/System/MatrixManager.hpp>
 #include <MyModelRenderer.hpp>
 #include <Bit/Graphics/Model.hpp>
+#include <Bit/Graphics/ModelRenderer.hpp>
 #include <Bit/System/Timer.hpp>
 #include <Bit/System/MemoryLeak.hpp>
 
@@ -333,8 +334,8 @@ Bit::Bool OpenGLGraphicDeviceTest::Load( )
 	TestAssert( g_pModel->LoadFromFile( "input/objModel.obj" ) != false );
 
 	// Create and load the model renderer.
-	g_pModelRenderer = new MyModelRenderer( );
-	g_pModelRenderer->Load( *g_pGraphicDevice );
+	g_pModelRenderer = g_pGraphicDevice->CreateModelRenderer( );
+	//g_pModelRenderer->Load( *g_pGraphicDevice );
 
 	return true;
 }
@@ -461,13 +462,14 @@ void OpenGLGraphicDeviceTest::Render( )
 	// Render the model
 	Bit::MatrixManager::Push( );
 	Bit::MatrixManager::LoadIdentity( );
-	Bit::MatrixManager::Translate( 0.0f, 0.3f, -2.0f );
-	Bit::MatrixManager::Scale( 0.5f, 0.5f, 0.5f );
+	Bit::MatrixManager::Translate( 0.0f, 0.0f, -1.0f );
+	Bit::MatrixManager::Scale( 0.18f, 0.18f, 0.18f );
 	Bit::MatrixManager::RotateY( g_Rotation * 4.0f );
+	g_pFloorTexture->Bind( );
 	g_pModelRenderer->Render( *g_pModel );
 	Bit::MatrixManager::Pop( );
 
-
+	/*
 	// Render the floor
 	viewMatrix.LookAt(	Bit::Vector3f32( 0.0f, 0.1f, 0.5f ),
 						Bit::Vector3f32( 0.0f, 0.0f, 0.0f ),
@@ -482,7 +484,7 @@ void OpenGLGraphicDeviceTest::Render( )
 	g_pFloorVAO->Render( Bit::PrimitiveMode::Triangles );
 	g_pFloorTexture->Unbind( );
 	g_pShaderProgram->Unbind( );
-
+	*/
 
 
 	// Unbind the framebuffer

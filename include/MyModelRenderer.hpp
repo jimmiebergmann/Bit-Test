@@ -21,7 +21,7 @@
 // 3. This notice may not be removed or altered from any
 //    source distribution.
 // ///////////////////////////////////////////////////////////////////////////
-
+/*
 #ifndef BIT_MY_MODEL_RENDERER_HPP
 #define BIT_MY_MODEL_RENDERER_HPP
 
@@ -60,25 +60,27 @@ public:
 		static const std::string vertexSource =
 			"#version 330\n"
 
-			"uniform mat4 projectionMatrix;\n"
-			"uniform mat4 modelViewMatrix;\n"
+			"uniform mat4 uProjectionMatrix;\n"
+			"uniform mat4 uModelViewMatrix;\n"
 
 			"in vec3 position;\n"
 
 			"void main( )\n"
 			"{\n"
-			"	gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );\n"
+			"	gl_Position = uProjectionMatrix * uModelViewMatrix * vec4( position, 1.0 );\n"
 			"}\n";
 		m_pVertexShader->CompileFromMemory( vertexSource );
 
 		static const std::string fragmentSource =
 			"#version 330\n"
 
-			"out vec4 color;\n"
+			"uniform vec4 uColor;\n"
+
+			"out vec4 outColor;\n"
 
 			"void main( )\n"
 			"{ \n"
-			"	color = vec4( 1.0, 0.0, 0.0, 1.0 );\n"
+			"	outColor = uColor;\n"
 			"}\n";
 		m_pFragmentShader->CompileFromMemory( fragmentSource );
 
@@ -142,3 +144,4 @@ private:
 };
 
 #endif
+*/

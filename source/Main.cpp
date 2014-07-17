@@ -44,6 +44,7 @@
 #include <MatrixManagerTest.hpp>
 #include <ThreadTest.hpp>
 #include <BencodeTest.hpp>
+#include <JsonTest.hpp>
 #include <HashTest.hpp>
 #include <Sha1Test.hpp>
 
@@ -138,6 +139,7 @@ Bit::Bool InitializeTest( )
 	g_Tests.push_back( new MatrixManagerTest );
 	g_Tests.push_back( new ThreadTest );
 	g_Tests.push_back( new BencodeTest );
+	g_Tests.push_back( new JsonTest );
 	g_Tests.push_back( new HashTest );
 	g_Tests.push_back( new Sha1Test );
 
