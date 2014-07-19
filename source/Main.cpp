@@ -128,7 +128,7 @@ Bit::Bool InitializeTest( )
 	// Comment out tests you don't want to run.
 
 	// System tests
-	g_Tests.push_back( new MouseTest );
+	/*g_Tests.push_back( new MouseTest );
 	g_Tests.push_back( new KeyboardTest );
 	g_Tests.push_back( new TimerTest );
 	g_Tests.push_back( new MathTest );
@@ -138,9 +138,9 @@ Bit::Bool InitializeTest( )
 	g_Tests.push_back( new Matrix4x4Test );
 	g_Tests.push_back( new MatrixManagerTest );
 	g_Tests.push_back( new ThreadTest );
-	g_Tests.push_back( new BencodeTest );
+	g_Tests.push_back( new BencodeTest );*/
 	g_Tests.push_back( new JsonTest );
-	g_Tests.push_back( new HashTest );
+	/*g_Tests.push_back( new HashTest );
 	g_Tests.push_back( new Sha1Test );
 
 	// Audio tests
@@ -169,7 +169,7 @@ Bit::Bool InitializeTest( )
 	g_Tests.push_back( new ObjFileTest );
 	g_Tests.push_back( new AnimationTest );
 	g_Tests.push_back( new ModelTest);
-	g_Tests.push_back( new OpenGLGraphicDeviceTest );
+	g_Tests.push_back( new OpenGLGraphicDeviceTest );*/
 
 	// Finish the test
 	return true;

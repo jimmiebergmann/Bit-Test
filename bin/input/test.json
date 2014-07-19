@@ -1,0 +1,879 @@
+{
+   "IntroText" : [ "I", "am", "sexy" ],
+   "MapPath" : "HousePlan.png",
+   "Marks" : [
+      {
+         "Answer" : "Margret Dunham, heiress of Sir Nicholas Moore, was found earlier tonight in the bath by the housekeeper, dead. The police have examined the deceased, and we have found that there are no signs of struggle or external injuries, nor are there any signs of drowning. We have four suspects; the housekeeper, the husband, the brother and the best friend.   \n\nAs I@ve mentioned earlier, we have narrowed it down to four rooms; the tea parlour, the reception hall, the smoking room, and, of course, the bathroom. ",
+         "Question" : "Can you tell me the details of the case? "
+      },
+      {
+         "Answer" : "The thing that astonishes us is that we haven@t found anything that could be the murder weapon inside the bathroom. That doesn't mean, however, that there aren@t things of interest to be found there. You should search the room nonetheless!",
+         "Question" : "Is there anything in particular that I should know?"
+      },
+      {
+         "Answer" : "I@m afraid I cannot offer you more than a few bits and pieces of our investigation. Though I would be happy to give you everything I have, Scotland Yard watches us like a hawk and they do not like private detectives running about solving crimes the police should be able to solve themselves. It gives the whole profession a bad name. Thus, unfortunately, you will only have access to four rooms and only be allowed to ask four different questions. But I trust your brilliant mind!   ",
+         "Question" : "How much access do I have to your police investigation? "
+      }
+   ],
+   "Requirements" : {
+      "Lamp" : false,
+      "Magnifier" : true
+   },
+   "Rewards" : {
+      "Lamp" : false,
+      "Magnifier" : false
+   },
+   "Rooms" : [
+      {
+         "Background" : "BackgroundTeaParlor.png",
+         "BackgroundSound" : "2014-01-27 - MysticViolin.ogg",
+         "MapLinks" : [
+            {
+               "Height" : 133.0,
+               "PosX" : 270.0,
+               "PosY" : 219.0,
+               "Width" : 115.0
+            }
+         ],
+         "Name" : "Tea parlour",
+         "Objects" : [
+            {
+               "ClickSounds" : [ "TeaCups.ogg" ],
+               "DialogImagePath" : "TeaCupsTogetherBig.png",
+               "DropSounds" : [ "TeaCups.ogg" ],
+               "Evidence" : true,
+               "InspectSounds" : null,
+               "InventoryImagePath" : "TeaCupsTogetherSidebar.png",
+               "MagnifyText" : "Well, that is strange... only one cup has been used, and seeing as there is red lipstick on it, the person drinking it must have been a woman. ",
+               "Name" : "Two tea cups",
+               "Path" : "TeaCupsTogether.png",
+               "PosX" : 888.0,
+               "PosY" : 767.0,
+               "Text" : "These cups of tea must have been used before the murder. "
+            },
+            {
+               "ClickSounds" : [ "TeaPot.ogg" ],
+               "DialogImagePath" : "TeapotBig.PNG",
+               "DropSounds" : [ "TeaPot.ogg" ],
+               "Evidence" : false,
+               "InspectSounds" : null,
+               "InventoryImagePath" : "TeaPot.png",
+               "MagnifyText" : "Hm... the tea is still lukewarm. It can@t have been standing here for too long. ",
+               "Name" : "A tea kettle",
+               "Path" : "TeaPot.png",
+               "PosX" : 969.0,
+               "PosY" : 734.0,
+               "Text" : "The tea kettle is still full. "
+            },
+            {
+               "ClickSounds" : [ "ArsenicBottle.ogg" ],
+               "DialogImagePath" : "ArsenicBottleBIG.PNG",
+               "DropSounds" : [ "ArsenicBottle.ogg" ],
+               "Evidence" : true,
+               "InspectSounds" : null,
+               "InventoryImagePath" : "ArsenicBottle.png",
+               "MagnifyText" : "It seems as though someone must have dropped it, probably in a hurry... this could surely not have been purposely planted here.",
+               "Name" : "Bottle of Arsenic",
+               "Path" : "ArsenicBottle.png",
+               "PosX" : 684.0,
+               "PosY" : 997.0,
+               "Text" : "Well, well... this is not something you find lying around like this every day. It@s even empty, but not dry, which means it has been emptied recently."
+            }
+         ],
+         "Sounds" : [
+            {
+               "Path" : "Rain.ogg",
+               "Volume" : 50
+            }
+         ]
+      },
+      {
+         "Background" : "BackgroundSmokingRoom.png",
+         "BackgroundSound" : "2014-01-27 - MysticViolin.ogg",
+         "MapLinks" : [
+            {
+               "Height" : 118.0,
+               "PosX" : 191.0,
+               "PosY" : 366.0,
+               "Width" : 141.0
+            }
+         ],
+         "Name" : "Smoking room",
+         "Objects" : [
+            {
+               "ClickSounds" : [ "Handkercheif.ogg" ],
+               "DialogImagePath" : "HandkerchiefBig.png",
+               "DropSounds" : [ "Handkercheif.ogg" ],
+               "Evidence" : true,
+               "InspectSounds" : null,
+               "InventoryImagePath" : "HandkerchiefSidebar.png",
+               "MagnifyText" : "It has the initials M.D on it. Is it Margret Dunham? Mary Davis? Or perhaps Medicinae Doctor? ",
+               "Name" : "A handkerchief",
+               "Path" : "HandkerchiefSmall.png",
+               "PosX" : 1276.0,
+               "PosY" : 844.0,
+               "Text" : "This must have been unintentionally dropped here, why else would it be tucked in like this? It has a fading, yet distinct, smell of roses. "
+            },
+            {
+               "ClickSounds" : [ "DoctorsBagClose.ogg" ],
+               "DialogImagePath" : "DoctorsBagBIG.PNG",
+               "DropSounds" : [ "DoctorsBagClose.ogg" ],
+               "Evidence" : true,
+               "InspectSounds" : [ "DoctorsBagOpen.ogg" ],
+               "InventoryImagePath" : "DoctorsBagSidebar.png",
+               "MagnifyText" : "His tools seem clean, and the bottles seem filled. He does have a neat order. But... a bottle is missing! ",
+               "Name" : "Physician@s Bag",
+               "Path" : "DoctorsBagSmall.png",
+               "PosX" : 287.0,
+               "PosY" : 968.0,
+               "Text" : "A physician@s bag could contain important evidence! "
+            },
+            {
+               "ClickSounds" : [ "Testament.ogg" ],
+               "DialogImagePath" : "FathersWillBig.png",
+               "DropSounds" : [ "Testament.ogg" ],
+               "Evidence" : true,
+               "InspectSounds" : null,
+               "InventoryImagePath" : "FathersWillSmall.png",
+               "MagnifyText" : "This states that the entire family fortune is to go to his eldest child, Margret Moore, now Margret Dunham, as a private property at the event of his death. However, it does not state what will happen with the money at her death... ",
+               "Name" : "The Will and Testament of Sir Nicholas Moore",
+               "Path" : "FathersWillSmall.png",
+               "PosX" : 938.0,
+               "PosY" : 930.0,
+               "Text" : "The Will and Testament of Sir Nicholas Moore... how strange that they keep such an important piece of paper lying around in this manner. "
+            }
+         ],
+         "Sounds" : [
+            {
+               "Path" : "Fireplace.ogg",
+               "Volume" : 80
+            },
+            {
+               "Path" : "Rain.ogg",
+               "Volume" : 20
+            }
+         ]
+      },
+      {
+         "Background" : "BackgroundReceptionHall.png",
+         "BackgroundSound" : "2014-01-27 - MysticViolin.ogg",
+         "MapLinks" : [
+            {
+               "Height" : 150.0,
+               "PosX" : 92.0,
+               "PosY" : 54.0,
+               "Width" : 242.0
+            }
+         ],
+         "Name" : "Reception hall",
+         "Objects" : [
+            {
+               "ClickSounds" : [ "Lace.ogg" ],
+               "DialogImagePath" : "Lace.png",
+               "DropSounds" : [ "Lace.ogg" ],
+               "Evidence" : true,
+               "InspectSounds" : null,
+               "InventoryImagePath" : "LaceSidebar.png",
+               "MagnifyText" : "Hm... the fabric is rather elegant. Perhaps not the cheapest of lace, I presume. Not just anyone could afford fabric like this, I am sure.   ",
+               "Name" : "A piece of torn lace",
+               "Path" : "LaceSmall.png",
+               "PosX" : 1211.0,
+               "PosY" : 557.0,
+               "Text" : "A dress must have been torn here, but why? "
+            },
+            {
+               "ClickSounds" : [ "Allaround.ogg" ],
+               "DialogImagePath" : "PaintingBig.png",
+               "DropSounds" : [ "Allaround.ogg" ],
+               "Evidence" : false,
+               "InspectSounds" : null,
+               "InventoryImagePath" : "PaintingSidebar.png",
+               "MagnifyText" : "She was most certainly a remarkable woman! Is that red lipstick? Indeed, that is a bold statement. ",
+               "Name" : "The Portrait of Margret Dunham",
+               "Path" : "PaintingSmall.png",
+               "PosX" : 1150.0,
+               "PosY" : 21.0,
+               "Text" : "This seems to be the mistress of the house. "
+            },
+            {
+               "ClickSounds" : [ "GlassShard.ogg" ],
+               "DialogImagePath" : "GlassShardBig.PNG",
+               "DropSounds" : [ "GlassShard.ogg" ],
+               "Evidence" : false,
+               "InspectSounds" : null,
+               "InventoryImagePath" : "GlassShardSidebar.png",
+               "MagnifyText" : "But from what? What has been broken? There seems to be a crystal vase on the other side of the portrait. Perhaps there is supposed to be a twin on the opposite side? ",
+               "Name" : "A shard of broken glass",
+               "Path" : "GlassShardSmall.png",
+               "PosX" : 803.0,
+               "PosY" : 785.0,
+               "Text" : "This looks like a broken piece of crystal. "
+            },
+            {
+               "ClickSounds" : [ "Allaround.ogg" ],
+               "DialogImagePath" : "FeatherBig.png",
+               "DropSounds" : [ "Allaround.ogg" ],
+               "Evidence" : false,
+               "InspectSounds" : null,
+               "InventoryImagePath" : "FeatherSmall.png",
+               "MagnifyText" : "This does indeed validate that Mrs Hall recently cleaned up a mess right here. ",
+               "Name" : "A feather",
+               "Path" : "FeatherSmall.png",
+               "PosX" : 1181.0,
+               "PosY" : 956.0,
+               "Text" : "This looks like a feather from a duster. "
+            },
+            {
+               "ClickSounds" : [ "Sheet.ogg" ],
+               "DialogImagePath" : "SheetBig.png",
+               "DropSounds" : [ "Sheet.ogg" ],
+               "Evidence" : false,
+               "InspectSounds" : null,
+               "InventoryImagePath" : "SheetSidebar.png",
+               "MagnifyText" : "It seems like someone must have been in a hurry. I wonder why...",
+               "Name" : "A sheet",
+               "Path" : "SheetSmall.png",
+               "PosX" : 280.0,
+               "PosY" : 757.0,
+               "Text" : "A very strange place to put a sheet, indeed. "
+            }
+         ],
+         "Sounds" : [
+            {
+               "Path" : "ClockLongcase.ogg",
+               "Volume" : 50
+            },
+            {
+               "Path" : "Fireplace.ogg",
+               "Volume" : 30
+            },
+            {
+               "Path" : "Rain.ogg",
+               "Volume" : 45
+            }
+         ]
+      },
+      {
+         "Background" : "BackgroundBathroom.png",
+         "BackgroundSound" : "2014-01-27 - MysticViolin.ogg",
+         "MapLinks" : [
+            {
+               "Height" : 149.0,
+               "PosX" : 458.0,
+               "PosY" : 211.0,
+               "Width" : 71.0
+            }
+         ],
+         "Name" : "Bathroom",
+         "Objects" : [
+            {
+               "ClickSounds" : [ "Soap.ogg" ],
+               "DialogImagePath" : "SoapBig.png",
+               "DropSounds" : [ "Soap.ogg" ],
+               "Evidence" : false,
+               "InspectSounds" : null,
+               "InventoryImagePath" : "SoapSidebar.PNG",
+               "MagnifyText" : "She could of course have dropped it, but the position is indeed suspicious! ",
+               "Name" : "A bar of soap",
+               "Path" : "SoapSmall.png",
+               "PosX" : 1386.0,
+               "PosY" : 1025.0,
+               "Text" : "This soap is very poorly placed; Mrs Dunham could slip and fall if she ever stepped on it while getting out of the bath! "
+            },
+            {
+               "ClickSounds" : [ "Pipe.ogg" ],
+               "DialogImagePath" : "PipeBig.png",
+               "DropSounds" : [ "Pipe.ogg" ],
+               "Evidence" : false,
+               "InspectSounds" : null,
+               "InventoryImagePath" : "PipeSmall.png",
+               "MagnifyText" : "(There is not further information about this item.) ",
+               "Name" : "Smoking pipe",
+               "Path" : "PipeSmall.png",
+               "PosX" : 694.0,
+               "PosY" : 695.0,
+               "Text" : "A smoking pipe in the bathroom? Strange, indeed..."
+            },
+            {
+               "ClickSounds" : [ "PerfumeBottle.ogg" ],
+               "DialogImagePath" : "LavenderoilBottleBig.png",
+               "DropSounds" : [ "PerfumeBottle.ogg" ],
+               "Evidence" : false,
+               "InspectSounds" : null,
+               "InventoryImagePath" : "LavenderoilBottleSmall.png",
+               "MagnifyText" : "This must be how Mrs Dunham smelled, without mistake, since she obviously bathed in it. ",
+               "Name" : "A flask of lavender ",
+               "Path" : "LavenderoilBottleSmall.png",
+               "PosX" : 1420.0,
+               "PosY" : 585.0,
+               "Text" : "It does smell strongly of lavender. This could not have been a cheap perfume."
+            },
+            {
+               "ClickSounds" : [ "Comb.ogg" ],
+               "DialogImagePath" : "CombBig.png",
+               "DropSounds" : [ "Comb.ogg" ],
+               "Evidence" : false,
+               "InspectSounds" : null,
+               "InventoryImagePath" : "CombSmall.png",
+               "MagnifyText" : "The strands of hair are rather short; certainly not that of a woman. ",
+               "Name" : "A comb",
+               "Path" : "CombSmall.png",
+               "PosX" : 74.0,
+               "PosY" : 695.0,
+               "Text" : "This comb has strands of hair in it. "
+            }
+         ],
+         "Sounds" : [
+            {
+               "Path" : "Rain.ogg",
+               "Volume" : 55
+            }
+         ]
+      }
+   ],
+   "SolutionText" : [
+      "The brother, Dr Moore, was certainly a hot candidate. His position as a physician would make arsenic easily obtainable, but being as careless as to take the arsenic from his own bag without replacing it seems very out of order for such a clever man; surely, he would know the bag would be searched. He had, however, a strong motive, but since the testament only stated what would happen to the money at Sir Moore@s death, he thought that his father@s money was forever lost to him, and his sister@s death would not change that.",
+      "Amongst the four suspects, it is evident that Mrs Hall did not commit the murder. She had no motive, and if anything, she knew she would suffer from losing her employer. As for Mr Dunham, the motive is fairly obvious; naturally, he thought the money was to go to him at the passing of his wife. Several clues establish that Mr Dunham has an affair with Miss Davis, something that is proven by the handkerchief he had dropped in the smoking room, which had a fading, yet distinct, smell of roses, when Mrs Dunham@s perfume of choice has been lavender for the last ten years, proving it could not possibly have been hers. However, his reaction shows that he could not have been in any way prepared for his wife@s passing and there isn@t enough evidence to connect him to the murder.",
+      "That leaves us with only one possible explanation; Mary Davis did it. She murdered Margret Dunham, poisoned her with arsenic. Why? Well, the answer is rather simple; Mary Davis was jealous of Margret Dunham, jealous of her life. Being a dear childhood friend of Mrs Dunham, Mary Davis encountered the Moore fortune at a very young age. After quarrels, the two ladies reunited and Miss Davis was then told about Sir Moore@s tragic passing, and Mrs Dunham confided in a dear friend about the testament which granted her the entire Moore family fortune intact. Mary Davis figured that the money, naturally, was to go to Mr Dunham at the unfortunate event of his wife@s death, and this would have been very tempting for a woman like Miss Davis, whose family had a tragic past of gambling and debts, and being a clever woman, Miss Davis nestled her way into Mr Dunham@s heart.",
+      "Her plan was to marry the handsome Mr Dunham once Margret Dunham was out the way and once the fortune had been taken over by her husband. To secure Mr Dunham@s heart, she could not hurry it, and took her time. I suppose all she had to do now, was to wait for the perfect moment. And indeed, that moment arose when she was invited to a weekend at Mr and Mrs Dunham@s, together with Mrs Dunham@s younger brother, Dr Jonathan Moore. That Jonathan Moore was a doctor, was of course nothing but to the greatest of advantages, as Mary Davis immediately thought of her long planned scenario of poison as her weapon of choice. The only problem Miss Davis seemed to face, was how to steal the flask of arsenic from Dr Moore@s bag, the physician@s bag he was known to always carry with him.",
+      "On the day of the murder, however, Miss Davis offered to fetch Mr Dunham and Dr Moore from the smoking room to have a lovely lunch in the gardens. Before she could enter, Dr Moore rushed out of the room, seemingly upset, without his bag. Miss Davis then proceeded into the smoking room, only to find Mr Dunham left with a headache. After a short chat to calm the man down, they left the smoking room together. Miss Davis, however, stated that she had forgotten something in the smoking room and urged Mr Dunham to continue on without her. Alone in the room, she advanced to the bag Dr Moore had so fortunately forgotten in his hurry, and she stole the bottle of arsenic.",
+      "Having obtained the murder weapon, Mary Davis now had to figure out a way of sneaking the poison into Mrs Dunham@s drink. This opportunity arose later on, when the men withdrew to the smoking room for some whiskey and a smoke, while the two women settled in the tea parlour for some tea and a chat. Miss Davis excused herself for a moment, to freshen up a bit, and snuck into the reception hall. Knowing that the housekeeper, Mrs Hall, is rather superstitious, Miss Davis hung some paintings askew and then violently smashed one of the French crystal vases on the floor, making a terribly loud noise, before hurrying away.",
+      "Like clockwork, Mr and Mrs Dunham, together with Dr Moore, came running from one end, and Miss Davis disappeared at the other. While the three spectators were baffled by this, Mrs Hall came rushing in from the kitchen, shouting it was the ghost of the former master, and all the while, Miss Davis snuck into the kitchen and poured the arsenic into the tea pot, to frame the housekeeper for the gruesome act before rushing out to the others, as if she just came from the ladies@ room. All she had to do, was simply to make sure not to drink, herself, from the poisoned tea.",
+      "It would indeed have been the perfect murder, had it not been for the clues left by the perpetrator. Miss Davis@s fatal mistake was dropping the bottle of arsenic from her sleeve when casually sitting down after the strange incident in the reception hall, and finding it helped us establish the cause of death, and the missing arsenic in the physician@s bag helped us determine that the arsenic had been obtained in the house, assuring that it must indeed have been one of our suspects committing the murder.",
+      "The piece of torn lace found by the fireplace in the reception hall could have belonged to Mrs Hall, and might have been torn when cleaning the mess, but when looking closer at it, the finer materials show signs of a wealthier owner rather than a mere housekeeper, and i know for a fact that Mrs Dunham did not like lace and fancy dresses, which indicates that it must have been torn from Miss Davis@s dress, tying her to the smashing of the crystal vase as a manoeuvre to have time to sneak the poison into the tea pot.",
+      "As for the handkerchief, that was indeed a rather tricky one. It was found tucked down in Mr Dunham@s armchair in the smoking room, and at first, i thought it to be a gift from Mrs Dunham, considering the initials M.D. However, it had a fading smell of roses, when Mrs Dunham always wore lavender. Considering the placement of the handkerchief, i could determine that it must have been worn by Mr Dunham, making it an item important enough to carry around$perhaps a token given to him by a woman some time ago, considering the fading smell, as something for him to remember her by whenever they could not meet.",
+      "The initials, M.D, is also Mary Davis@s initials, and connecting it with her very rosy perfume, it proves that Miss Davis has an affair with the victim@s husband, the very same man she believed was to receive the money once the Mrs was deceased. And to strengthen her motive, the testament of the late Sir Moore$the very testament Mr Dunham and Dr Moore had a violent argument about earlier that day$was found exposed in the smoking room.",
+      "This leads me to the last piece of evidence, which is the tea cups found in the tea parlour. Though it is unfortunate that many of the servants were ill, which forced Mrs Hall to do most of the work that night, i are very grateful that she had not yet fetched the dishes from the parlour, because when i found the cups, i immediately thought it strange that only one of the cups had been drunken from$Mrs Dunham@s. Of course, i wondered why$Miss Davis claimed the tea to be cold, but since Mrs Dunham drank it all, it could not have been that very bad$but after a chemical examination of the tea from Miss Davis@s cup, i could establish that it did indeed contain arsenic.",
+      "Miss Davis poisoned her friend out of greed and jealousy; she had always wanted the life of Mrs Dunham, and had always envied her for the riches and the power the woman possessed. I suppose a bit less... glamorous life, awaits her now."
+   ],
+   "Suspects" : [
+      {
+         "IdleEmotion" : "JosephDunhamPortraitBase.png",
+         "Name" : "Joseph Dunham",
+         "Portrait" : "JosephDunhamPortrait.png",
+         "Questions" : [
+            {
+               "Answers" : [
+                  {
+                     "Answer" : "I hardly know, but I will try. Morning went on as usual, I suppose. We were expecting company by Dr Moore and the beautiful Miss Davis. They were to come a little while before noon, and they arrived according to plan. We walked about the gardens in the lovely weather before Dr Moore and I withdrew to the smoking room. There, I@m afraid, we started arguing. It was, as usual, about the will of Sir Moore. It seems as though Jonathan was never willing to accept that the fortune was now in our possession, Margret@s and mine.",
+                     "Emotion" : "JosephDunhamPortraitBase.png"
+                  },
+                  {
+                     "Answer" : "We eventually started shouting before Dr Moore stormed out of the room. I had received a nasty headache; arguments like that are not good for my nerves. I was then joined by Mary. She... she was very sweet. Such a dear girl! She helped me calm down before we headed to lunch. She said she had forgotten something in the smoking room, so I walked the last bit by myself. I must admit that I did sneak into the kitchen to steal some sweets from Mrs Hall.",
+                     "Emotion" : "JosephDunhamPortraitBase.png"
+                  },
+                  {
+                     "Answer" : "We went on with lunch, and afterwards, we all sat down to play some cards. I@m not very good, I@ll admit that. Miss Davis, however, is rather excellent! A bit daring, but an excellent player, indeed! After supper, Dr Moore and I decided to forget about today@s argument, and settled back in the smoking room while the ladies withdrew to the tea parlour.",
+                     "Emotion" : "JosephDunhamPortraitBase.png"
+                  },
+                  {
+                     "Answer" : "There was a rather strange incident, though... the French vase shattered in the reception hall, and the sound was loud enough for us to hear. So, well, we rushed out to see what in the Lord@s name was happening, and when we got there, several paintings were hanging askew, and glass shards were scattered across the floor. Margret and Mrs Hall came rushing in as well, and shortly after, even Miss Davis. I am not much for superstition, but I cannot deny the ghostly feel we all received that moment. Mrs Hall was convinced of it.",
+                     "Emotion" : "JosephDunhamPortraitPerplexed.png"
+                  },
+                  {
+                     "Answer" : "Of course, we all returned to our previous activities, and Jonathan and I remained in the smoking room for the rest of the evening. The ladies stopped by to say good night, and Dr Moore later withdrew to bed, as well. An hour or so after they had left me, I could hear Mrs Hall@s scream from upstairs.",
+                     "Emotion" : "JosephDunhamPortraitBase.png"
+                  }
+               ],
+               "Question" : "Could you please walk me through your day?"
+            },
+            {
+               "Answers" : [
+                  {
+                     "Answer" : "I... I was in the study, having a drink. I often do that before bedtime when we@ve had guests for supper. Calms my nerves. Eh, Jonathan was with me for a while. We... we had a quarrel earlier that day, but we were friends again in the evening. When I heard... when Mrs Hall...",
+                     "Emotion" : "JosephDunhamPortraitBase.png"
+                  },
+                  {
+                     "Answer" : "I@m sorry, I can@t believe it. I can@t believe that my wife$I did love her, so very much, despite our differences and quarrels. She is a lovely woman. Was... she was a lovely woman. Oh dear Lord, who would do such a thing?",
+                     "Emotion" : "JosephDunhamPortraitSad.png"
+                  }
+               ],
+               "Question" : "Where were you at the time of the crime? "
+            },
+            {
+               "Answers" : [
+                  {
+                     "Answer" : "She is$was, my wife. We have been married for about ten years now. Her family$her father and brother$did not approve of me at first, but she... well, she was a stubborn woman. The most stubborn woman I have ever met, for better and for worse... she would not let her father and brother stop us.",
+                     "Emotion" : "JosephDunhamPortraitBase.png"
+                  },
+                  {
+                     "Answer" : "We... well, she, threatened to run away to Gretna Green if her father did not approve of our marriage. You see, I@m not a high born man, but come from a humble family. It is safe to say that... well, that Margret saved me, I suppose.",
+                     "Emotion" : "JosephDunhamPortraitBase.png"
+                  }
+               ],
+               "Question" : "What is your relation to the victim?"
+            },
+            {
+               "Answers" : [
+                  {
+                     "Answer" : "My wife often voiced her opinions, and she wasn@t afraid of speaking her mind. If anything, she despised people who did not. I suppose that would indeed inspire ill-favour in people that met her.",
+                     "Emotion" : "JosephDunhamPortraitBase.png"
+                  },
+                  {
+                     "Answer" : "But direct enemies? Not that I know of. I would be surprised; my wife had a talent of making friends wherever she went.",
+                     "Emotion" : "JosephDunhamPortraitPerplexed.png"
+                  }
+               ],
+               "Question" : "Does the victim have any enemies?"
+            },
+            {
+               "Answers" : [
+                  {
+                     "Answer" : "Well, I@m not the sort of person to register things like that, I@m afraid. I am man enough to admit my faults. Margret often did remind me of them...",
+                     "Emotion" : "JosephDunhamPortraitBase.png"
+                  }
+               ],
+               "Question" : "Have you noticed anything unusual as of late?"
+            },
+            {
+               "Answers" : [
+                  {
+                     "Answer" : "What are you insinuating?! That we rowed more than usual? Indeed, that is not your business! My wife is... how$how dare you ask me such an imprudent question?! Why don@t you do your job instead of bullying me?!",
+                     "Emotion" : "JosephDunhamPortraitOffence.png"
+                  }
+               ],
+               "Question" : "Did the victim act differently in any way before the crime was committed?"
+            },
+            {
+               "Answers" : [
+                  {
+                     "Answer" : "Well, it was me, of course, and... Dr Moore, I suppose. Mrs Hall, the housekeeper, was running about$I heard the servants are ill$and, of course, the lovely Mary$I mean Miss Davis! She is absolutely heartbroken... as are we all.",
+                     "Emotion" : "JosephDunhamPortraitBase.png"
+                  }
+               ],
+               "Question" : "Who were present at the time of the crime?"
+            },
+            {
+               "Answers" : [
+                  {
+                     "Answer" : "She was my wife; we had no secrets. It@s... it@s a holy matrimony, and... and I would never break it. She, was a feisty woman. Sometimes even violent. Some would perhaps describe her as brusque and perhaps a bit harsh at times, but there was a real soft and, well, feminine side to her as well, even though she did not display it as often as the others. I loved her nevertheless.",
+                     "Emotion" : "JosephDunhamPortraitBase.png"
+                  },
+                  {
+                     "Answer" : "She@s a noblewoman. Her father was Sir Nicholas Moore$I@m sure you@ve heard of him$and to the extent of my knowledge, Sir Moore was very keen on Margret taking over his business. I suppose they were both very modern people, and it is evident that Sir Moore did believe in Margret, that she was a strong woman. Indeed she was. He gave her the family fortune when he passed, hoping it would come to good use, I suppose... she always wanted to travel, to go away from Millbury. ",
+                     "Emotion" : "JosephDunhamPortraitBase.png"
+                  },
+                  {
+                     "Answer" : "She wanted to go to Paris, or America, where things happened, where the future was blooming. But I suppose it@s all too late now... ",
+                     "Emotion" : "JosephDunhamPortraitVerySad.png"
+                  }
+               ],
+               "Question" : "What do you know of the victim?"
+            }
+         ],
+         "Villain" : false
+      },
+      {
+         "IdleEmotion" : "AlmaHallPortraitBase.png",
+         "Name" : "Alma Hall",
+         "Portrait" : "AlmaHallPortrait.png",
+         "Questions" : [
+            {
+               "Answers" : [
+                  {
+                     "Answer" : "Oh Lord, where do I begin? Well, I have hardly had any sleep, with all the other servants being so ill. I@m surprised I haven@t caught the illness, myself. But, as I@ve always said, <mind over matter.> I won@t let myself get ill, so I simply don@t. I@ve spent the entire day running around the house, doing the work of ten people. Oh how, Mrs Hall, can you do that, you might wonder. Well, I@m an experienced woman$this is hardly the first time in over thirty years I have to take care of things by myself in this house.",
+                     "Emotion" : "AlmaHallPortraitBase.png"
+                  },
+                  {
+                     "Answer" : "There have been a lot of preparations for this weekend. I told the mistress that it might be a good idea to hire someone to aid me, but she said she did not want anyone unknown in her kitchen. So, she was very considerate and let me adjust the menu to fit the evening with only one servant. The mistress was very good that way; she saw and understood things, mundane things, that others did not.",
+                     "Emotion" : "AlmaHallPortraitBase.png"
+                  },
+                  {
+                     "Answer" : "So, as I understand, the young master and Miss Davis left London quite early this morning, and arrived here an hour or so before noon. Mr and Mrs Dunham took their guests on a stroll while I prepared the lunch. They ate, and then withdrew to the drawing-room. I ran about, taking care of the ill, and later I prepared dinner.",
+                     "Emotion" : "AlmaHallPortraitBase.png"
+                  },
+                  {
+                     "Answer" : "Do you have any idea how many times I had to wash my hands today? No? Well, I lost count after thirteen. The young master, being a doctor and all, has stressed that specific point many times when dealing with sicklings. The hygiene is very important! Had it not been for having to handle Miss Davis@s clothes that smells so much of roses, I would not have had to wash my hand half as many times as I did! Not even the tiniest of perfume while dealing with the sick, the young master always says! After dinner, they all went on with the evening. The ladies were to have tea, and the gentlemen withdrew to the smoking room.",
+                     "Emotion" : "AlmaHallPortraitInsulted.png"
+                  },
+                  {
+                     "Answer" : "I was just about to make the second pot of tea to the ladies when I heard a terrible noise from the reception hall. I hurried out as fast as I could, and once I got there, Mr and Mrs Dunham stood together with Dr Moore, looking very surprised. It did not take me very long to realise it was certainly none of them. The very expensive French crystal vase lay in shatters on the floor, and several paintings were slanting! Miss Davis came running from the ladies@ room as well. So, if it was none of them, then the explanation is rather obvious, is it not?",
+                     "Emotion" : "AlmaHallPortraitThinking.png"
+                  },
+                  {
+                     "Answer" : "Ghosts. Entities from another world. I am most convinced it is the former master. He never liked much noise. He doesn@t like having guests, I@m sure of it. I hurried to clean it all up while the Mr and Mrs, together with Dr Moore and Miss Davis, went back to their activities, and when it was all cleaned up, I continued on serving the mistress and her guest the tea.",
+                     "Emotion" : "AlmaHallPortraitBase.png"
+                  },
+                  {
+                     "Answer" : "Well, the evening went on after that, and when they had all gone to bed, Mrs Dunham ordered a bath. I prepared for her, and then I made some hot milk for the mistress and her brother, just like I did when they were little. I served the young master first, and afterwards I was to serve Mrs Dunham. I knocked on the door to the bathroom, since she always made sure to lock it$she had a strong sense of privacy, that one$and when she did not answer that I was allowed in, I took the liberty to open the door without her permission. I... well, I need hardly explain the state of shock I was in once I realised what had happened. I screamed$of course I did$and the others came running.",
+                     "Emotion" : "AlmaHallPortraitBase.png"
+                  },
+                  {
+                     "Answer" : "It seems so strange, doesn@t it? She looked so serene, as if she had just fallen asleep. She was a bit young to die in her sleep, was she not? Who would have done it? Behind locked doors? ",
+                     "Emotion" : "AlmaHallPortraitSad.png"
+                  }
+               ],
+               "Question" : "Could you please walk me through your day?"
+            },
+            {
+               "Answers" : [
+                  {
+                     "Answer" : "I had just served some hot milk to the young master. He hasn@t had it for many years, the poor lad. Claims he doesn@t need it any longer, but I have taken care of him since he was an infant! I think I know what he wants and what he needs! Well... I had just served young master his milk, as I said, and then I was to serve the mistress. She was in the bathroom, and she liked her privacy, so she always kept the door locked.",
+                     "Emotion" : "AlmaHallPortraitBase.png"
+                  },
+                  {
+                     "Answer" : "Probably to keep her good husband from knowing about her habit of smoking the pipe in the bath. Don@t ask me why she did it; she was always an odd one, she was. I knocked on the door, but she didn@t answer. Usually, she always does. So I opened the door. I don@t like not being answered. The first thing I noticed was that it reeked of lavender! She had spilled her perfume$it was expensive, it was! She would never be that careless! ",
+                     "Emotion" : "AlmaHallPortraitInsulted.png"
+                  },
+                  {
+                     "Answer" : "And then I saw her limp, pale arm... I reacted before I knew what was real, and I just screamed.",
+                     "Emotion" : "AlmaHallPortraitShocked.png"
+                  }
+               ],
+               "Question" : "Where were you at the time of the crime?"
+            },
+            {
+               "Answers" : [
+                  {
+                     "Answer" : "I can almost claim that I have raised her as my own. I@ve been with the family for a good thirty-five years, at least, and served the good master, Sir Moore$God rest him! The mistress was a stern woman, indeed she was$God rest her. I never approved of her unladylike manner, how could I? But she never cared what I thought. Stubborn, that one. Just like her mother$God rest her. But she was a good mistress. She had a good hand with all the servants, she wasn@t too vain or too greedy.",
+                     "Emotion" : "AlmaHallPortraitBase.png"
+                  },
+                  {
+                     "Answer" : "But that lipstick! Why did she have to wear that?! It grieves me, that she@ll meet the Lord looking like that!",
+                     "Emotion" : "AlmaHallPortraitInsulted.png"
+                  }
+               ],
+               "Question" : "What is your relation to the victim?"
+            },
+            {
+               "Answers" : [
+                  {
+                     "Answer" : "The mistress had enemies, for sure. Who hasn@t?! She never cared for any of them, though, as it should be. If she had any enemies here, you should speak to Miss Davis. The two of them had a nasty fight back in the day. I@m rather surprised they have found each other again after what happened. I have heard many mean things coming out of the mistress about Miss Davis. It was always, <Miss Davis this,> and, <Miss Davis that.> She always complained about Miss Davis@s rose perfume and her silly hats and girlish giggles. The mistress was never envious, but when it came to Miss Davis... well, that was different, altogether. I believe there has always been a rivalry between the two ladies.",
+                     "Emotion" : "AlmaHallPortraitBase.png"
+                  }
+               ],
+               "Question" : "Does the victim have any enemies?"
+            },
+            {
+               "Answers" : [
+                  {
+                     "Answer" : "Well, that all depends on what you mean by @unusual@? Yes, of course, earlier tonight, we had a visit from the former master. From the other side. As in... ghostly activities... I know, I know, <how silly of you, Mrs Hall, to believe is such things as ghosts!> but I cannot help it! It@s the only logical reason!",
+                     "Emotion" : "AlmaHallPortraitBase.png"
+                  },
+                  {
+                     "Answer" : "Mr Dunham was in the smoking room with the young master, Mrs Dunham was in the tea parlour, with Miss Davis! The vase broke, detective. How can you explain that? Certainly something unusual, perhaps even supernatural, is it not?",
+                     "Emotion" : "AlmaHallPortraitInsulted.png"
+                  }
+               ],
+               "Question" : "Have you noticed anything unusual as of late?"
+            },
+            {
+               "Answers" : [
+                  {
+                     "Answer" : "I am not in any position of gossiping, detective. It@s neither proper nor interesting. But if you must know, the mistress had been quarreling with her good husband for quite some time before this fretful ordeal. ",
+                     "Emotion" : "AlmaHallPortraitBase.png"
+                  },
+                  {
+                     "Answer" : "About what, I don@t know, but I have felt the faint smell of roses on his clothes for quite some time.",
+                     "Emotion" : "AlmaHallPortraitInsulted.png"
+                  }
+               ],
+               "Question" : "Did the victim act differently in any way before the crime was committed?"
+            },
+            {
+               "Answers" : [
+                  {
+                     "Answer" : "Well, it was I, Mr Dunham, young master and Miss Davis. The servants were in their quarters. There@s a nasty illness going around, keeping them all to bed, forcing me to run around like a madwoman. I@ve been slaving away in the  kitchen for almost the entire week now!",
+                     "Emotion" : "AlmaHallPortraitInsulted.png"
+                  }
+               ],
+               "Question" : "Who were present at the time of the crime?"
+            },
+            {
+               "Answers" : [
+                  {
+                     "Answer" : "What a preposturous question! I know everything there is to know about the mistress; I have been by her side her entire life! I@m even the only one aware of the fact that Margret Dunham wrote a will of her own, the day her father wrote his, passing the entire fortune to her brother in case of her death. I even know that this particular will is safely stored inside the safe in the study, the safe only Mrs Dunham herself could enter. No one knew about the will. Not even Dr Moore himself. So, you see, I know everything there is to know about the mistress.",
+                     "Emotion" : "AlmaHallPortraitAngry.png"
+                  },
+                  {
+                     "Answer" : "Not that I see how any of it could be of any interest to you...",
+                     "Emotion" : "AlmaHallPortraitBase.png"
+                  }
+               ],
+               "Question" : "What do you know of the victim?"
+            }
+         ],
+         "Villain" : false
+      },
+      {
+         "IdleEmotion" : "JonathanMoorePortraitBase.png",
+         "Name" : "Jonathan Moore",
+         "Portrait" : "MoorePortrait.png",
+         "Questions" : [
+            {
+               "Answers" : [
+                  {
+                     "Answer" : "I arrived here this morning together with Miss Davis. I have been in London for quite some time, you see. I@ve recently set up a practice in East End after struggling a while here in Millbury. There is no place here for a humble doctor like me. Ironic, really, since my father was the most powerful man in the county.",
+                     "Emotion" : "JonathanMoorePortraitBase.png"
+                  },
+                  {
+                     "Answer" : "My sister envied me, for being in London rather than Millbury. She invited me for a whole weekend, and I suspect her plan was to interrogate me about the big city. Just after we arrived, we walked about the grounds for some time. It was a rather slow and calm morning, and after our walk, Mr Dunham and I withdrew to the smoking room. I cannot say that I rather enjoyed it, and as I should have foreseen, we started arguing about my father@s will. ",
+                     "Emotion" : "JonathanMoorePortraitBase.png"
+                  },
+                  {
+                     "Answer" : "My sister@s husband seems convinced that I am hiding something concerning the will, but that sly bastard is greedier than I had ever dared to imagine! I have never had any interest in that money! If anything, I decided I would never think of it ever again when I realised that he was more entitled to it than I was!",
+                     "Emotion" : "JonathanMoorePortraitAngry.png"
+                  },
+                  {
+                     "Answer" : "I do admit that I let my temper slip, and I left him. I am not angry very often, and Miss Davis had the misfortune of seeing me like this as I stormed out. What must she think of me?",
+                     "Emotion" : "JonathanMoorePortraitSad.png"
+                  },
+                  {
+                     "Answer" : "I sought the wisdom of my sister, but whenever I mentioned the testament, she only huffed or laughed. She never wanted to speak of it, either. She always said it was finished business, that it would be pointless bringing it up again.",
+                     "Emotion" : "JonathanMoorePortraitBase.png"
+                  },
+                  {
+                     "Answer" : "I was never bitter about the money being owned by my sister, but the bare thought of her sly husband putting his dirty hands on them makes me cringe. I would rather take the money myself, than see it go to him!",
+                     "Emotion" : "JonathanMoorePortraitAngry.png"
+                  },
+                  {
+                     "Answer" : "We ate lunch, and afterwards, we sat down for a game of cards. Watching Mr Dunham play with money as if it was oat biscuits was rather troubling. It was as if he gave the money away to Miss Davis. We should never have played cards$my sister should have known better than to encourage Miss Davis to such an act, considering her history.",
+                     "Emotion" : "JonathanMoorePortraitCold.png"
+                  },
+                  {
+                     "Answer" : "We ate supper, and I had calmed down significantly, enough to once again join Mr Dunham in the smoking room. He seemed to have realised his mistake, however, and I must admit that it was not as horrible as it was earlier. A rather strange thing occurred, though. We heard the smashing of crystal, and we hurried out into the reception hall. A large vase had been thrown to the floor, and several paintings were slanting. Mrs Hall came running about, claiming it to be a ghost$not very surprising$and Margret came running from the tea parlour. Miss Davis came later running from the ladies@ room. ",
+                     "Emotion" : "JonathanMoorePortraitBase.png"
+                  },
+                  {
+                     "Answer" : "It@s still an event that boggles me... I wonder if it was a warning of what was about to happen. I@m a man of science, detective, and do not engage myself in silly stories. But I cannot explain this in a scientific way. There was no one there but us. And then my sister... ",
+                     "Emotion" : "JonathanMoorePortraitBase.png"
+                  },
+                  {
+                     "Answer" : "Detective, you must forgive me. Though I am used to death, this is still quite hard for me to accept.",
+                     "Emotion" : "JonathanMoorePortraitSad.png"
+                  },
+                  {
+                     "Answer" : "Miss Davis and my sister later came to say good night, and I realised that perhaps it was time to go to bed, so I joined the two ladies upstairs. We said good night, and I withdrew to my chamber. I... I wrote some letters, managing my business, and then Mrs Hall came in with my hot milk. I had not taken more than two sips until I heard the scream. We all rushed out; Miss Davis from her chamber, Mr Dunham from downstairs, and we found Mrs Hall in the bathroom, pointing at the bathtub. She... she was pale as a ghost, my sister. I had to... I had to make sure that$I am a doctor, after all. As I said, death is not a stranger to me, but this will never leave me.",
+                     "Emotion" : "JonathanMoorePortraitBase.png"
+                  }
+               ],
+               "Question" : "Could you please walk me through your day?"
+            },
+            {
+               "Answers" : [
+                  {
+                     "Answer" : "I had just changed for the night, so I was in my bedroom. Mrs Hall had just popped by with my warm milk$I have not had it since I was a child, but I suppose she enjoyed having us both here, me and my sister. It had not gone more than two minutes after she had left my room until I heard her scream.",
+                     "Emotion" : "JonathanMoorePortraitBase.png"
+                  }
+               ],
+               "Question" : "Where were you at the time of the crime?"
+            },
+            {
+               "Answers" : [
+                  {
+                     "Answer" : "She was my sister. Oldest of the two of us. Though I have been rather distant during these last few years, we have always had a close friendship. She inherited after father, and I got close to nothing.",
+                     "Emotion" : "JonathanMoorePortraitBase.png"
+                  },
+                  {
+                     "Answer" : "It seems as though father did not care for me as he did for her. But, who would blame him? She was the aggressive one, the one eager to learn the harsh ways of the world, the powerful, the authoritarian. I was the mellow one, the one who would rather spend an afternoon in the library than go out hunting with father.",
+                     "Emotion" : "JonathanMoorePortraitSad.png"
+                  },
+                  {
+                     "Answer" : "It never bothered me, though; I have never sought power and riches. Margret... my sister, was a very gentle and generous person. She insisted on paying for my education when I decided that I wanted to become a doctor. Not many people ever got to see that side of her... the person I grew up with. If anything, her husband changed her. His lower class heritage raised suspicion. Be sure to ask him about this; I@m certain his answers will be rather interesting.",
+                     "Emotion" : "JonathanMoorePortraitCold.png"
+                  }
+               ],
+               "Question" : "What is your relation to the victim?"
+            },
+            {
+               "Answers" : [
+                  {
+                     "Answer" : "My sister had many enemies. She was a strong and independent woman, and not many people appreciated that. She was not very keen on tradition and sought to broaden her horizons. That did not go well with a lot of traditional, narrow-minded people, I can imagine. However, Margret never cared for those who did not care for her. I am surprised she was dragging her husband along for as long as she did.",
+                     "Emotion" : "JonathanMoorePortraitCold.png"
+                  }
+               ],
+               "Question" : "Does the victim have any enemies?"
+            },
+            {
+               "Answers" : [
+                  {
+                     "Answer" : "I@m not quite sure. As far as I@m concerned, I have heard my sister speak of cracks in her marriage for quite some time. I don@t know how relevant that is, of course, but I find it rather suspicious. ",
+                     "Emotion" : "JonathanMoorePortraitBase.png"
+                  }
+               ],
+               "Question" : "Have you noticed anything unusual as of late?"
+            },
+            {
+               "Answers" : [
+                  {
+                     "Answer" : "She changed when she married Mr Dunham. It was as if her wild self was somehow contained the moment she said @yes@ on the altar.",
+                     "Emotion" : "JonathanMoorePortraitAnnoyed.png"
+                  }
+               ],
+               "Question" : "Did the victim act differently in any way before the crime was committed? "
+            },
+            {
+               "Answers" : [
+                  {
+                     "Answer" : "I don@t know where the others were, but I know where I was, and I know that Miss Davis and Mr Dunham were also in the house, somewhere. Mrs Hall had just brought me some warm milk, and I believe Miss Davis had gone to bed. As far as I know, Mr Dunham was in the smoking room, but whether or not he was actually there, I don@t know.",
+                     "Emotion" : "JonathanMoorePortraitBase.png"
+                  }
+               ],
+               "Question" : "Who were present at the time of the crime?"
+            },
+            {
+               "Answers" : [
+                  {
+                     "Answer" : "I can say that I am most certainly the one in this household who knew her the best, except for perhaps Mrs Hall. Margret was a strong, feisty woman who enjoyed a good hunt and I am probably one of the few who knew about her strange habit of smoking a pipe in the bath. She has always strived for being modern, for doing things that is not expected of her and shocking people.",
+                     "Emotion" : "JonathanMoorePortraitBase.png"
+                  },
+                  {
+                     "Answer" : "Perhaps that was the true reason to why she married Mr Dunham in the first place, to shock me and father. Though it was ten years ago now, I still cannot forget the look on my father@s face when Margret told him that she stood unmoved by his objections. She was as solid as a rock in her beliefs and opinions, and arguing with her usually meant that she won, whether she needed to use violence or not. I believe Mr Dunham has felt her wrath more than once. I sure have, and so have Miss Davis and Mrs Hall.",
+                     "Emotion" : "JonathanMoorePortraitCold.png"
+                  }
+               ],
+               "Question" : "What do you know of the victim?"
+            }
+         ],
+         "Villain" : false
+      },
+      {
+         "IdleEmotion" : "MaryDavisPortraitBase.png",
+         "Name" : "Mary Davis",
+         "Portrait" : "MaryDavisPortrait.png",
+         "Questions" : [
+            {
+               "Answers" : [
+                  {
+                     "Answer" : "I have not been here for more than a day. I arrived here this morning, and I was very happy to see Margret, and dear Mr Dunham, again. We spent the morning conversing with each other while strolling around the gardens, and then we were to eat lunch. I went to fetch Mr Dunham and Dr Moore$they were in the smoking room$but when I got there, Dr Moore came rushing out in fury. I have seldom seen him that upset. Usually, he is very calm and timid, sometimes even cold. But never angry! You must see why that concerns me...",
+                     "Emotion" : "MaryDavisPortraitBase.png"
+                  },
+                  {
+                     "Answer" : "We went on eating our lunch, and then played a game of cards. We had a very good time, indeed, and by supper, we were all friends again$Dr Moore was no longer upset. After supper, Margret and I withdrew to the tea parlour, while the men sat down in the smoking room. We had a lovely time, and while I was in the ladies@ room, something utterly strange happened.",
+                     "Emotion" : "MaryDavisPortraitBase.png"
+                  },
+                  {
+                     "Answer" : "I heard the smashing of crystal, and at first, I was afraid someone had been hurt. I rushed into the reception hall and saw the crystal vase, shattered on the floor. Mrs Hall said something about a ghost$I don@t know about that$but I am rather suspicious. All the others came into the reception hall before me, so I did not see what happen, nor did I notice anything strange before or after. I believe it must have been Mrs Hall while running around like a madwoman$all the servants are apparently ill. Claiming it to be a ghost is just delusional.",
+                     "Emotion" : "MaryDavisPortraitThinking.png"
+                  },
+                  {
+                     "Answer" : "We returned to the tea parlour, and Mrs Hall served us our tea. Why it took so long making it, I don@t know. It@s her job, she should have known better than to keep the mistress and her guest waiting. The tea was even cold when she came in with it! Very well, after some time, we said good night to the gentlemen and went upstairs to go to bed. What happened after that, well... Mrs Hall screamed, and we all rushed into the bathroom.",
+                     "Emotion" : "MaryDavisPortraitUnimpressed.png"
+                  },
+                  {
+                     "Answer" : "She just lay there, in the bathtub... still, pale, silent...  at once, Jonathan rushed to her. In my opinion, he declared her dead a bit too fast. What if she had just fainted? But he was determined she was dead, and his opinion as a doctor is not really to dispute. Mr Dunham came rushing in from downstairs, that poor thing. Seeing his wife like that! He is such a sensitive man, I can hardly imagine the pain it must have caused him. Oh, Joseph dear...",
+                     "Emotion" : "MaryDavisPortraitSad.png"
+                  },
+                  {
+                     "Answer" : "I could see in his eyes, that he was sure Dr Moore had done something terrible. I cannot deny that I, too, have my suspicion. Dr Moore, Mrs Hall and myself were the only ones on the second floor when it must have happened, and I know where I was, which was not in the bathroom. But where were they?",
+                     "Emotion" : "MaryDavisPortraitThinking.png"
+                  },
+                  {
+                     "Answer" : "Whatever happened, whoever did it... perhaps she is in a better place now? With her father. Perhaps she is happy?",
+                     "Emotion" : "MaryDavisPortraitSad.png"
+                  }
+               ],
+               "Question" : "Could you please walk me through your day?"
+            },
+            {
+               "Answers" : [
+                  {
+                     "Answer" : "Oh dear... I had just gone to bed, I think... yes! Yes, I had! We had said good night to Joseph$Mr Dunham$and to Jonathan upstairs, and then I had gone to my chamber, and Margret had gone to hers. Only, I suppose she decided to take a bath instead.",
+                     "Emotion" : "MaryDavisPortraitBase.png"
+                  }
+               ],
+               "Question" : "Where were you at the time of the crime?"
+            },
+            {
+               "Answers" : [
+                  {
+                     "Answer" : "Margret and I were best friends. I have known her for my whole life. Well, we had a fall out several years ago, a rather nasty one, but we reunited about two years ago, when we met at a mutual friend in Scotland. It was the first time I met her husband, as well. ",
+                     "Emotion" : "MaryDavisPortraitBase.png"
+                  },
+                  {
+                     "Answer" : "She seemed to live a very comfortable life, with a very handsome husband, a grand house and with the inheritance in her possession. A very comfortable life, indeed.",
+                     "Emotion" : "MaryDavisPortraitSmile.png"
+                  }
+               ],
+               "Question" : "What is your relation to the victim?"
+            },
+            {
+               "Answers" : [
+                  {
+                     "Answer" : "Though I do not wish to speak ill of dear Margret, especially not during these circumstances, but I must admit that she was rather ill-tempered at times. Her harsh way caused us to suffer from a fall out in our youth, and I am sure that I am not the only one who has met the beast inside of this woman. Though she indeed had some wonderful traits, I@m afraid her unfeminine way of thinking and living often took the best of her, and I suppose a lot of people resented her for it. That, and the fact that she took many liberties because of her fortune.",
+                     "Emotion" : "MaryDavisPortraitUnimpressed.png"
+                  }
+               ],
+               "Question" : "Does the victim have any enemies?"
+            },
+            {
+               "Answers" : [
+                  {
+                     "Answer" : "I arrived only this morning. Though, I know she has complained a while over her situation. I know it is a horrible sin, but are you sure it was murder?",
+                     "Emotion" : "MaryDavisPortraitBase.png"
+                  },
+                  {
+                     "Answer" : "Margret was a rather spontaneous person; if her emotions took the best of her, nothing would be impossible for her to do.",
+                     "Emotion" : "MaryDavisPortraitSad.png"
+                  },
+                  {
+                     "Answer" : "Of course, there was the rather loud argument between Mr Dunham and Dr Moore... I do not know the details of it, but I could imagine it was about the testament of Sir Moore. Dr Moore is very bitter, you see. He would never admit it, but I have known him all my life. I know he@s bitter. I even believe he blamed his sister for being better liked by their father. Perhaps his bitterness was enough to... ",
+                     "Emotion" : "MaryDavisPortraitUnimpressed.png"
+                  },
+                  {
+                     "Answer" : "But what do I know of it? And don@t you think it was rather convenient that Mrs Hall found her, when she@s the only one with the keys? If Margret did not kill herself, then how could anyone have done it, if they had no key?",
+                     "Emotion" : "MaryDavisPortraitThinking.png"
+                  },
+                  {
+                     "Answer" : "Oh, but where are my manners?! I have no right accusing anyone! Please, detective, do forgive me!",
+                     "Emotion" : "MaryDavisPortraitSad.png"
+                  }
+               ],
+               "Question" : "Have you noticed anything unusual as of late?"
+            },
+            {
+               "Answers" : [
+                  {
+                     "Answer" : "No. She was perfectly happy. Well, as happy as Margret would allow herself to be, that is.",
+                     "Emotion" : "MaryDavisPortraitBase.png"
+                  }
+               ],
+               "Question" : "Did the victim act differently in any way before the crime was committed?"
+            },
+            {
+               "Answers" : [
+                  {
+                     "Answer" : "Well, we were all in our separate parts, but as far as I know, we were five in the house with Margret included. Mr Dunham, Dr Moore, Mrs Hall and myself were all here.",
+                     "Emotion" : "MaryDavisPortraitBase.png"
+                  }
+               ],
+               "Question" : "Who were present at the time of the crime?"
+            },
+            {
+               "Answers" : [
+                  {
+                     "Answer" : "I think it is easier to ask what I don@t know about her! I@m sorry, I did not mean to be witty. I just meant that we could sit here all day if I were to tell you everything I knew of Margret Dunham.",
+                     "Emotion" : "MaryDavisPortraitSmile.png"
+                  },
+                  {
+                     "Answer" : "We grew up together. In this house, actually. I lived in a small house in the village, and used to come here every day. It was a great relief for me; my father was a drunkard, you see, and we did not have much money. Sir Moore took to me as if I was his own daughter, bought me clothes and fed me. Margret was not very interested in fine dresses and fancy balls, and neither was Jonathan. ",
+                     "Emotion" : "MaryDavisPortraitBase.png"
+                  },
+                  {
+                     "Answer" : "I, on the other hand, was like the daughter he never had. Perhaps it was silly of me, but I saw them as my own flesh and blood. Margret was like a sister to me. ",
+                     "Emotion" : "MaryDavisPortraitSmile.png"
+                  },
+                  {
+                     "Answer" : "That@s why our fall out hurt me more than anyone could ever imagine. I was but fifteen, but Margret was already grown up. She was angry with me because she thought I was wasting the little money I had, but what gave her the right to judge me?",
+                     "Emotion" : "MaryDavisPortraitSad.png"
+                  },
+                  {
+                     "Answer" : "She could afford fancy dresses and expensive jewellery, but she never wanted anything like that! I, on the other hand, would do anything to be in her situation. But our argument hurt our friendship so badly, I moved away, to my aunt in London. She is a wealthy widow, and she took care of me.",
+                     "Emotion" : "MaryDavisPortraitAngry.png"
+                  },
+                  {
+                     "Answer" : "I cannot say that I know every detail of Margret@s life for the last ten years, but at least we were reunited again, two years ago. She was greatly changed, and yet the same. She did not appreciate what she had; the fine house, the fortune and a handsome husband. She was never grateful for anything. But... she did not deserve this. Indeed, she did not. ",
+                     "Emotion" : "MaryDavisPortraitUnimpressed.png"
+                  },
+                  {
+                     "Answer" : "She did not...",
+                     "Emotion" : "MaryDavisPortraitSad.png"
+                  }
+               ],
+               "Question" : "What do you know of the victim?"
+            }
+         ],
+         "Villain" : true
+      }
+   ]
+}
